@@ -1,0 +1,98 @@
+
+div#wrap {
+  	position: absolute;
+	width: 100%;
+	overflow: hidden;
+	margin: 0px;
+	top:84px;
+	left:0px;
+	background-color: #FFFFFF;
+}
+
+a#sliderPanelBtn{
+	color: #333;
+	text-decoration: none;
+	display: inline-block;
+	padding-left: 20px;
+	z-index:1001;
+}
+
+a#sliderPanelBtn.open {
+	background: transparent url(../img/gui/hidepanel.png) no-repeat left center;
+	color: #FFFFFF;
+	top: 86px;
+	left:298px;
+	position: absolute;
+	width:20px;
+	height:16px;
+	color: transparent;
+	outline: 0;
+}
+
+a#sliderPanelBtn.close {
+	background: transparent url(../img/gui/showpanel.png) no-repeat left center;
+	color: #FFFFFF;
+	top: 86px;
+	left: 2px;
+	position: absolute;
+	width:21px;
+	height:16px;
+	color: transparent;
+	outline: 0;
+}
+
+div#linkblock {
+	float: left;
+	width: 310px;
+	margin-left: -320px;
+}
+
+div#sliderPanel {
+	background: none repeat scroll 0 0 #FFFFFF;
+    float: left;
+    height: 665px;
+    margin-left: 0;
+    position: absolute;
+    top: 84px;
+    width: 320px;
+    z-index: 10;
+	background-color:#FFFFFF;
+}
+
+ 
+
+div#maincontent {
+	position: relative;
+	margin-left: 320px;
+}
+
+#yourlist {
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+#yourlist li {
+	padding: 3px 5px 3px 0px;
+	position: relative;
+	margin-top: 0;
+	margin-right: 0;
+	margin-bottom: 5px;
+	margin-left: 0;
+
+}
+
+#yourlist li a {
+	color: #D4432F;
+	padding: none;
+	margin: none;
+}
+
+h4 {
+	margin: 0px;
+	font-size: 16px;
+	line-height: 26px;
+	color: #333333;
+	font-family: Helvetica, Arial, sans-serif;
+	font-weight: bold;
+	clear: none;
+}

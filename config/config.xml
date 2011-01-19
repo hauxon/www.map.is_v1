@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<mapDefaults>
+    <map>
+        <scales>6800000,3400000,1700000,1000000,500000,250000,100000,50000,25000,10000,5000,2000,1000,500,250</scales>
+        <maxExtent>143000,255000,866000,735000</maxExtent>
+        <!--restrictedExtent>143000,255000,866000,735000</restrictedExtent-->
+		<!--maxExtent>10,10,1000000,1000000</maxExtent-->
+        <!--restrictedExtent>10,10,1500000,1500000</restrictedExtent-->
+        <projection>EPSG:3057</projection>
+    </map>
+    <layers>
+		<baseLayer>
+            <layerTitle>Skyggt kort</layerTitle>
+            <url>http://tc0.loftmyndir.is/tc_r/tilecache.py</url>
+            <layerName>lightsaber</layerName>
+            <logName>www.map.is</logName>
+            <imageFormat>jpeg</imageFormat>
+            <displayInLayerSwitcher>true</displayInLayerSwitcher>
+            <tileCacheType>TMS</tileCacheType>
+            <attribution> © Loftmyndir ehf. Allur réttur áskilinn.</attribution>
+            <transitionEffect>resize</transitionEffect>
+            <scales>6800000,3400000,1700000,1000000,500000,250000,100000,50000,25000,10000,5000,2000,1000,500,250</scales>
+            <buffer>1</buffer>
+        </baseLayer>
+		<baseLayer>
+            <layerTitle>Myndkort</layerTitle>
+            <url>http://tc0.loftmyndir.is/tc_r/tilecache.py</url>
+            <layerName>myndkort</layerName>
+            <logName>www.map.is</logName>
+            <imageFormat>jpeg</imageFormat>
+            <displayInLayerSwitcher>true</displayInLayerSwitcher>
+            <tileCacheType>TMS</tileCacheType>
+            <attribution> © Loftmyndir ehf. Allur réttur áskilinn.</attribution>
+            <transitionEffect>resize</transitionEffect>
+            <scales>1700000,1000000,500000,250000,100000,50000,25000,10000,5000,2000,1000,500,250</scales>
+            <buffer>1</buffer>
+        </baseLayer>
+        <layer>
+            <layerTitle>Örnefni</layerTitle>
+            <layerType>WMS.Untiled</layerType>
+            <url>http://geoserver.loftmyndir.is/geoserver2/wms</url>
+            <layerNames>ornefni</layerNames>
+            <layerStyles></layerStyles>
+            <format>image/jpeg</format>
+            <transparent>true</transparent>
+            <singleTile>true</singleTile>
+            <displayInLayerSwitcher>true</displayInLayerSwitcher>
+            <isBaseLayer>false</isBaseLayer>
+            <unsupportedBrowsers>[]</unsupportedBrowsers>
+        </layer>
+    </layers>
+</mapDefaults>
+
