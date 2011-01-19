@@ -19,10 +19,10 @@ body {
     font-family: "Lucida Grande", Verdana, Geneva, Lucida, Arial, Helvetica, sans-serif;
     font-size: 80%;
     color: #222;
-    background: #fff;
-	font-size: 13px;
-	margin: 0px;
-	padding: 0px;
+    background: #FFBBCC;
+    font-size: 13px;
+    margin: 0px;
+    padding: 0px;
 }
 pre, code {
     margin: 1.5em 0;
