@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>www.map.is</title>
+<title>www.map.is -- yeah!</title>
 	<script src="lib/openlayers210.js"></script>
 	<script src="lib/jquery.1.4.4.min.js"></script>
 	<script src="lib/jquery-ui-personalized-1.5.2.min.js"></script>
