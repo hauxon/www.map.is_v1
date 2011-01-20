@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <mapDefaults>
     <map>
         <scales>6800000,3400000,1700000,1000000,500000,250000,100000,50000,25000,10000,5000,2000,1000,500,250</scales>
@@ -25,6 +25,19 @@
 		<baseLayer>
             <layerTitle>Myndkort</layerTitle>
             <url>http://tc0.loftmyndir.is/tc_r/tilecache.py</url>
+            <layerName>myndkort</layerName>
+            <logName>www.map.is</logName>
+            <imageFormat>jpeg</imageFormat>
+            <displayInLayerSwitcher>true</displayInLayerSwitcher>
+            <tileCacheType>TMS</tileCacheType>
+            <attribution> © Loftmyndir ehf. Allur réttur áskilinn.</attribution>
+            <transitionEffect>resize</transitionEffect>
+            <scales>1700000,1000000,500000,250000,100000,50000,25000,10000,5000,2000,1000,500,250</scales>
+            <buffer>1</buffer>
+        </baseLayer>
+	<baseLayer>
+            <layerTitle>Nýja tilecache</layerTitle>
+            <url>http://devbuntu/tc/tilecache.py</url>
             <layerName>myndkort</layerName>
             <logName>www.map.is</logName>
             <imageFormat>jpeg</imageFormat>
