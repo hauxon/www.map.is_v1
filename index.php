@@ -35,7 +35,7 @@
           <a href="http://aext.net/category/resources/" title="Resources">Lala</a>
         </li>
         <li> 
-          <a href="http://aext.net/category/theme-layout/" title="Themes & Layouts">Po</a>
+          <a href="http://aext.net/category/theme-layout/" title="Themes & Layouts">Potemkin</a>
         </li>
       </ul>
     
