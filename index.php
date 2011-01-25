@@ -3,42 +3,29 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>www.map.is -- yeah!</title>
-	<script src="lib/openlayers210.js"></script>
-	<script src="lib/jquery.1.4.4.min.js"></script>
-	<script src="lib/jquery-ui-personalized-1.5.2.min.js"></script>
-	<script type='text/javascript' src='lib/easing.js'></script>
-	<script type="text/javascript" src="lib/common.js"></script>
-	<script type="text/javascript" src="lib/kortasja.js.php"></script>
-
-	<link rel="stylesheet" href="css/ol_default_style.css" type="text/css">
-	<link rel="stylesheet" href="css/style.css" type="text/css">
-	<link rel="stylesheet" href="css/fullscreen.css" type="text/css">
+<script src="lib/openlayers210.js"></script>
+        <link rel="stylesheet" href="css/ol_default_style.css" type="text/css"/>
+	<link rel="stylesheet" href="css/style.css" type="text/css"/>
+	<link rel="stylesheet" href="css/fullscreen.css" type="text/css"/>
 	<link rel="stylesheet" href="css/mapis_ui.css" type="text/css" />
+        <link rel="stylesheet" href="css/context_menu.css" type="text/css" />
+        <link rel="stylesheet" href="css/routing.css" type="text/css" />
+
+	<script   src="lib/jquery.1.4.4.min.js"></script>
+	<script  src="lib/jquery-ui-personalized-1.5.2.min.js"></script>
+	<script  type='text/javascript' src='lib/easing.js'></script>
+	<script type='text/javascript' src='lib/common.js'></script>
+	<script type='text/javascript' src='lib/kortasja.js.php'></script>
 </head>
 
-<body onload="initmap();" onresize="onAppResize();">
+<body onload="initmap();initComponents();" onresize="onAppResize();">
 <div id=header></div>
-	<div id="control">
-		<a id="sliderPanelBtn" class="open" href="http://www.map.is" border="0"></a>
-	</div>
+	
 	
      <div id="sliderPanel">
-      <h4>Spaltadjofull</h4>
-      <ul id="yourlist">
-        <li> 
-          <a href="http://aext.net/category/css/" title="CSS & XHTML">Tinky Winky</a>
-        </li>
-        <li> 
-          <a href="http://aext.net/category/php/" title="Resources">Dipsy</a>
-        </li>
-        <li> 
-          <a href="http://aext.net/category/resources/" title="Resources">Lala</a>
-        </li>
-        <li> 
-          <a href="http://aext.net/category/theme-layout/" title="Themes & Layouts">Potemkin</a>
-        </li>
-      </ul>
-    
+     <div id="control">
+		<a id="sliderPanelBtn" class="open" href="http://www.map.is" border="0"></a>
+	</div>    
     </div>
   
   	<div id="map" class=hrannarMap></div>

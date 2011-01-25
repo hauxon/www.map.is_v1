@@ -20,7 +20,7 @@ a#sliderPanelBtn{
 a#sliderPanelBtn.open {
 	background: transparent url(../img/gui/hidepanel.png) no-repeat left center;
 	color: #FFFFFF;
-	top: 86px;
+	top: 2px;
 	left:298px;
 	position: absolute;
 	width:20px;
@@ -32,8 +32,8 @@ a#sliderPanelBtn.open {
 a#sliderPanelBtn.close {
 	background: transparent url(../img/gui/showpanel.png) no-repeat left center;
 	color: #FFFFFF;
-	top: 86px;
-	left: 2px;
+	top: 2px;
+	left: 332px;
 	position: absolute;
 	width:21px;
 	height:16px;

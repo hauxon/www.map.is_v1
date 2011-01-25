@@ -9,7 +9,7 @@
         <projection>EPSG:3057</projection>
     </map>
     <layers>
-		<baseLayer>
+	<baseLayer>
             <layerTitle>Skyggt kort</layerTitle>
             <url>http://tc0.loftmyndir.is/tc_r/tilecache.py</url>
             <layerName>lightsaber</layerName>
@@ -62,5 +62,21 @@
             <unsupportedBrowsers>[]</unsupportedBrowsers>
         </layer>
     </layers>
+    <components>
+        <component>
+            <name>contextmenu</name>
+            <componentFile>contextMenu.js.php</componentFile>
+            <componentScript>/* No init for contex menu */</componentScript>
+            <componentXML>contextMenu.xml</componentXML>
+            <componentCSS>context_menu.css</componentCSS>
+        </component>
+        <component>
+            <name>routing</name>
+            <componentFile>routing.js.php</componentFile>
+            <componentScript>initRouting();</componentScript>
+            <configXML>routing.xml</configXML>
+            <componentCSS>routing.css</componentCSS>
+        </component>
+    </components>
 </mapDefaults>
 

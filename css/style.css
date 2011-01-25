@@ -16,7 +16,7 @@ a img {border:none;}
  * Basic Typography
  */
 body {
-    font-family: "Lucida Grande", Verdana, Geneva, Lucida, Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, "Lucida Grande", Verdana, Geneva, Lucida,  sans-serif;
     font-size: 80%;
     color: #222;
     background: #FFBBDD;
@@ -24,6 +24,21 @@ body {
     margin: 0px;
     padding: 0px;
 }
+
+a:link {
+	color: #444444;
+	}
+a:visited {
+	color: #444444;
+	}
+a:hover {
+	color: #444444;
+	text-decoration: none;
+	}
+a:active {
+	color: #444444;
+	}
+
 pre, code {
     margin: 1.5em 0;
     white-space: pre;
@@ -33,7 +48,6 @@ pre, code {
     line-height:1.5;
 }
 a[href] {
-    color: #436976;
     background-color: transparent;
 }
 h1, h2, h3, h4, h5, h6 {

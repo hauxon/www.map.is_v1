@@ -1,6 +1,6 @@
 <?php
 	
-	// Sækjum uppl úr config.xml og setjum í breytuna $config 
+	// SÃ¦kjum uppl Ãºr config.xml og setjum Ã­ breytuna $config
 	$myFile = "config/config.xml";
 	$fh = fopen($myFile, 'r');
 	$config = new SimpleXMLElement(fread($fh, filesize($myFile)));
