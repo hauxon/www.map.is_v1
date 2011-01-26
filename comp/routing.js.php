@@ -1,3 +1,4 @@
+
 /*
  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
  routing.js.php
@@ -531,28 +532,41 @@ function displayResultsGeoJSON(resp)
 
 	if(xmlHttp.readyState == 4)
 	{
-		var rData = [];
 
+                // Now we have a positive routing result.  The returned data is delimetered with || (two pipes)
+                // First we need to read through the GeoJSON responseText to make an array of features by splitting
+                // the response by the "||" delimeter to an array of elements (elements[]).  Each element consists of
+                // geometry to be read by GeoJSON and a list of parameters.  Geometry and data are delimetered by two
+                // minuses ("--") and need to be split up for further processing (into datapair[]).  The datapair[]
+                // variable holds the geometry of each leg in position 0 and data in position 1.  Geometry [0] is put
+                // into an array of features (features[]) and data [1] is further split up (by ",") into an array
+                // of routingDataObjects (rData[]).   ....complicated, but works!
+
+                //
+                // Read routing response - Phase 1
+                // Read gemetry into vectors layer and metadata into array of metadata ( rData[] )
+                //
 		var in_options = {
-		'internalProjection': map.baseLayer.projection,
-		'externalProjection': new OpenLayers.Projection("EPSG:3057")
-		};
-
+                                    'internalProjection': map.baseLayer.projection,
+                                    'externalProjection': new OpenLayers.Projection("EPSG:3057")
+                                };
 		var gj = new OpenLayers.Format.GeoJSON(in_options);
 		var elements = xmlHttp.responseText.split("||");
-		//alert(xmlHttp.responseText);
 		var features = [];
+                var rData = [];
 		for(i = 0;i<elements.length;i++)
 		{
-			// datapair is geom and other data 0 beaing the geometry and 1 the rest (roadname, length etc.)
+			// datapair is geom and other data 0 being the geometry and 1 the rest (roadname, length etc.)
 			var datapair = elements[i].split("|--|");
-			features.push(gj.read(datapair[0])[0]);
+			features.push(gj.read(datapair[0])[0]);  //  gj reader turns text into OpenLayers feature object witch is then inserted into the features array
 
-			var databits = datapair[1].split(",");
+			// Routing metadata is read into an array of routingDataObjects (rData[])
+                        var databits = datapair[1].split(",");
 			var rObj = new routingDataObject(databits[0],databits[1],databits[2],databits[3],databits[4],databits[5],databits[6],databits[7],databits[8],databits[9],databits[10],databits[11]);
 			rData.push(rObj);
-			//alert(datapair[1]);
 		}
+                // Now we have two arrays of same length, features and rData.
+
 		var bounds;
 		if(features)
 		{
@@ -563,11 +577,13 @@ function displayResultsGeoJSON(resp)
 			for(var i=0; i<features.length; ++i) {
 				if (!bounds)
 				{
-					bounds = features[i].geometry.getBounds();
+					// Here we need to make bounds from the first feature
+                                        bounds = features[i].geometry.getBounds();
 				}
 				else
 				{
-					bounds.extend(features[i].geometry.getBounds());
+					// This will extend the bounds we already have to include the feature in the loop.
+                                        bounds.extend(features[i].geometry.getBounds());
 				}
 			}
 			vectors.addFeatures(features);
@@ -575,8 +591,15 @@ function displayResultsGeoJSON(resp)
 		}
 		else
 		{
-			alert('Villa kom upp. ID virkar ekki');
+			alert('Engir vegir i vegvisun');
 		}
+
+
+                //
+                // Read routing response - Phase 2
+                // Runs through the path and determines driving direction, if we are travelling from source to target or wise versa.
+                // Array drivingDirection[] holds direction info as bool, true for S->T and false for T->S
+                //
 
 		// Setjum upplýsingar um í hvaða röð er ferðast í gegnum vertexana til að geta áttað okkur á akstursstefnu.
 		var drivingDirection = [];
@@ -623,7 +646,12 @@ function displayResultsGeoJSON(resp)
 			vertexholderT = rData[j].target;
 		}
 
-		//debugger;
+		//
+                // Read routing response - Phase 3
+                // Here we need to determine orientation of where we are heading.  We can use the drivingDirection array
+                // to calculate actual driving direction.  Since we can calculate direction we can determine if we need
+                // to turn (left, right etc.) and put the info into the trunArray[].
+                //
 
 		var totalLength = 0;
 		var rrhtml = "<hr><b><font size=2>Akstursleiðbeiningar</font></b><br><br>";
@@ -634,7 +662,7 @@ function displayResultsGeoJSON(resp)
 
 		// ------------------------------- Orientation array end ---------------------------------- //
 		// Byrjum á að lúppa okkur í gegnum leggjalistann til að finna út hvaða horn tengist hverju og með hve miklu horni
-		var turnArray = [];
+                var turnArray = [];
 		function turnObject(endDegree, TurnTxt, reverse)
 		{
 			this.endDegree = endDegree;  // gráða við enda leggjarins til að reikna út horn við næsta legg
@@ -700,7 +728,7 @@ function displayResultsGeoJSON(resp)
 					turnObj.turnTxt = "Ekið í norður eftir ";
 				}
 			}
-			else // rest
+			else
 			{
 				// Finnum út úr því í hvora áttina við ökum S->T eða T->S
 				if (turnArray[j-1].reverse == true) // Vegurinn á undan endar á S
@@ -737,16 +765,21 @@ function displayResultsGeoJSON(resp)
 				// Finnum hornið, zimmzalabimm!
 				var a = (turnArray[j-1].endDegree)-startDirection;
 				if (a > 180)
-					a = a-360; // maður beygir aldrei meira en 180 gráður í sömu átt
-
+                                {
+                                    a = a-360; // maður beygir aldrei meira en 180 gráður í sömu átt
+                                }
 				if (Math.abs(a) <= 10)
-					turnObj.turnTxt = "<img src=http://www.loftmyndir.is/k/img/routing/drive_straight.png> Ekið <b>áfram</b> eftir ";
-
+                                {
+                                    turnObj.turnTxt = "<img src=http://www.loftmyndir.is/k/img/routing/drive_straight.png> Ekið <b>áfram</b> eftir ";
+                                }
 				if ( a > 10 )
-					turnObj.turnTxt = "<img src=http://www.loftmyndir.is/k/img/routing/turn_left.png> Taktu <b>vinstri</b> beygju inn á ";
-
+                                {
+                                    turnObj.turnTxt = "<img src=http://www.loftmyndir.is/k/img/routing/turn_left.png> Taktu <b>vinstri</b> beygju inn á ";
+                                }
 				if ( a < -10 )
-					turnObj.turnTxt = "<img src=http://www.loftmyndir.is/k/img/routing/turn_right.png> Taktu <b>hægri</b> beygju inn á ";
+                                {
+                                    turnObj.turnTxt = "<img src=http://www.loftmyndir.is/k/img/routing/turn_right.png> Taktu <b>hægri</b> beygju inn á ";
+                                }
 
 				//turnObj.turnTxt = a;
 			}
@@ -755,9 +788,13 @@ function displayResultsGeoJSON(resp)
 			turnArray.push(turnObj);
 		}
 
-		//alert(turnArray[0].turnTxt);
 		// ------------------------------- Orientation array end ---------------------------------- //
 
+
+                //
+                // Read routing response - Phase 4
+                // All info shoundd now be gathered so we need to write routing directons to the client(browser) HTML.
+                //
 
 		// Skrifum út leiðina í html panellinn
 		for(var j=0; j<rData.length; ++j)
@@ -766,7 +803,7 @@ function displayResultsGeoJSON(resp)
 			{
 				// Setjum inn vegupplýsingar í routing object til að bera saman við næst
 				totalRoad.roadname = rData[j].roadname;
-				//totalRoad.length = Math.round(rData[j].length);
+				totalRoad.length = Math.round(rData[j].length);
 				totalRoad.sdirection = rData[j].sdirection;
 				totalRoad.tdirection = rData[j].tdirection;
 				totalRoad.speed=rData[j].speed;
@@ -779,29 +816,168 @@ function displayResultsGeoJSON(resp)
 				totalRoad.oneway=rData[j].oneway;
 				totalRoad.source=rData[j].source;
 				totalRoad.target=rData[j].target;
-
-
-					if (totalRoad.roundabout == "Y")
+				/*
+				if( rData[j].source == 0 ) // stefnan er S->T og því ekki öfug
+				{
+					heading = parseInt(rData[j].sdirection);
+					//alert ("-> Source - stefna:" + " - tdirection:" + rData[j].stdirection);
+					totalRoad.source2target = true;
+				}
+				else
+				{
+					totalRoad.source2target = false;
+					if(  parseInt(rData[j].tdirection)  > 180 )
 					{
-						rrhtml +=  roadcounter + ". Ekið inn í hringtorg ";
+						heading = (parseInt(rData[j].tdirection))-180;
+						//alert ("-> Target - stefna:" + heading + " - tdirection:" + rData[j].tdirection);
 					}
 					else
 					{
-						var rname = totalRoad.roadname;
-						rrhtml +=  roadcounter + ". "+ turnArray[j-1].turnTxt + rname + "";
+						heading = (parseInt(rData[j].tdirection))+180;
+						//alert ("-> Target - stefna:" + heading + " - tdirection:" + rData[j].tdirection);
+					}
+				}
+
+				if (heading >= 0 && heading < 23 )
+				{
+					//alert(rData[j].sdirection);
+					startDirection = "norður";
+				}
+				else if (heading >= 24 && heading < 68 )
+				{
+					startDirection = "norð-vestur";
+				}
+				else if (heading >= 69 && heading < 113 )
+				{
+					startDirection = "vestur";
+				}
+				else if (heading >= 114 && heading < 158 )
+				{
+					startDirection = "suð-vestur";
+				}
+				else if (heading >= 159 && heading < 203 )
+				{
+					startDirection = "suður";
+				}
+				else if (heading >= 204 && heading < 248 )
+				{
+					startDirection = "suð-austur";
+				}
+				else if (heading >= 249 && heading < 293 )
+				{
+					startDirection = "austur";
+				}
+				else if (heading >= 294 && heading < 338 )
+				{
+					startDirection = "norð-austur";
+				}
+				else if (heading >= 339)
+				{
+					startDirection = "norður";
+				}
+
+				//log(j + ". " +totalRoad.roadname + " - leg length " + rData[j].length + " -total:" + totalRoad.length +  "  -- Direction: " + rData[j].sdirection ); */
+			}
+			else{
+				//debugger;
+				if (rData[j].roadname != totalRoad.roadname)
+				{
+					// Það er kominn nýr vegur eða síðasta færsla
+					// skrifum veginn sem við erum með út.
+					roadcounter++;
+					/*
+					var beygjuhorn;
+					// Finnum út akstursstefnu og úr fyrri vektor og berum saman við núverandi
+					if (totalRoad.source2target)
+					{
+						// source2target segir okkur að fyrri leggur var S->T og target því tengipunktur okkar við núverandi línu
+						if(totalRoad.target == rData[j].source)
+						{
+							// Núverandi lína er líka S->T
+							beygjuhorn = Math.abs(totalRoad.tdirection-rData[j].sdirection);
+							if (beygjuhorn > 180)
+							{
+								beygjuhorn = 360-beygjuhorn;
+								alert("Frá " +totalRoad.roadname + " til hægri " + beygjuhorn + "°");
+							}
+							else
+							{
+								alert("Frá " +totalRoad.roadname + " til vinstri " + beygjuhorn + "°");
+							}
+						}
+						else
+						{
+							// Núverandi lína er T->S
+							beygjuhorn = Math.abs(totalRoad.tdirection-rData[j].tdirection);
+							if (beygjuhorn > 180)
+							{
+								beygjuhorn = 360-beygjuhorn;
+								alert("Frá " +totalRoad.roadname + " til hægri " + beygjuhorn + "°");
+							}
+							else
+							{
+								alert("Frá " +totalRoad.roadname + " til vinstri " + beygjuhorn + "°");
+							}
+						}
+					}
+					else
+					{
+						// source2target segir okkur að fyrri leggur var T->S og source því tengipunktur okkar við núverandi línu
+						if(totalRoad.source == rData[j].source)
+						{
+							// Núverandi lína er S->T
+							beygjuhorn = Math.abs(totalRoad.sdirection-rData[j].sdirection);
+							if (beygjuhorn > 180)
+							{
+								beygjuhorn = 360-beygjuhorn;
+								alert("Frá " +totalRoad.roadname + " til hægri " + beygjuhorn + "°");
+							}
+							else
+							{
+								alert("Frá " + totalRoad.roadname + " til vinstri " + beygjuhorn + "°");
+							}
+						}
+						else
+						{
+							// Núverandi lína er T->S
+							beygjuhorn = Math.abs(totalRoad.sdirection-rData[j].tdirection);
+							if (beygjuhorn > 180)
+							{
+								beygjuhorn = 360-beygjuhorn;
+								alert("Frá " +totalRoad.roadname + " til hægri " + beygjuhorn + "°");
+							}
+							else
+							{
+								alert("Frá " +totalRoad.roadname + " til vinstri " + beygjuhorn + "°");
+							}
+						}
 					}
 
+
+					var directionTxt = "";
+					if (heading != "done")
+					{
+						directionTxt = "Aktu í "+ startDirection + " eftir ";
+						heading = "done";
+					}
+					else
+					{
+						// Beygjur
+						var beygja = Math.abs(totalRoad.sdirection-totalRoad.tdirection);
+					}*/
+
+					rrhtml +=  roadcounter + ". "+ turnArray[j-1].turnTxt + totalRoad.roadname + "";
 					// format length
 					var legLength = "";
 					if (totalRoad.length > 1000){
-						legLength = (Math.round(totalRoad.length)/1000).toFixed(1) + "km";
+						legLength = (Math.round(totalRoad.length)/1000).toFixed(1) + " km";
 					}
 					else
 					{
-						legLength = Math.round(totalRoad.length) + "m";
+						legLength = Math.round(totalRoad.length) + " m";
 					}
 
-					rrhtml += " " + legLength + "<img src=img/vegvisun/vegvisun_divider_pixel.gif height id=vegvisun_divider_generic>";
+					rrhtml += " " + legLength + "<HR witdth=80%>";
 
 					totalRoad.length = Math.round(rData[j].length);
 
@@ -811,14 +987,14 @@ function displayResultsGeoJSON(resp)
 						rrhtml +=  roadcounter + ". " + rData[j].roadname;
 						var legLength = "";
 						if (totalRoad.length > 1000){
-							legLength = (Math.round(totalRoad.length)/1000).toFixed(1) + "km";
+							legLength = (Math.round(totalRoad.length)/1000).toFixed(1) + " km";
 						}
 						else
 						{
-							legLength = Math.round(totalRoad.length) + "m";
+							legLength = Math.round(totalRoad.length) + " m";
 						}
 
-						rrhtml += " " + legLength + "<img src=img/vegvisun/vegvisun_divider_pixel.gif id=vegvisun_divider_generic>";
+						rrhtml += " " + legLength + "<HR witdth=80%>";
 
 						totalRoad.length = Math.round(rData[j].length);
 					}
@@ -826,14 +1002,15 @@ function displayResultsGeoJSON(resp)
 				else
 				{
 					// Við erum enn á sama legg og leggjum bara saman vegalengdina
-					totalRoad.length += Math.round(rData[j].length);
+					totalRoad.length = totalRoad.length + Math.round(rData[j].length);
+					//log(j + ". " +totalRoad.roadname + " - leg length " + rData[j].length + " -total:" + totalRoad.length + " fjoldi: " + rData.length);
 				}
 
 
 
 				// Setjum inn uppl um götuna til að nota næst
 				totalRoad.roadname = rData[j].roadname;
-				//totalRoad.length = Math.round(rData[j].length);
+				totalRoad.length = Math.round(rData[j].length);
 				totalRoad.sdirection = rData[j].sdirection;
 				totalRoad.tdirection = rData[j].tdirection;
 				totalRoad.speed=rData[j].speed;
@@ -846,11 +1023,11 @@ function displayResultsGeoJSON(resp)
 				totalRoad.oneway=rData[j].oneway;
 				totalRoad.source=rData[j].source;
 				totalRoad.target=rData[j].target;
-			//}
+
+			}
 
 			totalLength += ((rData[j].length)/1);
-		//
-
+			//log("-----lina " + j + " ------- " +  rData[j].roadname + " - leg length " + rData[j].length + " -total:" + totalRoad.length);
 		}
 
 
