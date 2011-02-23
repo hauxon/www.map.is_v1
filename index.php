@@ -19,11 +19,11 @@
 </head>
 
 <body onload="initmap();initComponents();" onresize="onAppResize();">
-<div id=header></div>
-	
+<div id=header><img id="header_logo" src="img/routing/maplogo_bull.gif"/></div>
+<img id="header_shadow" src="img/routing/header_shadow.png"/>
 	
      <div id="sliderPanel">
-     <div id="control">
+        <div id="control">
 		<a id="sliderPanelBtn" class="open" href="http://www.map.is" border="0"></a>
 	</div>    
     </div>

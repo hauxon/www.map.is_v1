@@ -25,9 +25,11 @@ div#RoutingResultsDIV {
     padding: 5px;
     position: absolute;
     top: 151px;
+    height:503px;
     visibility: hidden;
-    width: 290px;
+    width: 300px;
     z-index: 1000;
+    overflow: auto;
 }
 
 

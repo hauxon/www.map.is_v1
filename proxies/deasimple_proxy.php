@@ -1,5 +1,7 @@
 
 <?php
+// Fyrir íslenzku stafina
+header('Content-type: text/html; charset=iso-8859-1');
     /*
      * Ælir út querystring á php síðu á geoserver.loftmyndir.is
      */
@@ -26,11 +28,9 @@
     //echo $routing_click_url.$lequerystring;
 
     $fp = fopen($routing_click_url.$lequerystring, 'r');
-
-        $response = '';
-
-        while ($l = fread($fp, 1024)) $response .= $l;
-        fclose($fp);
-        echo $response;
+    $response = '';
+    while ($l = fread($fp, 1024)) $response .= $l;
+    fclose($fp);
+    echo $response;
 ?>
 

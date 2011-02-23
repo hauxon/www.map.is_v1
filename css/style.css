@@ -19,7 +19,7 @@ body {
     font-family: Arial, Helvetica, "Lucida Grande", Verdana, Geneva, Lucida,  sans-serif;
     font-size: 80%;
     color: #222;
-    background: #FFBBDD;
+    background: #F5F5F5;
     font-size: 13px;
     margin: 0px;
     padding: 0px;
@@ -123,9 +123,23 @@ h6 {
 	position: absolute;
 	left:0px;
 	top: 0px;
-	background-image:url("../img/gui/header_bh_v1.jpg");
+	/*background-image:url("../img/gui/header_bh_v1.jpg");*/
 	height:83px;
 	width:100%;
 }
 
+#header_logo{
+	left: 15px;
+        position: absolute;
+        top: 18px;
+}
+
+#header_shadow{
+    height: 6px;
+    left: 0;
+    position: absolute;
+    top: 84px;
+    width: 100%;
+    z-index: 100;
+}
 

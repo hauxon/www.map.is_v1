@@ -32,10 +32,10 @@ var vectors = null;
 // Hér kemur það sem þarf að keyra eftir að kortið hefur initað sig
 function initRouting()
 {
-    var wms_routing_vegir = new OpenLayers.Layer.WMS.Untiled( "Vegir overlay","http://212.30.228.18/geoserver/wms",
+    /*var wms_routing_vegir = new OpenLayers.Layer.WMS.Untiled( "Vegir overlay","http://212.30.228.18/geoserver/wms",
     {layers:'postgis:routing_vegir',format:'image/jpeg',transparent: true, styles:'line_routingtest'},
     {'displayInLayerSwitcher':true, 'isBaseLayer':false,visibility:false});
-    map.addLayer(wms_routing_vegir);
+    map.addLayer(wms_routing_vegir);*/
 
      //////////////////////////////////////////////////////////////////////////// Vector
      // Setjum útlit á vegvísunar layerinn
@@ -85,9 +85,9 @@ function initRouting()
 
      //switchCommands('DragPan');
 
-     var clickWMSFeature = new OpenLayers.Control.Click();
+    /* var clickWMSFeature = new OpenLayers.Control.Click();
      map.addControl(clickWMSFeature);
-     clickWMSFeature.activate();
+     clickWMSFeature.activate(); */
 
      // höfum höndina á default
      document.body.style.cursor='pointer';
@@ -103,7 +103,7 @@ function initRouting()
 
  /****************** Click Event ************************************************/
  // Til að nota seinna
- var lon;
+ /*var lon;
  var lat;
  OpenLayers.Control.Click = OpenLayers.Class(OpenLayers.Control, {
 
@@ -204,7 +204,7 @@ function initRouting()
     alert("Villa kom upp við að sækja gögn frá: "+this.url);
  }
 
- })
+ })*/
 
 
 
@@ -252,7 +252,8 @@ function getRoute()
 				var svf = fromZips[i][2]; // Þéttbýlisstaður
 				if (svf == "")
 					svf = fromZips[i][1]; // Ef ekki þéttblisstaður þá birta sveitarfélagsnafn
-				htmlZippoz += "<input type=radio name=fromZipRadio value=" + fromZips[i][0] + " onclick='javascript:chooseFromZip("+fromZips[i][0]+")'>" + fromZips[i][0] + " " + svf + "</input><br>"
+				//htmlZippoz += "<input type=radio name=fromZipRadio value=" + fromZips[i][0] + " onclick='javascript:chooseFromZip("+fromZips[i][0]+")'>" + fromZips[i][0] + " " + svf + "</input><br>";
+                                htmlZippoz += "<input type=radio name=fromZipRadio value=" + fromZips[i][0] + " onclick='javascript:chooseFromZip("+fromZips[i][0]+","+fromZips[i][3]+")'>" + fromZips[i][0] + " " + svf + "</input><br>";
 			}
 			$j("#rResultsHtml").html(htmlZippoz);
 			$j("#RoutingResultsDIV").css("visibility","visible");
@@ -260,11 +261,7 @@ function getRoute()
 		}
 		else if (fromZips.length == 1)
 		{
-			chosenFromZip = fromZips[0][0];
-			$j("#rResultsHtml").html("");
-			$j("#routing_from_addr").css("background-color","#FFFFFF");
-			$j("#RoutingResultsDIV").css("visibility","hidden");
-
+			selectFromPoint(fromZips[0]);
 		}
 		else
 		{
@@ -294,7 +291,8 @@ function getRoute()
 				var svf = toZips[i][2]; // Þéttbýlisstaður
 				if (svf == "")
 					svf = toZips[i][1]; // Ef ekki þéttbýlisstaður þá birta sveitarfélagsnafn
-				htmlZippoz += "<input type=radio name=fromZipRadio value=" + toZips[i][0] + " onclick='javascript:chooseToZip("+toZips[i][0]+")'>" + toZips[i][0] + " " + svf + "</input><br>"
+				//htmlZippoz += "<input type=radio name=fromZipRadio value=" + toZips[i][0] + " onclick='javascript:chooseToZip("+toZips[i][0]+")'>" + toZips[i][0] + " " + svf + "</input><br>";
+                                htmlZippoz += "<input type=radio name=fromZipRadio value=" + toZips[i][0] + " onclick='javascript:chooseToZip("+toZips[i][0]+","+toZips[i][3]+")'>" + toZips[i][0] + " " + svf + "</input><br>";
 			}
 			$j("#rResultsHtml").html(htmlZippoz);
 			$j("#RoutingResultsDIV").css("visibility","visible");
@@ -302,10 +300,8 @@ function getRoute()
 		}
 		else if (toZips.length == 1)
 		{
-			chosenToZip = toZips[0][0];
-			$j("#rResultsHtml").html("");
-			$j("#routing_to_addr").css("background-color","#FFFFFF");
-			$j("#RoutingResultsDIV").css("visibility","hidden");
+			selectToPoint(toZips[0]);
+
 		}
 		else
 		{
@@ -320,8 +316,71 @@ function getRoute()
 	}
 
 	// Jæja nú ættu leitarskilyrðin að vera klár til að sækja leiðina
-	getRoutePath(submitFromAddr,chosenFromZip,submitToAddr,chosenToZip)
+	//getRoutePath(submitFromAddr,chosenFromZip,submitToAddr,chosenToZip);
+        getRoutePathClick();
  }
+
+function selectFromPoint(pointInfoArr)
+{
+    chosenFromZip = pointInfoArr[0];
+    $j("#rResultsHtml").html("");
+    $j("#routing_from_addr").css("background-color","#FFFFFF");
+    $j("#RoutingResultsDIV").css("visibility","hidden");
+
+    // GeoJSON to OL object
+    var in_options = {
+                'internalProjection': map.baseLayer.projection,
+                'externalProjection': new OpenLayers.Projection("EPSG:3057")
+            };
+    var gj = new OpenLayers.Format.GeoJSON(in_options);
+    var startpoint = gj.read(pointInfoArr[3])[0].geometry.components[0]; // Reads the first point out of the multipoint return object
+    var lonlat  = new OpenLayers.LonLat(startpoint.x,startpoint.y); // Gather endpoint coordinates
+    routeFromHereCoords = lonlat; // Assign the endpoint coordiantes to global variable 'routeToHereCoords' (used for the routing)
+    //Add marker for start point . First we check if there is already a "routeFrom" marker
+    var marker = getMarkerByName("routeFrom");
+    if (typeof(marker) == "undefined" || marker == "") {
+            var size = new OpenLayers.Size(43, 35);
+            var offset = new OpenLayers.Pixel(-10, -27);
+            var icon = new OpenLayers.Icon('img/routing/LM_routing_markerA.png', size, offset);
+            marker = new OpenLayers.Marker(lonlat, icon);
+            marker.name = "routeFrom";
+            markers.addMarker(marker);
+    }
+    else{
+            marker.moveTo(lonlat);
+    }
+}
+
+function selectToPoint(pointInfoArr)
+{
+    chosenToZip = pointInfoArr[0];
+    $j("#rResultsHtml").html("");
+    $j("#routing_to_addr").css("background-color","#FFFFFF");
+    $j("#RoutingResultsDIV").css("visibility","hidden");
+
+    // GeoJSON to OL object
+    var in_options = {
+                'internalProjection': map.baseLayer.projection,
+                'externalProjection': new OpenLayers.Projection("EPSG:3057")
+            };
+    var gj = new OpenLayers.Format.GeoJSON(in_options);
+    var endpoint = gj.read(pointInfoArr[3])[0].geometry.components[0]; // Reads the first point out of the multipoint return object
+    var lonlat  = new OpenLayers.LonLat(endpoint.x,endpoint.y); // Gather endpoint coordinates
+    routeToHereCoords = lonlat; // Assign the endpoint coordiantes to global variable 'routeToHereCoords' (used for the routing)
+    //Add marker for end point . First we check if there is already a "routeTo" marker
+    var marker = getMarkerByName("routeTo");
+    if (typeof(marker) == "undefined" || marker == "") {
+            var size = new OpenLayers.Size(43, 35);
+            var offset = new OpenLayers.Pixel(-10, -27);
+            var icon = new OpenLayers.Icon('img/routing/LM_routing_markerB.png', size, offset);
+            marker = new OpenLayers.Marker(lonlat, icon);
+            marker.name = "routeTo";
+            markers.addMarker(marker);
+    }
+    else{
+            marker.moveTo(lonlat);
+    }
+}
 
  // tekur inn innihaldið úr innsláttarboxunum og finnur út hvað er gata/húsnúmer og hvað er pnr/sveitarf
  // Tekur inn innihald innsláttorboxins og hvort um er að ræða to eða from boxið.
@@ -426,7 +485,7 @@ function getRoute()
 	// If no matching address is found return zip hold 666!
 
 	var zipArray = new Array();
-	sendSyncAJAXRequest("proxies/simple_php_proxy.asp?sKey=checkAddressAndZipUnique&url=http://geoserver.loftmyndir.is/kortasja/leit/routing_service.php&sValue=" + sValue1+"|"+sValue2);
+	sendSyncAJAXRequest("proxies/leit_proxy.php?sKey=checkAddressAndZipUnique&url=http://geoserver.loftmyndir.is/kortasja/leit/routing_service.php&sValue=" + sValue1+"|"+sValue2+"&remotePage=routing_service");
 	var numberOfResults = $j(xmlHttp.responseXML).find("row").length;
 	//alert(numberOfResults);
 	// Lets walk through the response XML and pick out the zip codes
@@ -436,6 +495,7 @@ function getRoute()
 		zippo[0] = $j(this).find("postnumer").text();
 		zippo[1] = $j(this).find("sveitarfel").text();
 		zippo[2] = $j(this).find("tettbyliss").text();
+                zippo[3] = $j(this).find("the_geom").text();
 		zipArray.push( zippo ); // insert zip to array
 	});
 	if (zipArray.length == 0)
@@ -446,23 +506,31 @@ function getRoute()
  }
 
 
- function chooseFromZip(zip)
+ function chooseFromZip(zip,geom)
  {
-	chosenFromZip = zip;
-	from_addr = $j("#routing_from_addr").val();
-	from_addr += "," + LM_CityFromZipsNefni[zip];
-	$j("#routing_from_addr").val(from_addr);
-	$j("#rResultsHtml").html("");
-	getRoute();
+    chosenFromZip = zip;
+    from_addr = $j("#routing_from_addr").val();
+    from_addr += "," + LM_CityFromZipsNefni[zip];
+    $j("#routing_from_addr").val(from_addr);
+    $j("#rResultsHtml").html("");
+    var arr = new Array();
+    arr[0] = zip;
+    arr[3] = geom;
+    selectFromPoint(arr);
+    getRoute();
  }
 
-  function chooseToZip(zip)
+  function chooseToZip(zip,geom)
  {
 	chosenToZip = zip;
 	to_addr = $j("#routing_to_addr").val();
 	to_addr += "," + LM_CityFromZipsNefni[zip];
 	$j("#routing_to_addr").val(to_addr);
 	$j("#rResultsHtml").html("");
+        var arr = new Array();
+        arr[0] = zip;
+        arr[3] = geom;
+        selectToPoint(arr);
 	getRoute();
  }
 
@@ -472,9 +540,9 @@ function getRoute()
 	// If address is unique the return array holds one zip.
 	// If no matching address is found return zip hold 666!
 
-	//((sendSyncAJAXRequest("proxies/simple_php_proxy.asp?sKey=checkUniqueAddress&url=http://geoserver.loftmyndir.is/kortasja/leit/routing_service.php&sValue=" + theAddress, checkAddressCallback);
+	//((sendSyncAJAXRequest("proxies/leit_proxy.php?sKey=checkUniqueAddress&url=http://geoserver.loftmyndir.is/kortasja/leit/routing_service.php&sValue=" + theAddress + "&remotePage=routing_service", checkAddressCallback);
 	var zipArray = new Array();
-	sendSyncAJAXRequest("proxies/simple_php_proxy.asp?sKey=checkUniqueAddress&url=http://geoserver.loftmyndir.is/kortasja/leit/routing_service.php&sValue=" + sValue);
+	sendSyncAJAXRequest("proxies/leit_proxy.php?sKey=checkUniqueAddress&sValue=" + sValue);
 	var numberOfResults = $j(xmlHttp.responseXML).find("row").length;
 	//alert(numberOfResults);
 	// Lets walk through the response XML and pick out the zip codes
@@ -484,6 +552,7 @@ function getRoute()
 		zippo[0] = $j(this).find("postnumer").text();
 		zippo[1] = $j(this).find("sveitarfel").text();
 		zippo[2] = $j(this).find("tettbyliss").text();
+                zippo[3] = $j(this).find("the_geom").text();
 		zipArray.push( zippo ); // insert zip to array
 	});
 	if (zipArray.length == 0)
@@ -511,8 +580,10 @@ function getRoute()
 // Sends an AJAX request to routing_proxy with adresses. 
 function getRoutePath(addrFrom,zipFrom,addrTo,zipTo)
 {
-	// Jæja sækja leiðina
-	sendAJAXRequest('proxies/deasimple_proxy_test.php?request=route&to_addr=' + escape(addrTo) + '&to_city=' + zipTo + '&from_addr=' + escape(addrFrom) + '&from_city=' + zipFrom + '&remotePage=routing_service',displayResultsGeoJSON);
+    //Hreinsa gamlar niðurstöður
+    vectors.destroyFeatures();
+    // Jæja sækja leiðina
+    sendAJAXRequest('proxies/deasimple_proxy_test.php?request=route&to_addr=' + escape(addrTo) + '&to_city=' + zipTo + '&from_addr=' + escape(addrFrom) + '&from_city=' + zipFrom + '&remotePage=routing_service',displayResultsGeoJSON);
 }
 
 // Sends an AJAX request to simple_php_proxy with coordinates (routeFromHere/routeToHere click)
@@ -523,7 +594,7 @@ function getRoutePathClick()
 		//Hreinsa gamlar niðurstöður
 		vectors.destroyFeatures();
 		// Jæja sækja leiðina
-		sendAJAXRequest('proxies/deasimple_proxy_test.php?request=route&xfrom=' + routeFromHereCoords.lon + '&yfrom=' + routeFromHereCoords.lat + '&xto=' + routeToHereCoords.lon + '&yto=' + routeToHereCoords.lat + '&remotePage=routing_service_click', displayResultsGeoJSON);
+		sendAJAXRequest('proxies/deasimple_proxy.php?request=route&xfrom=' + routeFromHereCoords.lon + '&yfrom=' + routeFromHereCoords.lat + '&xto=' + routeToHereCoords.lon + '&yto=' + routeToHereCoords.lat + '&remotePage=routing_service_click', displayResultsGeoJSON);
 	}
 }
 
@@ -654,7 +725,7 @@ function displayResultsGeoJSON(resp)
                 //
 
 		var totalLength = 0;
-		var rrhtml = "<hr><b><font size=2>Akstursleiðbeiningar</font></b><br><br>";
+		var rrhtml = "<hr><b><font size=2 color=#003A6B>Akstursleiðbeiningar</font></b><br><br>";
 		var totalRoad = new routingDataObject("",0,0,0,0); // Empty to begin with
 		var roadcounter = 0;
 		var startDirection = "";
@@ -768,7 +839,7 @@ function displayResultsGeoJSON(resp)
                                 {
                                     a = a-360; // maður beygir aldrei meira en 180 gráður í sömu átt
                                 }
-				if (Math.abs(a) <= 10)
+				/*if (Math.abs(a) <= 10)
                                 {
                                     turnObj.turnTxt = "<img src=http://www.loftmyndir.is/k/img/routing/drive_straight.png> Ekið <b>áfram</b> eftir ";
                                 }
@@ -779,6 +850,18 @@ function displayResultsGeoJSON(resp)
 				if ( a < -10 )
                                 {
                                     turnObj.turnTxt = "<img src=http://www.loftmyndir.is/k/img/routing/turn_right.png> Taktu <b>hægri</b> beygju inn á ";
+                                }*/
+                                if (Math.abs(a) <= 10)
+                                {
+                                    turnObj.turnTxt = "<img src=http://www.loftmyndir.is/k/img/routing/drive_straight.png> ";
+                                }
+				if ( a > 10 )
+                                {
+                                    turnObj.turnTxt = "<img src=http://www.loftmyndir.is/k/img/routing/turn_left.png> ";
+                                }
+				if ( a < -10 )
+                                {
+                                    turnObj.turnTxt = "<img src=http://www.loftmyndir.is/k/img/routing/turn_right.png> ";
                                 }
 
 				//turnObj.turnTxt = a;
@@ -966,15 +1049,22 @@ function displayResultsGeoJSON(resp)
 						var beygja = Math.abs(totalRoad.sdirection-totalRoad.tdirection);
 					}*/
 
-					rrhtml +=  roadcounter + ". "+ turnArray[j-1].turnTxt + totalRoad.roadname + "";
-					// format length
+					if (totalRoad.roadname != "")
+                                        {
+                                            rrhtml +=  roadcounter + ". "+ turnArray[j-1].turnTxt + totalRoad.roadname + ", ";
+                                        }
+                                        else
+                                        {
+                                            rrhtml +=  roadcounter + ". "+ turnArray[j-1].turnTxt + "Hringtorg" + ", ";
+                                        }
+                                        // format length
 					var legLength = "";
 					if (totalRoad.length > 1000){
-						legLength = (Math.round(totalRoad.length)/1000).toFixed(1) + " km";
+						legLength = (Math.round(totalRoad.length)/1000).toFixed(1) + "km";
 					}
 					else
 					{
-						legLength = Math.round(totalRoad.length) + " m";
+						legLength = Math.round(totalRoad.length) + "m";
 					}
 
 					rrhtml += " " + legLength + "<HR witdth=80%>";
@@ -1002,7 +1092,7 @@ function displayResultsGeoJSON(resp)
 				else
 				{
 					// Við erum enn á sama legg og leggjum bara saman vegalengdina
-					totalRoad.length = totalRoad.length + Math.round(rData[j].length);
+					totalRoad.length = totalRoad.length + Math.round(rData[j-1].length);
 					//log(j + ". " +totalRoad.roadname + " - leg length " + rData[j].length + " -total:" + totalRoad.length + " fjoldi: " + rData.length);
 				}
 
@@ -1033,11 +1123,11 @@ function displayResultsGeoJSON(resp)
 
 		var roundTotalLength;
 		if (totalLength > 1000){
-							roundTotalLength = (Math.round(totalLength)/1000).toFixed(1) + " km";
+							roundTotalLength = (Math.round(totalLength)/1000).toFixed(1) + "km";
 						}
 						else
 						{
-							roundTotalLength = Math.round(totalLength) + " m";
+							roundTotalLength = Math.round(totalLength) + "m";
 						}
 
 		rrhtml += "Heildarlengd " + roundTotalLength ;
@@ -1166,3 +1256,4 @@ function contextZoomOut()
 	var zoomy = map.getZoom()-2; // Get current zoom level from map minus 2 since we're zooming out
 	map.zoomTo(zoomy);
 }
+
