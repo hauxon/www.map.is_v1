@@ -106,6 +106,21 @@
             <isBaseLayer>false</isBaseLayer>
             <unsupportedBrowsers>[]</unsupportedBrowsers>
         </layer>
+        <layer>
+            <layerTitle>Skámyndir</layerTitle>
+            <layerName>skamyndir</layerName>
+            <layerType>WMS.Untiled</layerType>
+            <url>http://geoserver.loftmyndir.is/geoserver2/wms?</url>
+            <layerNames>postgis:lm_skamyndir_view</layerNames>
+            <layerStyles></layerStyles>
+            <format>image/png</format>
+            <transparent>true</transparent>
+            <visibility>false</visibility>
+            <singleTile>true</singleTile>
+            <displayInLayerSwitcher>true</displayInLayerSwitcher>
+            <isBaseLayer>false</isBaseLayer>
+            <unsupportedBrowsers>[]</unsupportedBrowsers>
+        </layer>        
     </layers>
     <components>
         <component>
