@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>www.map.is -- fuck yeah!!!!111(one)</title>
+<title>www.map.is -- yeah!</title>
 <script src="lib/openlayers210.js"></script>
         <link rel="stylesheet" href="css/ol_default_style.css" type="text/css"/>
 	<link rel="stylesheet" href="css/style.css" type="text/css"/>
@@ -11,9 +11,9 @@
         <link rel="stylesheet" href="css/context_menu.css" type="text/css" />
         <link rel="stylesheet" href="css/routing.css" type="text/css" />
 
-	<script src="lib/jquery.1.4.4.min.js"></script>
-	<script src="lib/jquery-ui-personalized-1.5.2.min.js"></script>
-	<script type='text/javascript' src='lib/easing.js'></script>
+	<script   src="lib/jquery.1.4.4.min.js"></script>
+	<script  src="lib/jquery-ui-personalized-1.5.2.min.js"></script>
+	<script  type='text/javascript' src='lib/easing.js'></script>
 	<script type='text/javascript' src='lib/common.js'></script>
 	<script type='text/javascript' src='lib/kortasja.js.php'></script>
 </head>
