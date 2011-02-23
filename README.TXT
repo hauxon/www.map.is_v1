@@ -1,0 +1,1 @@
+Modular php útgáfa af Kortasjá Loftmynda ehf.
