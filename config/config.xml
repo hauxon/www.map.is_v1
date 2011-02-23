@@ -115,7 +115,7 @@
             <layerStyles></layerStyles>
             <format>image/png</format>
             <transparent>true</transparent>
-            <visibility>false</visibility>
+            <visibility>true</visibility>
             <singleTile>true</singleTile>
             <displayInLayerSwitcher>true</displayInLayerSwitcher>
             <isBaseLayer>false</isBaseLayer>
