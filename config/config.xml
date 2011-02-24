@@ -120,7 +120,43 @@
             <displayInLayerSwitcher>true</displayInLayerSwitcher>
             <isBaseLayer>false</isBaseLayer>
             <unsupportedBrowsers>[]</unsupportedBrowsers>
-        </layer>        
+        </layer>   
+        <vectorlayer>
+            <layerTitle>Skámyndir</layerTitle>
+            <layerName>skamyndir</layerName>
+            <layerType>Vector</layerType>
+            <url>proxies/queryWFS.php?</url>
+            <layerNames>postgis:lm_skamyndir_view</layerNames>
+            <maxFeatures>200</maxFeatures>
+            <extractAttributes>true</extractAttributes>
+            <layerStyles>styleMap</layerStyles>
+            <layerScales>[1700000.0, 1000000.0, 500000.0, 250000.0, 100000.0, 50000.0, 25000.0, 10000.0,5000.0,2000.0,1000.0,500.0,250.0]</layerScales>
+            <styleMap>
+                <![CDATA[
+        var styleMap = new OpenLayers.StyleMap(	
+            {
+                'default':{ 
+                    'fillColor':'white',
+                    'strokeColor': 'white',
+                    'strokeWidth': 5,
+                    'strokeOpacity': 0.1,
+                    'fillOpacity': 0.1,
+                    'pointRadius':5},
+                'select': {	
+                    'fillColor':'yellow',
+                    'strokeColor':'yellow',
+                    'strokeWidth': 8,
+                    'fillOpacity':0.6,
+                    'strokeOpacity': 0.6,
+                    'pointRadius':8,
+                    'cursor': 'pointer'}
+            }
+        );             
+                ]]>
+            </styleMap>
+            <visibility>true</visibility>
+            <displayInLayerSwitcher>true</displayInLayerSwitcher>
+        </vectorlayer>         
     </layers>
     <components>
         <component>
