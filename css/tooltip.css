@@ -1,0 +1,74 @@
+/* 
+    Document   : tooltip
+    Created on : 24.2.2011, 11:27:13
+    Author     : jonas
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root { 
+    display: block;
+}
+
+#ToolTip 
+{
+	color:black;
+	cursor:pointer;
+	font-family:arial;
+	font-size:8px;
+	height:15px;
+	left:-138px;
+	position:absolute;
+	top:-63px;
+	visibility:hidden;
+	z-index:1000;
+}
+
+#ToolTipcontent
+{
+	background-image:url("http://www.loftmyndir.is/k/img/tootltip_skipulag_small_content.png");
+	background-repeat:repeat-x;
+	color:black;
+	cursor:pointer;
+	font-family:arial;
+	font-size:8px;
+	height:15px;
+	position:relative;
+	z-index:1000;
+	float:left;
+}
+
+#ToolTipstart
+{
+	background-image:url("http://www.loftmyndir.is/k/img/tootltip_skipulag_small_start.png");
+	float:left;
+	height:15px;
+	position:relative;
+	width:10px;
+	z-index:1000;
+}
+#ToolTipend
+{
+	background-image:url("http://www.loftmyndir.is/k/img/tootltip_skipulag_small_end.png");
+	float:left;
+	height:15px;
+	position:relative;
+	width:10px;
+	z-index:1000;
+}
+
+#tipTxt 
+{
+	color:#333333;
+	font-family:tahoma;
+	font-size:7pt;
+	font-weight:normal;
+	left:0px;
+	position:relative;
+	top:1px;
+}
