@@ -158,6 +158,7 @@
             <displayInLayerSwitcher>true</displayInLayerSwitcher>
         </vectorlayer>         
     </layers>
+    
     <components>
         <component>
             <name>contextmenu</name>
@@ -174,5 +175,6 @@
             <componentCSS>routing.css</componentCSS>
         </component>
     </components>
+    
 </mapDefaults>
 

@@ -131,6 +131,18 @@ function initmap()
 
         markers = new OpenLayers.Layer.Markers("Merki",{'displayInLayerSwitcher':false});
         map.addLayer(markers);
+        
+        var ttoptions = {
+                hover: true,
+                onSelect: onClientSelectCallback,
+                onUnselect: onClientUnselectCallback,
+                clickFeature: onClientClickCallback	
+        }
+
+        select = new OpenLayers.Control.SelectFeature(skamyndir_wfs, ttoptions);
+        map.addControl(select);
+
+        select.activate();	        
  }
 
 function initAjax()
@@ -179,6 +191,36 @@ function sendSyncAJAXRequest(url)
 	xmlHttp.send(null);
 	return xmlHttp.responseText;
 	//alert(xmlHttp.responseText);
+}
+
+function moveEndHandler(evt){
+}		
+
+function setBM( targetZoomLevel ){		
+    map.layers[0].params.LAYERS = theBM[targetZoomLevel];
+}		
+
+function onClientUnselectCallback(feature){
+    if( feature.layer.name == "Skámyndir WFS" ){
+            tb = document.getElementById("ToolTip")
+            tb.style.visibility="hidden";			
+    }
+}				
+function onClientClickCallback(feature){
+    if( feature.layer.name == "Skámyndir WFS" ){
+    }
+}
+function onClientSelectCallback(feature){
+    if( feature.layer.name == "Skámyndir WFS" ){
+            var ToolTip = document.getElementById("ToolTip");
+            ToolTip.innerHTML="<div id='ToolTipstart'></div><div id='ToolTipcontent'><div id='tipTxt'><a href='javascript:parent.changeParentUrl(\"http://www.loftmyndir.is/k/nordic_iframe.html\");'>þetta er linkur</a></div></div><div id='ToolTipend'></div>"; // +feature.attributes.nafn + 
+            ToolTip.style.visibility="visible";
+            var jimX = this.handlers.feature.feature.geometry.getCentroid().x;
+            var jimY = this.handlers.feature.feature.geometry.getCentroid().y;		
+            px = map.getViewPortPxFromLonLat(new OpenLayers.LonLat(jimX,jimY));		
+            ToolTip.style.left= new String((px.x + 5)+"px");
+            ToolTip.style.top= new String((px.y - 5)+"px");								
+    }
 }
 
 

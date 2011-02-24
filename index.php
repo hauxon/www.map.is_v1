@@ -15,6 +15,7 @@
 	<script  src="lib/jquery-ui-personalized-1.5.2.min.js"></script>
 	<script  type='text/javascript' src='lib/easing.js'></script>
 	<script type='text/javascript' src='lib/common.js'></script>
+        <script type='text/javascript' src='lib/LMUtil.js'></script>
 	<script type='text/javascript' src='lib/kortasja.js.php'></script>
 </head>
 
@@ -29,7 +30,7 @@
     </div>
   
   	<div id="map" class=hrannarMap></div>
-
+        <div id="ToolTip"></div>
 
 </body>
 </html>
