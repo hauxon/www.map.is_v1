@@ -10,25 +10,39 @@
 	<link rel="stylesheet" href="css/mapis_ui.css" type="text/css" />
         <link rel="stylesheet" href="css/context_menu.css" type="text/css" />
         <link rel="stylesheet" href="css/routing.css" type="text/css" />
+        <link rel="stylesheet" href="css/skamyndir.css" type="text/css" />
+        <!-- link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/ -->
+        <link rel="stylesheet" href="css/jquery-ui-1.8.10.custom.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" type="text/css" href="css/fancybox/jquery.fancybox-1.3.1.css" media="screen" />
 
-	<script   src="lib/jquery.1.4.4.min.js"></script>
-	<script  src="lib/jquery-ui-personalized-1.5.2.min.js"></script>
+	<!--script   src="lib/jquery.1.4.4.min.js"></script-->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+	<!-- script  src="lib/jquery-ui-personalized-1.5.2.min.js"></script -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="lib/fancybox/jquery.fancybox-1.3.1.js"></script>            
 	<script  type='text/javascript' src='lib/easing.js'></script>
 	<script type='text/javascript' src='lib/common.js'></script>
         <script type='text/javascript' src='lib/LMUtil.js'></script>
 	<script type='text/javascript' src='lib/kortasja.js.php'></script>
+        <script>
+        var $j = jQuery.noConflict();
+        
+
+        
+    
+        </script>
 </head>
 
 <body onload="initmap();initComponents();" onresize="onAppResize();">
 <div id=header><img id="header_logo" src="img/routing/maplogo_bull.gif"/></div>
 <img id="header_shadow" src="img/routing/header_shadow.png"/>
 	
-     <div id="sliderPanel">
-        <div id="control">
-		<a id="sliderPanelBtn" class="open" href="http://www.map.is" border="0"></a>
-	</div>    
-    </div>
-  
+<div id="sliderPanel">
+     <a id="sliderPanelBtn" class="open" href="http://www.map.is" border="0"></a>
+      <div id="sliderAccordion"></div>
+     <div id="control"></div>
+</div>
+     
   	<div id="map" class=hrannarMap></div>
         <div id="ToolTip"></div>
 
