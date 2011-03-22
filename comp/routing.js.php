@@ -1,7 +1,8 @@
-
+<script type="text/javascript">
 /*
  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
  routing.js.php
+ Dependensies: Context menu needs to run first
  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 */
 <?php
@@ -32,6 +33,8 @@ var vectors = null;
 // Hér kemur það sem þarf að keyra eftir að kortið hefur initað sig
 function initRouting()
 {
+   
+
     /*var wms_routing_vegir = new OpenLayers.Layer.WMS.Untiled( "Vegir overlay","http://212.30.228.18/geoserver/wms",
     {layers:'postgis:routing_vegir',format:'image/jpeg',transparent: true, styles:'line_routingtest'},
     {'displayInLayerSwitcher':true, 'isBaseLayer':false,visibility:false});
@@ -58,19 +61,27 @@ function initRouting()
 
 
     //Insert HTML Container for Routing
-    RoutingHtml = "<div id='RoutingDIV'><img src='img/vegvisun/vegvisun_header_logo.png' id='vegvisun_header_logo'><div id='headerText'>Vegvísun</div>";
-    RoutingHtml += "<img id='vegvisun_close_btn' src='img/vegvisun/vegvisun_close.gif'><img id='vegvisun_divider1' src='img/vegvisun/vegvisun_divider_pixel.gif'>";
+    RoutingHtml = "<h3><a href='#'>Vegvísun</a></h3><div>";
+    RoutingHtml += "<div id='RoutingDIV'>";
+    RoutingHtml += "<img id='vegvisun_divider1' src='img/vegvisun/vegvisun_divider_pixel.gif'>";
     RoutingHtml += "<div id='vegvisun_A'><img src='img/vegvisun/vegvisun_A.png'></div><div id='fromtext'>Frá:</div><input id='routing_from_addr' type='text'>";
     RoutingHtml += "<div id='vegvisun_B'><img src='img/vegvisun/vegvisun_B.png'></div><div id='totext'>Til:</div><input id='routing_to_addr' type='text'>";
     RoutingHtml += "<img id='vegvisun_divider2' src='img/vegvisun/vegvisun_divider_pixel.gif'>";
-    RoutingHtml += "<input id='routing_button' type='button' value='Finna leið' onclick='clearZips();getRoute();'></div>";
-    $j("#sliderPanel").append(RoutingHtml);
-
+    RoutingHtml += "<input id='routing_button' type='button' value='Finna leið' onclick='clearZips();getRoute();'>";
     //Insert HTML container for routing results
-    RoutingResultsHtml = "<div id='RoutingResultsDIV'>";
-    RoutingResultsHtml += "<div id='rResultsHtml'></div>";
-    RoutingResultsHtml += "</div>";
-    $j("#sliderPanel").append(RoutingResultsHtml);
+    RoutingHtml += "<div id='RoutingResultsDIV'><div id='rResultsHtml'></div></div>";
+    RoutingHtml += "</div>";
+    RoutingHtml += "</div>";
+    $j("#sliderAccordion").append(RoutingHtml);
+    //$j("#sliderAccordion").accordion();
+    
+    $j("#sliderAccordion").append("<h3><a href='#'>Skámyndir</a></h3><div><p>Hér koma skámyndirnar góðu!</p></div>");
+    $j("#sliderAccordion").append("<h3><a href='#'>Fleira</a></h3><div><p>Dóterí</p></div>");
+    $j("#sliderAccordion").accordion({ fillSpace: true, animated:'easeInOutQuad', duration:'fast', collapsible: true });
+    //$j("#accordion").accordion();
+
+    
+    //$j("#sliderAccordion").append(RoutingResultsHtml);
 
     // Búum til nýtt context menu (f. hægrismell)
     var cuztomContextMenu = "<!-- The second Menu(Special) --><ul class=context-menu id=special-menu><li><a href=javascript:contextZoomIn();>Þysja inn</a></li>";
@@ -1257,3 +1268,6 @@ function contextZoomOut()
 	map.zoomTo(zoomy);
 }
 
+
+
+</script>

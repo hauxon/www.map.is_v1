@@ -1,13 +1,12 @@
 div#RoutingDIV {
     background-color: White;
     font-size: 10px;
-    height: 140px;
     left: 0;
     opacity: 0.9;
     padding: 5px;
     position: absolute;
     top: 0;
-    width: 310px;
+    width: 275px;
     z-index: 1000;
 }
 
@@ -27,9 +26,9 @@ div#RoutingResultsDIV {
     top: 151px;
     height:503px;
     visibility: hidden;
-    width: 300px;
+    width: 270px;
     z-index: 1000;
-    overflow: auto;
+    overflow: visible;
 }
 
 
@@ -64,7 +63,7 @@ div#RoutingResultsDIV {
 	left:5px;
 	top:30px;
 	height:1px;
-	width:186px;
+	width:290px;
 }
 
 #vegvisun_divider2
@@ -73,7 +72,7 @@ div#RoutingResultsDIV {
 	left:5px;
 	top:116px;
 	height:1px;
-	width:186px;
+	width:290px;
 }
 
 #vegvisun_close_btn

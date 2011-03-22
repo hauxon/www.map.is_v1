@@ -21,7 +21,7 @@ a#sliderPanelBtn.open {
 	background: transparent url(../img/gui/hidepanel.png) no-repeat left center;
 	color: #FFFFFF;
 	top: 2px;
-	left:298px;
+	left:300px;
 	position: absolute;
 	width:20px;
 	height:16px;

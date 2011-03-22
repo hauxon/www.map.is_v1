@@ -10,7 +10,8 @@
 
 var map = null;
 var markers = null;
-
+// Öllum wfs layerum er bætt við þetta array sem síðan er bætt við client select gaurinn
+var client_select_wfs_arr = [];
 
 function initmap()
 {
@@ -55,7 +56,7 @@ function initmap()
 				//scales:[1700000,1000000,500000,250000,100000,50000,25000,10000,5000,2000,1000,500,250],
 				buffer:<?=$baseLayer->buffer?>});
 	
-	map.addLayer(<?=$baseLayer->layerName?>);
+	map.addLayers([<?=$baseLayer->layerName?>]);
 	
 <?php 
 	}
@@ -79,49 +80,15 @@ function initmap()
          'isBaseLayer': false,
          unsupportedBrowsers: []});
 
-	map.addLayer(<?=$layer->layerName?>);
-
+	map.addLayers([<?=$layer->layerName?>]);	        
+        
 <?php
 	}
         
-
-	// Load wfs layers into map
-	foreach ($config->xpath('//vectorlayer') as $vectorlayer)
-	{
-?>
-       /*
-	var tooltip_scales = new Array(1700000,1000000,500000,250000,100000,50000,25000,10000,5000,2000,1000,500,250); 
-	var tooltip_wfs = new OpenLayers.Layer.Vector("Tooltip2",
-				"proxies/queryWFS.asp?",
-				{
-                                    typename: 'landsnet:ln_lagnir_strengir,landsnet:ln_linur,landsnet:ln_tengivirki', 
-                                        maxfeatures: 200},
-				{
-                                    'displayInLayerSwitcher':false,
-                                    extractAttributes:true,
-                                    scales:tooltip_scales,
-                                    styleMap:styleMap
-                                });
-	common_layers.push(tooltip_wfs);
-	client_select_wfs_arr.push(tooltip_wfs);       
-      */
-        <?=$vectorlayer->styleMap?>      
-        var <?=$vectorlayer->layerName?>_scales = <?=$vectorlayer->layerScales?>;
-        var <?=$vectorlayer->layerName?>_wfs = new OpenLayers.Layer.<?=$vectorlayer->layerType?>("<?=$vectorlayer->layerTitle?> WFS",
-            "<?=$vectorlayer->url?>",
-            { typename: '<?=$vectorlayer->layerNames?>', maxfeatures: <?=$vectorlayer->maxFeatures?>},
-            { 'displayInLayerSwitcher':<?=$vectorlayer->displayInLayerSwitcher?>, 
-              extractAttributes: <?=$vectorlayer->visibility?>, scales:<?=$vectorlayer->layerName?>_scales, styleMap:<?=$vectorlayer->layerStyles?>});
-
-	map.addLayer(<?=$vectorlayer->layerName?>_wfs);
-
-        <?=$vectorlayer->layerName?>_wfs.setVisibility(<?=$vectorlayer->visibility?>);
-<?php
-	}        
 ?>
 
 	map.addControl(new OpenLayers.Control.LayerSwitcher());
-	map.zoomToMaxExtent();
+        map.zoomToMaxExtent();
 	
 	onAppResize();
 	map.updateSize();
@@ -132,17 +99,6 @@ function initmap()
         markers = new OpenLayers.Layer.Markers("Merki",{'displayInLayerSwitcher':false});
         map.addLayer(markers);
         
-        var ttoptions = {
-                hover: true,
-                onSelect: onClientSelectCallback,
-                onUnselect: onClientUnselectCallback,
-                clickFeature: onClientClickCallback	
-        }
-
-        select = new OpenLayers.Control.SelectFeature(skamyndir_wfs, ttoptions);
-        map.addControl(select);
-
-        select.activate();	        
  }
 
 function initAjax()
@@ -193,35 +149,12 @@ function sendSyncAJAXRequest(url)
 	//alert(xmlHttp.responseText);
 }
 
-function moveEndHandler(evt){
-}		
+/*function moveEndHandler(evt){
+}*/		
 
 function setBM( targetZoomLevel ){		
-    map.layers[0].params.LAYERS = theBM[targetZoomLevel];
+   // map.layers[0].params.LAYERS = theBM[targetZoomLevel];
 }		
-
-function onClientUnselectCallback(feature){
-    if( feature.layer.name == "Skámyndir WFS" ){
-            tb = document.getElementById("ToolTip")
-            tb.style.visibility="hidden";			
-    }
-}				
-function onClientClickCallback(feature){
-    if( feature.layer.name == "Skámyndir WFS" ){
-    }
-}
-function onClientSelectCallback(feature){
-    if( feature.layer.name == "Skámyndir WFS" ){
-            var ToolTip = document.getElementById("ToolTip");
-            ToolTip.innerHTML="<div id='ToolTipstart'></div><div id='ToolTipcontent'><div id='tipTxt'><a href='javascript:parent.changeParentUrl(\"http://www.loftmyndir.is/k/nordic_iframe.html\");'>þetta er linkur</a></div></div><div id='ToolTipend'></div>"; // +feature.attributes.nafn + 
-            ToolTip.style.visibility="visible";
-            var jimX = this.handlers.feature.feature.geometry.getCentroid().x;
-            var jimY = this.handlers.feature.feature.geometry.getCentroid().y;		
-            px = map.getViewPortPxFromLonLat(new OpenLayers.LonLat(jimX,jimY));		
-            ToolTip.style.left= new String((px.x + 5)+"px");
-            ToolTip.style.top= new String((px.y - 5)+"px");								
-    }
-}
 
 
 //LMzips -------------
