@@ -4,7 +4,7 @@
  */
 
 // Fyrir íslenzku stafina
-header('charset=iso-8859-1');
+header('charset=UTF-8');
 
 $url = "http://geoserver.loftmyndir.is/geoserver/ows?service=wfs&";	
 
@@ -34,7 +34,7 @@ $sendUrl = $url.$QueryString;
 //echo $sendUrl;
 //exit;
 
-header('Content-type: text/xml; charset=iso-8859-1');
+header('Content-type: text/xml; charset=UTF-8');
 
 $fp = fopen($sendUrl, 'r');
 $response = '';
