@@ -1,5 +1,16 @@
 <?php
-	// Opnum config XML
+/*
+ ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    Document    : skamyndir.js.php
+    Created on  : 1.3.2011, 16:38:20
+    Author      : jonas
+    Description : Used to style skamyndir.js.php component
+    Dependencies: Uses clientSelect component
+ 
+    Declares no global variables to be run
+ ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*/
+        // Opnum config XML
 	$myFile = "../config/config.xml";
 	$fh = fopen($myFile, 'r');
 	$config = new SimpleXMLElement(fread($fh, filesize($myFile)));
@@ -13,19 +24,7 @@ function skalaflokkur(scale, flokkur)
 }
 
 function initSkamyndir()
-{
-	var tooltipflexpopup = '<div id="ToolTipFlex"><div id="ToolTipFlexContent"></div><a id="fancy_close"  onclick="var tb = document.getElementById( \'ToolTipFlex\' );tb.style.visibility =\'hidden\'"></a></div>';
-        
-	$j("body").append(tooltipflexpopup);
-	
-	map.events.register("moveend", map, function moveEndHandler(e) {
-		//tbs = document.getElementById("ToolTipFlex");
-		//if( tbs  != null )
-		//	tbs.style.visibility = "hidden";
-		
-		});  // "moveend":moveEndHandler	
-
-		
+{		
 	$j("body").append('<div id="hidden_clicker_previous" style="display:none"><a class="skamyndir" id="hiddenclickerprevious" href="http://asdf.com" rel="gallery">Hidden Previos Clicker</a></div>');
 	$j("body").append('<div id="hidden_clicker" style="display:none"><a class="skamyndir" id="hiddenclicker" href="http://asdf.com"  rel="gallery" >Hidden Next Clicker</a></div>');
 	$j("body").append('<div id="hidden_clicker_next" style="display:none"><a class="skamyndir" id="hiddenclickernext" href="http://asdf.com" rel="gallery">Hidden Clicker</a></div>');
@@ -108,36 +107,23 @@ function initSkamyndir()
 			alert("Ekki fleiri myndir til að skoða hér, flettu í hina áttina.");
 		}
 		
-	};	*/	
-		
-	/**VisibilityChanged events* /
-	myndir.events.register("visibilitychanged", this, function(){ 
-		if(myndir.getVisibility()) 
-		{		
-			getLayerByName("Skámyndir WFS").setVisibility(true);
-		}
-		else
-		{
-			getLayerByName("Skámyndir WFS").setVisibility(false);
-		}
-	});	*/	                
+	};	*/		                
         
 <?php
-	// Load wfs layers into map
+    // Load wfs layer into map
     foreach ($config->xpath('//vectorlayer') as $vectorlayer)
     {              
         if( $vectorlayer->layerName == "skamyndir" )
         {
-            //include '../comp/' . $vectorlayer->styleMap->componentFileName;
 ?>
-    var the_Scales = new Array();
-    the_Scales['Flokkur1'] = new skalaflokkur(2700000, 1);		//1700000
-    the_Scales['Flokkur2'] = new skalaflokkur(260000, 2);		//665000
-    the_Scales['Flokkur3'] = new skalaflokkur(100000, 3);		//133000
-    the_Scales['Flokkur4'] = new skalaflokkur(66500, 4);		//66500
-    the_Scales['Flokkur5'] = new skalaflokkur(66500, 5);		//33500
+    var the_Scales_<?=$vectorlayer->layerName?> = new Array();
+    the_Scales_<?=$vectorlayer->layerName?>['Flokkur1'] = new skalaflokkur(2700000, 1);		//1700000
+    the_Scales_<?=$vectorlayer->layerName?>['Flokkur2'] = new skalaflokkur(260000, 2);		//665000
+    the_Scales_<?=$vectorlayer->layerName?>['Flokkur3'] = new skalaflokkur(100000, 3);		//133000
+    the_Scales_<?=$vectorlayer->layerName?>['Flokkur4'] = new skalaflokkur(66500, 4);		//66500
+    the_Scales_<?=$vectorlayer->layerName?>['Flokkur5'] = new skalaflokkur(66500, 5);		//33500
 
-    var defaultStyle = new OpenLayers.Style({ 'fillColor':'white',
+    var defaultStyle_<?=$vectorlayer->layerName?> = new OpenLayers.Style({ 'fillColor':'white',
                             'strokeColor': 'white',
                             //'strokeWidth': 5,
                             'strokeWidth': 1,
@@ -148,7 +134,7 @@ function initSkamyndir()
                             //'pointRadius':15
                             //'pointRadius':5	
                             'pointRadius':3});
-    var selectStyle = new OpenLayers.Style({	
+    var selectStyle_<?=$vectorlayer->layerName?> = new OpenLayers.Style({	
                             'fillColor':'blue',
                             'strokeColor':'white',
                             'strokeWidth': 8,
@@ -160,43 +146,37 @@ function initSkamyndir()
                             'pointRadius':8,
                             //'pointRadius':30,
                             'cursor': 'pointer'});
-                            
-	/*var selectStyle = new OpenLayers.Style({
-                        'fillOpacity':1,
-                        'strokeOpacity': 1,        
-			pointRadius: 30,
-			externalGraphic: "http://3w.loftmyndir.is/images/stories/starfsfolk/gissurmynd.jpg"
-		});*/  
+                             
     //---- Factory to generate rules for the style --
-    var the_Rule;
-    for ( var i in the_Scales )
+   /* var the_Rule_<?=$vectorlayer->layerName?>;
+    for ( var i in the_Scales_<?=$vectorlayer->layerName?> )
     {
-            if( the_Scales[i].flokkur ) // tékkar á hvort gildi er til staðar 
+            if( the_Scales_<?=$vectorlayer->layerName?>[i].flokkur ) // tékkar á hvort gildi er til staðar 
             {
-                    the_Rule = new OpenLayers.Rule({
+                    the_Rule_<?=$vectorlayer->layerName?> = new OpenLayers.Rule({
                       filter: new OpenLayers.Filter.Comparison({
                           type: OpenLayers.Filter.Comparison.EQUAL_TO,
                           property: "flokkur",
-                          value: the_Scales[i].flokkur
-                      }), maxScaleDenominator:the_Scales[i].scale
+                          value: the_Scales_<?=$vectorlayer->layerName?>[i].flokkur
+                      }), maxScaleDenominator:the_Scales_<?=$vectorlayer->layerName?>[i].scale
                     });
 
-                    selectStyle.addRules([the_Rule]); // Bæti reglunni við select stælinn
-                    defaultStyle.addRules([the_Rule]); // Bæti reglunni við default stælinn
+                    selectStyle_<?=$vectorlayer->layerName?>.addRules([the_Rule_<?=$vectorlayer->layerName?>]); // Bæti reglunni við select stælinn
+                    defaultStyle_<?=$vectorlayer->layerName?>.addRules([the_Rule_<?=$vectorlayer->layerName?>]); // Bæti reglunni við default stælinn
             }
-    }
+    }*/
     // --- Style factory ends ---------------------------
-    var styleMap_skamyndir = new OpenLayers.StyleMap();
+    var styleMap_<?=$vectorlayer->layerName?> = new OpenLayers.StyleMap();
 
-    styleMap_skamyndir.styles["default"] = defaultStyle;
-    styleMap_skamyndir.styles["select"] = selectStyle;            
+    styleMap_<?=$vectorlayer->layerName?>.styles["default"] = defaultStyle_<?=$vectorlayer->layerName?>;
+    styleMap_<?=$vectorlayer->layerName?>.styles["select"] = selectStyle_<?=$vectorlayer->layerName?>;            
 
     var <?=$vectorlayer->layerName?>_scales = <?=$vectorlayer->layerScales?>;
     var <?=$vectorlayer->layerName?>_wfs = new OpenLayers.Layer.<?=$vectorlayer->layerType?>("<?=$vectorlayer->layerTitle?> WFS",
         "<?=$vectorlayer->url?>",
         { typename: '<?=$vectorlayer->layerNames?>', maxfeatures: <?=$vectorlayer->maxFeatures?>},
         { 'displayInLayerSwitcher':<?=$vectorlayer->displayInLayerSwitcher?>, 
-          extractAttributes: <?=$vectorlayer->visibility?>, scales:<?=$vectorlayer->layerName?>_scales, styleMap:styleMap_<?=$vectorlayer->layerName?>});
+          extractAttributes: <?=$vectorlayer->extractAttributes?>, scales:<?=$vectorlayer->layerName?>_scales, styleMap:styleMap_<?=$vectorlayer->layerName?>});
 
     map.addLayers([<?=$vectorlayer->layerName?>_wfs]);
     client_select_wfs_arr.push(<?=$vectorlayer->layerName?>_wfs);
@@ -272,112 +252,6 @@ function callFancybox()
 		getClickedNextPrevFeatures( "Skámyndir WFS", "timestamp", storedFeature.attributes.timestamp );
 		setClickedNextPrevLinks( "escaped_im" );		
 		$j('#hiddenclicker').trigger('click');
-}
-
-function onFeatureClickClientCallback(feature)
-{	
-	Offsetheight = 0;
-	storedFeature = feature.clone();
-	storedTooltipFeature = feature.clone();
-	var ToolTipFlex = document.getElementById("ToolTipFlex");
-	var ToolTipFlexContent = document.getElementById("ToolTipFlexContent");	
-	
-	sHtml  = "<table border='0' cellspacing='0' cellpadding='0'><tr id='top'><td id='starttop'></td><td id='middletop'></td><td id='endtop'></td></tr><tr id='middle'><td id='startmiddle'></td><td id='middlemiddle'>";
-	
-	if(feature.layer.name == "Skámyndir WFS"){
-		Offsetheight = 185;
-		if( feature.attributes.onlinepath != null || feature.attributes.onlinepath != ""  ){
-			sHtml += '<a href="#" onclick="callFancybox();"><img height="180" width="240" alt="' + feature.attributes.timestamp + '" src="http://www.loftmyndir.is/teikningar/skamyndir/medium/skamyndir' + feature.attributes.onlinepath + '.jpg" /></a><br />';
-		}
-	}
-	
-	if(feature.layer.name == "Vefmyndavélar WFS"){
-		if( feature.attributes.eigandi == "Vegagerðin"){
-			Offsetheight = 215;
-			sHtml += feature.attributes.eigandi + " - " + feature.attributes.stadur + "<br />"; 
-			sHtml += '<a data-refresh="0" href="' + feature.attributes.slod + '"><img height="180px" width="240px" alt="' + feature.attributes.voktun + '" src="' + feature.attributes.slod + '.jpg" /></a><br />';
-			sHtml += "<span style=\"white-space: nowrap;\"><a target=\"_blank\" href=\"" + feature.attributes.slod + "\">" + feature.attributes.voktun + "</a></span><br />"; 
-			if( feature.attributes.ath != null && feature.attributes.ath != "" && feature.attributes.ath != "''"){				
-				sHtml += "<span style='white-space: nowrap;'>" + feature.attributes.ath + "</span>";
-			}
-		}
-		else if( feature.attributes.eigandi == "RÚV" ){
-			Offsetheight = 240;
-			sHtml += feature.attributes.eigandi + " - " + feature.attributes.stadur + "<br />"; 
-			sHtml += '<a data-refresh="0" target=\"_blank\" href="' + feature.attributes.slod + '">';
-			
-			sHtml += '<object width="240px" height="210px" type="application/x-oleobject" classid="CLSID:6BF52A52-394A-11d3-B153-00C04F79FAA6" id="VIDEO">';
-			sHtml += '<param value="mms://213.167.158.211/katla/" name="URL">';
-			sHtml += '<param value="True" name="SendPlayStateChangeEvents">';
-			sHtml += '<param value="True" name="AutoStart">';
-			sHtml += '<param value="full" name="uiMode">';
-			sHtml += '<param value="1" name="PlayCount">';
-			sHtml += '<embed width="240px" height="210px" autostart="true" name="MediaPlayer" src="mms://213.167.158.211/katla/" pluginspage="http://www.microsoft.com/Windows/MediaPlayer/" type="application/x-mplayer2">';
-			sHtml += '</object>';
-			
-			sHtml += '</a><br />';
-			sHtml += "<span style=\"white-space: nowrap;\"><a target=\"_blank\" href=\"" + feature.attributes.slod + "\">" + feature.attributes.voktun + "</a></span><br />"; 
-			if( feature.attributes.ath != null && feature.attributes.ath != "" && feature.attributes.ath != "''"){				
-				sHtml += "<span style='white-space: nowrap;'>" + feature.attributes.ath + "</span>";
-			}			
-		}	
-		else if( feature.attributes.eigandi == "Harpa Tónlistar og ráðstefnuhúsið í Reykjavik" ){
-			Offsetheight = 215;
-			sHtml += feature.attributes.eigandi + " - " + feature.attributes.stadur + "<br />"; 
-			sHtml += '<a data-refresh="0" target=\"_blank\" href="' + feature.attributes.slod + '">';
-			
-			sHtml += '<img width="240px" height="180px" alt="Camera Image" src="http://harpa-cam.eplica.is/axis-cgi/mjpg/video.cgi?resolution=4CIF&amp;camera=1&amp;dummy=1297951651860">';
-			
-			sHtml += '</a><br />';
-			sHtml += "<span style=\"white-space: nowrap;\"><a target=\"_blank\" href=\"" + feature.attributes.slod + "\">" + feature.attributes.voktun + "</a></span><br />"; 
-			if( feature.attributes.ath != null && feature.attributes.ath != "" && feature.attributes.ath != "''")
-			{				
-				sHtml += "<span style='white-space: nowrap;'>" + feature.attributes.ath + "</span>";
-			}			
-		}		
-		else{
-			Offsetheight = 40;
-			sHtml += feature.attributes.eigandi + " - " + feature.attributes.stadur + "<br />"; 
-			sHtml += '<a data-refresh="0" target=\"_blank\" href="' + feature.attributes.slod + '">Skoða vefmyndavél</a><br />';
-			sHtml += "<span style=\"white-space: nowrap;\"><a target=\"_blank\" href=\"" + feature.attributes.slod + "\">" + feature.attributes.voktun + "</a></span><br />"; 
-			if( feature.attributes.ath != null && feature.attributes.ath != "" && feature.attributes.ath != "''")
-			{				
-				sHtml += "<span style='white-space: nowrap;'>" + feature.attributes.ath + "</span>";
-			}			
-		}
-	}
-	
-		/* if( feature.attributes.eigandi == "Verkfræðistofan Vista" )
-			{
-				strHtmlContents += feature.attributes.eigandi + " - " + feature.attributes.stadur + "<br />"; 
-				strHtmlContents += '<a data-refresh="0" target=\"_blank\" href="' + feature.attributes.slod + '">';
-				strHtmlContents += '<iframe scrolling="no" height="180" width="240" noresize="" marginheight="0" marginwidth="0" src="http://194.144.19.40/popup.html" target="main" name="contents"></iframe>';
-				//strHtmlContents += '<img width="184" height="138" alt="Camera Image" src="http://harpa-cam.eplica.is/axis-cgi/mjpg/video.cgi?resolution=4CIF&amp;camera=1&amp;dummy=1297951651860">';
-				
-				strHtmlContents += '</a><br />';
-				strHtmlContents += "<span style=\"white-space: nowrap;\"><a target=\"_blank\" href=\"" + feature.attributes.slod + "\">" + feature.attributes.voktun + "</a></span><br />"; 
-				if( feature.attributes.ath != null && feature.attributes.ath != "" && feature.attributes.ath != "''")
-				{				
-					strHtmlContents += "<span style='white-space: nowrap;'>" + feature.attributes.ath + "</span>";
-				}			
-			}	*/	
-	
-	sHtml += "</td><td id='endmiddle'></td></tr><tr id='bottom'><td id='startbottom'></td><td id='middlebottom'><div id='popout_l_b'></div></td><td id='endbottom'></td></tr></table>";				
-	
-	ToolTipFlexContent.innerHTML = sHtml;
-	
-	var px = map.getPixelFromLonLat(feature.geometry.getBounds().getCenterLonLat())
-	
-	storedTooltipFeatureLonLat = feature.geometry.getBounds().getCenterLonLat();
-	
-	ToolTipOffsetX = 5;  
-	ToolTipOffsetY = Offsetheight;
-	
-	ToolTipFlex.style.left = (px.x - 5) + "px";  
-	//ToolTipFlex.style.top = (px.y- 25) + "px";   		
-	ToolTipFlex.style.top = (px.y- Offsetheight) + "px";     		
-	
-	ToolTipFlex.style.visibility = "visible";	
 }
 
 /*function moveTooltip()
@@ -477,4 +351,43 @@ function callBoxFancy(my_href, my_previous_href, my_next_href) {
 	jnext1.href = my_next_href;	
 	
 	//$j('#hiddenclicker').trigger('click');
+}
+
+
+
+
+
+function onSkamyndirUnselectCallback(feature){
+        tb = document.getElementById("ToolTipFlex")
+        tb.style.visibility="hidden";			
+}				
+function onSkamyndirClickCallback(feature, ix, iy){
+	Offsetheight = 0;
+	storedFeature = feature.clone();
+	storedTooltipFeature = feature.clone();
+	var ToolTipFlex = document.getElementById("ToolTipFlex");
+        var sHtml = "<div style='line-height:1px'>";
+	
+        Offsetheight = 185;
+        if( feature.attributes.onlinepath != null || feature.attributes.onlinepath != ""  ){
+                sHtml += '<a href="#" onclick="callFancybox();tb=document.getElementById(\'ToolTipFlex\');tb.style.visibility=\'hidden\';"><img height="180" width="240" alt="' + feature.attributes.timestamp + '" src="http://www.loftmyndir.is/teikningar/skamyndir/medium/skamyndir' + feature.attributes.onlinepath + '.jpg" /></a><br />';
+        }
+        sHtml += "</div>";
+        $j("#ToolTipFlexText").html(sHtml);
+	
+	var px = map.getPixelFromLonLat(feature.geometry.getBounds().getCenterLonLat())
+	
+	storedTooltipFeatureLonLat = feature.geometry.getBounds().getCenterLonLat();
+	
+	ToolTipOffsetX = 5;  
+	ToolTipOffsetY = Offsetheight;
+	
+	ToolTipFlex.style.left = (px.x - 5) + "px";  
+	//ToolTipFlex.style.top = (px.y- 25) + "px";   		
+	ToolTipFlex.style.top = (px.y- Offsetheight) + "px";     		
+	
+	ToolTipFlex.style.visibility = "visible";	    
+}
+function onSkamyndirSelectCallback(feature, ix, iy){
+    
 }
