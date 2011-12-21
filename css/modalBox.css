@@ -1,0 +1,25 @@
+/* Z-index of #mask must lower than #boxes .window */
+#modalmask {
+  position:absolute;
+  z-index:9000;
+  background-color:#000;
+  display:none;
+  top:0px;
+}
+   
+#modalboxes .modalwindow {
+  position:absolute;
+  /*width:440px;
+  height:200px;*/
+  display:none;
+  z-index:9999;
+  padding:20px;
+}
+ 
+ 
+/* Customize your modal window here, you can add background image too */
+#modalboxes #modaldialog {
+  /*width:375px;*/
+  /*width:375px;
+  height:203px;*/
+}

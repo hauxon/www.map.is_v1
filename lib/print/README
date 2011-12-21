@@ -1,0 +1,183 @@
+HTML_ToPDF 
+Version 3.4
+http://www.rustyparts.com/pdf.php
+
+What is HTML_ToPDF?
+-------------------
+
+HTML_ToPDF is a PHP class that makes it easy to convert HTML documents to PDF
+files on the fly.  HTML_ToPDF grew out of the need to convert HTML files (which
+are easy to create) to PDF files (which are not so easy to create) fast and
+easily.  It has the following features: 
+
+* The ability to convert images in the webpage to images embedded in the PDF.
+  The script tries to convert relative image paths in to absolute ones as well.
+
+* The ability to use the CSS in the HTML file in the creation of the PDF.  This
+  includes remote CSS files as well.
+
+* The ability to convert remote files
+
+* The ability to convert links into embedded clickable links in the PDF file.
+
+* The ability to scale the HTML page.
+
+* Easy setting of any of these options through the methods of the class.
+
+* Tries to fix quirks in html pages which break html2ps.
+
+* Works on both Unix/Linux and Windows.
+
+What is PDFEncryptor?
+---------------------
+
+PDFEncryptor is a helper class that comes with this package.  It is also a
+wrapper for a couple of free java libraries that allow you to digitally sign
+and protect the PDFs you create by adding a password, permissions (such as
+printing and copying rights), and meta-data such as the Keywords and Author.
+
+Obtaining HTML_ToPDF 
+--------------------
+
+Further information on HTML_ToPDF and the latest version can be obtained at
+
+  http://www.rustyparts.com/pdf.php
+
+Installation
+------------
+
+There is no real installation other than requiring the file.  See the
+examples directory for help in how to use the class.  However, you do need to
+make sure that whatever directory the PDF files are going to be created in is
+writable by the user the webserver runs as.  Also note you need to install the
+programs below.
+
+Requirements
+------------
+
+* PHP: Version 4.0.4 or greater (http://www.php.net). 
+
+* html2ps: Does the initial conversion of html to a postscript file, and
+  thus is the most crucial part of the conversion.  More information
+  about it is here: http://www.tdb.uu.se/~jan/html2ps.html You will
+  especially want to read the user's guide here:
+  http://www.tdb.uu.se/~jan/html2psug.html if this script is not making
+  the pdf look like you want.
+
+* ps2pdf: This comes with the Ghostscript package, and can be found
+  here: http://www.cs.wisc.edu/~ghost/ This package is normally
+  installed as an RPM on RedHat systems, so if you're using that OS you
+  shouldn't have to worry.  There is a windows install for this as well.
+
+* curl: Or some program that grabs documents off the web (lynx, w3m,
+  etc.).  HOWEVER, for whatever reason only curl has worked in my tests
+  when the script page is running as a web script and not just a script
+  from the command line.  Curl can be found here: http://curl.haxx.se/
+
+* Valid HTML: Good HTML (XHTML is best) definitely helps.
+
+* PDFEncryptor needs java (http://java.sun.com) and the iText jar file 
+  (http://itext.sourceforge.net/downloads/)
+
+Included Files
+--------------
+
+The following files are available in the HTML_ToPDF distribution:
+
+README                - This file
+CHANGES               - The list of changes
+examples/             - Several example files to aid you on your way 
+docs/                 - Class documentation (in HTML)
+lib/                  - Where some of the encryption libraries live
+
+Common Problems
+---------------
+
+* How do I make this stupid thing work under windows?!
+It took me many headaches to figure out, but here is what I came up with, YMMV:
+    - Make sure you install the windows version of all the programs above
+      (ghostscript, ImageMagick, curl, etc.)
+
+    - html2ps requires a bit more work to get working than the other programs.
+      Follow these steps to get it working:
+        * Install ActivePerl (http://www.activestate.com/)
+        * Download html2ps from http://user.it.uu.se/~jan/html2ps.html
+        * Extract all the files to c:\html2ps
+        * Create a file named html2psrc in c:\html2ps with this in it:
+        @html2ps {
+          package {
+            ImageMagick: 1;
+          }
+          hyphenation {
+            en {
+              file: "c:\html2ps\hyphen.tex";
+            }
+          }
+        }
+        * Open up the html2ps file in c:\html2ps folder with a decent text
+          editor (i.e. VIM, not notepad!) and make the following changes:
+
+          Change line 22 (or thereabouts) to:
+          $globrc='c:\html2ps\html2psrc';
+
+          After this line (around 497):
+          ($scr=$tmpname)=~/\w+$/;
+          Add this:
+          $scr='c:\html2ps\scratch';
+
+          Change line 3582 (or thereabouts) from:
+          $_[1]=`$geturl '$url'`;
+          to:
+          $_[1]=`$geturl $url`;
+       
+       * If it is having trouble converting pngs try adding this line to your
+         conversion script: 
+         $pdf->addHtml2PsSettings('package { libwww-perl: 1;  }');
+
+    - If you use IIS, make sure you give the IUSR_xxxx user read, write (this
+      is important), and exec permissions to the cmd.exe program in the
+      system32 folder in your Windows system directory.
+
+    - Put the following in your script (modify the paths to fit your
+      installation, though) after instantiating the $pdf variable:
+        $pdf->setHtml2Ps('perl c:\html2ps\html2ps');
+        $pdf->setPs2Pdf('c:\Program Files\gs\gs8.52\bin\gswin32c.exe');
+        $pdf->setTmpDir('\temp');
+        $pdf->setGetUrl('c:\PHP\curl.exe -i -s');
+
+    - You won't get any error output, so if it's not working, run each command
+      (you can see this by turning debugging on -- $pdf->setDebug(true) ) from
+      the command prompt to find out the problem.
+
+* No files are created.
+    - Likely the problem is due to a lack of permissions.  Either the tmp
+      directory that HTML_ToPDF uses for intermediary files is not writable by
+      the webserver or the output directory for the PDF file is not writable by
+      the webserver.  Possible fixes are:
+      // Change the tmp directory
+      $pdf->setTmpDir('/somewhere/writable');
+      // Change the directory permissions
+      bash# chmod 777 www/pdfs; chown apache www/pdfs
+
+* The images don't show up.
+    - Often the program getting the images (i.e. curl) is having a problem.
+      These errors can usually be seen if the program is run from the command
+      line.
+
+* ps2pdf fails with error code 127
+    - The problem is that the ps2pdf shell script does not have the path to the
+      'gs' executable.  Look in the ps2pdf and see where it points to (usually
+      it executes ps2pdf12 which in turn executes ps2pdfwr).  Once your in the
+      file that actually does something, you will see this line at the bottom
+      of the file:
+      exec gs $OPTIONS...
+      Change that to:
+      exec /path/to/gs $OPTIONS...
+
+License
+-------
+Both HTML_ToPDF.php and PDFEncryptor are under version 3 of the PHP license.
+
+Credits
+-------
+Thanks to Jack Utano (http://tnloghomes.com) for funding development of ver. 3.0

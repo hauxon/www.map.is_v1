@@ -4,11 +4,14 @@
  */
 
 // Fyrir íslenzku stafina
-header('Content-type: text/xml; charset=iso-8859-1');
+
+//header('Content-type: text/xml; charset=UTF-8');
 
 
 $sKey = $_GET['sKey'];
 $sValue =  $_GET['sValue'];
+//$sValue =  iconv("UTF-8","ISO-8859-1", $sValue);
+//$sValue = iconv("Windows-1252","Windows-1252", $_GET['sValue']);
 $nCounty = ""; // LAGA SEINNA $_GET['nCounty'];
 $theDB = "";
 $sqlstring = getSQL($sKey, urldecode($sValue),$nCounty );
@@ -49,7 +52,7 @@ function getSQL($key, $searchValue,$sveitarfelag)
             break;
         }
 
-        
+        //echo $sqlStr;
         return $sqlStr;
 }
 ?>

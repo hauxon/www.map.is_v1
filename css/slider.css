@@ -1,0 +1,313 @@
+/* Færa PanZoomBar til hægri */
+/*
+Þarf að vera framar virkar í routing.css - er væntanlega út af layerswitcher inputClick
+
+div#RoutingDIV {
+    background-color: White;
+    font-size: 10px;
+    left: 0;
+    opacity: 0.9;
+    padding: 5px;
+    position: absolute;
+    top: 0;
+    width: 275px;
+    z-index: 1000;
+}
+
+
+
+div#rResultsHtml
+{
+}
+
+div#RoutingResultsDIV {
+    background-color: white;
+    font-size: 10px;
+    left: 10px;
+    opacity: 0.9;
+    padding: 5px;
+    position: absolute;
+    top: 151px;
+
+    visibility: hidden;
+    width: 320px;
+    z-index: 1000;
+    overflow: visible;
+}
+
+#vegvisun_header_logo
+{
+	position:absolute;
+	left:5px;
+	top:2px;
+}
+
+#headerText
+{
+	position:absolute;
+	left:29px;
+	top:8px;
+	font-size:18px;
+	color:#3c4758;
+	font-weight:bold;
+        color: #003a6b
+}
+
+#vegvisun_divider1
+{
+	position:absolute;
+	left:5px;
+	top:30px;
+	height:1px;
+	width:320px;
+}
+
+#vegvisun_divider2
+{
+	position:absolute;
+	left:5px;
+	top:116px;
+	height:1px;
+	width:320px;
+}
+
+#vegvisun_close_btn
+{
+	position:absolute;
+	left:181px;
+	top:5px;
+}
+
+#routing_from_addr
+{
+	position:absolute;
+	left:30px;
+	top:45px;
+	width:280px;
+	height:12px;
+	font-size:9px;
+}
+
+#fromtext
+{
+	position:absolute;
+	left:30px;
+	top:34px;
+	font-size:9px;
+	color:#3c4758;
+}
+
+#totext
+{
+	position:absolute;
+	left:30px;
+	top:74px;
+	font-size:9px;
+	color:#3c4758;
+}
+
+#routing_to_addr
+{
+	position:absolute;
+	left:30px;
+	top:85px;
+	width:280px;
+	height:12px;
+	font-size:9px;
+}
+
+#vegvisun_A
+{
+	position:absolute;
+	left:5px;
+	top:37px;
+}
+
+#vegvisun_B
+{
+	position:absolute;
+	left:5px;
+	top:78px;
+}
+
+#routing_from_city
+{
+	position:absolute;
+	left:30px;
+	top:120px;
+	width:280px;
+	height:18px;
+	font-size:9px;
+}
+
+#routing_to_city
+{
+	position:absolute;
+	left:30px;
+	top:150px;
+	width:280px;
+	height:18px;
+	font-size:9px;
+}
+
+#routing_button
+{
+	position:absolute;
+	left:245px;
+	top:124px;
+	width:70px;
+	font-size:9px;
+}
+
+#cityFromText
+{
+	position:absolute;
+	left:30px;
+	top:109px;
+	font-size:9px;
+	color:#3c4758;
+}
+
+#cityToText
+{
+	position:absolute;
+	left:30px;
+	top:139px;
+	font-size:9px;
+	color:#3c4758;
+}
+
+
+.moo-search-address p{
+    color:#666;
+    line-height:13px;
+    padding:2px 0 0 35px
+}
+.place-index-icon{
+    background-image:url('../img/routing/places_sprite_ovi.png');
+    background-repeat:no-repeat;
+    height:33px;
+    width:30px;
+}
+.place-name{
+    color:#333;
+    display:block;
+    float:left;
+    font-size:14px;
+    font-weight:bold;
+    margin:1px 0 5px;
+    width:185px
+}
+.place-index-icon-1{background-position:0 -33px}
+.place-index-icon-1.hover{background-position:-30px -33px}
+.place-index-icon-2{background-position:0 -264px}
+.place-index-icon-2.hover{background-position:-30px -264px}
+.place-index-icon-3{background-position:0 -297px}
+.place-index-icon-3.hover{background-position:-30px -297px}
+.place-index-icon-4{background-position:0 -330px}
+.place-index-icon-4.hover{background-position:-30px -330px}
+.place-index-icon-5{background-position:0 -363px}
+.place-index-icon-5.hover{background-position:-30px -363px}
+.place-index-icon-6{background-position:0 -396px}
+.place-index-icon-6.hover{background-position:-30px -396px}
+.place-index-icon-7{background-position:0 -429px}
+.place-index-icon-7.hover{background-position:-30px -429px}
+.place-index-icon-8{background-position:0 -462px}
+.place-index-icon-8.hover{background-position:-30px -462px}
+.place-index-icon-9{background-position:0 -495px}
+.place-index-icon-9.hover{background-position:-30px -495px}
+.place-index-icon-10{background-position:0 -66px}
+.place-index-icon-10.hover{background-position:-30px -66px}
+.place-index-icon-11{background-position:0 -99px}
+.place-index-icon-11.hover{background-position:-30px -99px}
+.place-index-icon-12{background-position:0 -132px}
+.place-index-icon-12.hover{background-position:-30px -132px}
+.place-index-icon-13{background-position:0 -165px}
+.place-index-icon-13.hover{background-position:-30px -165px}
+.place-index-icon-14{background-position:0 -198px}
+.place-index-icon-14.hover{background-position:-30px -198px}
+.place-index-icon-15{background-position:0 -231px}
+.place-index-icon-15.hover{background-position:-30px -231px}
+
+.moo-search-place-list-player {
+    border-bottom: 1px solid #EEEEEE;
+    margin-left: 20px;
+    margin-right: 12px;
+    padding-bottom: 20px;
+    padding-top: 15px;
+}
+.moo-search-place-list-player .moosearch-content {
+    float: left;
+    width: 225px;
+}
+
+
+#searchResultPanel{
+    width:100%;
+}
+
+
+.searchResultBox{
+    position: relative;
+    left: 0px;
+    }
+.searchResultNumberDropHolder{
+    height: 50px;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    width: 33px;
+}
+
+.searchResultNumberDrop{
+    position: relative;
+    left: 0px;
+    top: 0px;
+}
+
+.searchResultBoxTextContainer{
+    position: relative;
+    left: 34px;
+    top: 0px;
+}
+
+.searchResultHeaderText{
+    position: relative;
+    left: 27px;
+    top: -16px;
+    font-weight: bold;
+    font-size: 11pt;
+    width: 230px;
+}
+.searchResultContent {
+    font-size: 8pt;
+    left: 5px;
+    position: relative;
+    top: -16px;
+    width: 230px;
+}
+
+.ui-accordion-content{
+    padding-left: 20px;
+}
+
+
+.searchResultTypeIceon {
+    height: 17px;
+    width:25px;
+    left: 0px;
+    position: relative;
+    top: 0px;
+}
+
+
+.s_result_icon{
+    background-image:url('../img/gui/poi_search_result_sprite.gif');
+    background-repeat:no-repeat;
+    height:17px;
+    width:25px;
+}
+.s_result_icon_restaurant{background-position:-169px 0px}
+.s_result_icon_ornefni{background-position:-576px 0px}
+.s_result_icon_postfang{background-position:-576px -19px}
+*/

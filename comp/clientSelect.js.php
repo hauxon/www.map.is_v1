@@ -4,14 +4,14 @@
     Document    : clientSelect.js.php
     Created on  : 1.3.2011, 16:38:20
     Author      : jonas
-    Description : Used to create openlayers client select
+    Description : Used to create openlayers clientselect control
     Dependencies: Needs to be run before all wfs components
  
-    Declares no global variables to be run. Declared in kortasja.js.php
+    Global variables client_select_wfs_arr and client_select are declared in kortasja.js.php
  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 */
         // Opnum config XML
-	$myFile = "../config/config.xml";
+	$myFile = "../xml/config.xml";
 	$fh = fopen($myFile, 'r');
 	$config = new SimpleXMLElement(fread($fh, filesize($myFile)));
 	fclose($fh);
@@ -26,10 +26,10 @@ function initClientSelect()
                 onUnselect: onClientUnselectCallback,
                 clickFeature: onClientClickCallback	
         }        
-        the_select = new OpenLayers.Control.SelectFeature(client_select_wfs_arr, ttoptions);
-        map.addControl(the_select);
-        the_select.hover = true;
-        the_select.activate();	        
+        client_select = new OpenLayers.Control.SelectFeature(client_select_wfs_arr, ttoptions);
+        map.addControl(client_select);
+        client_select.hover = true;
+        client_select.activate();	        
     }
 }      
 

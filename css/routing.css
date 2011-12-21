@@ -1,11 +1,10 @@
 div#RoutingDIV {
-    background-color: White;
     font-size: 10px;
     left: 0;
     opacity: 0.9;
     padding: 5px;
     position: absolute;
-    top: 0;
+    top: -19px;
     width: 275px;
     z-index: 1000;
 }
@@ -23,20 +22,17 @@ div#RoutingResultsDIV {
     opacity: 0.9;
     padding: 5px;
     position: absolute;
-    top: 151px;
-    height:503px;
+    top: 156px;
+    /*height:503px;*/
     visibility: hidden;
-    width: 270px;
+    width: 310px;
     z-index: 1000;
     overflow: visible;
 }
 
-
-/* Færa PanZoomBar til hægri */
-.LM_PanZoomBarContainer
+div#RoutingResultsDIV img
 {
-	left:215px;
-	top:8px;
+    display: inline;
 }
 
 #vegvisun_header_logo
@@ -60,19 +56,19 @@ div#RoutingResultsDIV {
 #vegvisun_divider1
 {
 	position:absolute;
-	left:5px;
+	left:10px;
 	top:30px;
 	height:1px;
-	width:290px;
+	width:315px;
 }
 
 #vegvisun_divider2
 {
 	position:absolute;
-	left:5px;
-	top:116px;
+	left:10px;
+	top:129px;
 	height:1px;
-	width:290px;
+	width:315px;
 }
 
 #vegvisun_close_btn
@@ -82,56 +78,52 @@ div#RoutingResultsDIV {
 	top:5px;
 }
 
-#routing_from_addr
-{
-	position:absolute;
-	left:30px;
-	top:45px;
-	width:250px;
-	height:12px;
-	font-size:9px;
+#routing_from_addr {
+    font-size: 10pt;
+    height: 20px;
+    left: 40px;
+    position: absolute;
+    top: 50px;
+    width: 280px;
 }
 
-#fromtext
-{
-	position:absolute;
-	left:30px;
-	top:34px;
-	font-size:9px;
-	color:#3c4758;
+#fromtext {
+    color: #3C4758;
+    font-size: 8pt;
+    left: 40px;
+    position: absolute;
+    top: 36px;
 }
 
-#totext
-{
-	position:absolute;
-	left:30px;
-	top:74px;
-	font-size:9px;
-	color:#3c4758;
+#totext {
+    color: #3C4758;
+    font-size: 8pt;
+    left: 40px;
+    position: absolute;
+    top: 82px;
 }
 
-#routing_to_addr
-{
-	position:absolute;
-	left:30px;
-	top:85px;
-	width:250px;
-	height:12px;
-	font-size:9px;
+#routing_to_addr {
+    font-size: 10pt;
+    height: 20px;
+    left: 40px;
+    position: absolute;
+    top: 96px;
+    width: 280px;
 }
 
 #vegvisun_A
 {
 	position:absolute;
 	left:5px;
-	top:37px;
+	top:47px;
 }
 
 #vegvisun_B
 {
 	position:absolute;
 	left:5px;
-	top:78px;
+	top:93px;
 }
 
 #routing_from_city
@@ -139,7 +131,7 @@ div#RoutingResultsDIV {
 	position:absolute;
 	left:30px;
 	top:120px;
-	width:250px;
+	width:280px;
 	height:18px;
 	font-size:9px;
 }
@@ -149,7 +141,7 @@ div#RoutingResultsDIV {
 	position:absolute;
 	left:30px;
 	top:150px;
-	width:250px;
+	width:280px;
 	height:18px;
 	font-size:9px;
 }
@@ -157,10 +149,34 @@ div#RoutingResultsDIV {
 #routing_button
 {
 	position:absolute;
-	left:215px;
-	top:124px;
+	left:253px;
+	top:135px;
 	width:70px;
 	font-size:9px;
+}
+
+#clear_routing_button.visible 
+{
+    position:absolute;
+    left:175px;
+    top:135px;
+    width:70px;
+    font-size:9px;
+}
+
+#clear_routing_button.visible 
+{
+    position:absolute;
+    left:175px;
+    top:135px;
+    width:70px;
+    font-size:9px;
+    visibility: visible;
+}
+
+#clear_routing_button.hidden
+{
+    visibility: hidden;
 }
 
 #cityFromText
@@ -179,4 +195,457 @@ div#RoutingResultsDIV {
 	top:139px;
 	font-size:9px;
 	color:#3c4758;
+}
+
+/*CSS fyrir sprites í leitarniðurstöðum */
+.moo-search-address p{
+    color:#666;
+    line-height:13px;
+    padding:2px 0 0 35px
+}
+.place-index-icon{
+    background-image:url('../img/routing/places_sprite_ovi.png');
+    background-repeat:no-repeat;
+    height:33px;
+    width:30px;
+}
+.place-name{
+    color:#333;
+    display:block;
+    float:left;
+    font-size:14px;
+    font-weight:bold;
+    margin:1px 0 5px;
+    width:185px
+}
+.place-index-icon-1{background-position:0 -33px}
+.place-index-icon-1.hover{background-position:-30px -33px}
+.place-index-icon-2{background-position:0 -264px}
+.place-index-icon-2.hover{background-position:-30px -264px}
+.place-index-icon-3{background-position:0 -297px}
+.place-index-icon-3.hover{background-position:-30px -297px}
+.place-index-icon-4{background-position:0 -330px}
+.place-index-icon-4.hover{background-position:-30px -330px}
+.place-index-icon-5{background-position:0 -363px}
+.place-index-icon-5.hover{background-position:-30px -363px}
+.place-index-icon-6{background-position:0 -396px}
+.place-index-icon-6.hover{background-position:-30px -396px}
+.place-index-icon-7{background-position:0 -429px}
+.place-index-icon-7.hover{background-position:-30px -429px}
+.place-index-icon-8{background-position:0 -462px}
+.place-index-icon-8.hover{background-position:-30px -462px}
+.place-index-icon-9{background-position:0 -495px}
+.place-index-icon-9.hover{background-position:-30px -495px}
+.place-index-icon-10{background-position:0 -66px}
+.place-index-icon-10.hover{background-position:-30px -66px}
+.place-index-icon-11{background-position:0 -99px}
+.place-index-icon-11.hover{background-position:-30px -99px}
+.place-index-icon-12{background-position:0 -132px}
+.place-index-icon-12.hover{background-position:-30px -132px}
+.place-index-icon-13{background-position:0 -165px}
+.place-index-icon-13.hover{background-position:-30px -165px}
+.place-index-icon-14{background-position:0 -198px}
+.place-index-icon-14.hover{background-position:-30px -198px}
+.place-index-icon-15{background-position:0 -231px}
+.place-index-icon-15.hover{background-position:-30px -231px}
+
+.moo-search-place-list-player {
+    border-bottom: 1px solid #EEEEEE;
+    margin-left: 20px;
+    margin-right: 12px;
+    padding-bottom: 20px;
+    padding-top: 15px;
+}
+.moo-search-place-list-player .moosearch-content {
+    float: left;
+    width: 225px;
+}
+
+
+#searchResultPanel{
+    width:100%;
+}
+
+
+/* searchResults CSS -> move somewhere!! */
+.searchResultBox{
+    position: relative;
+    left: 0px;
+    }
+.searchResultNumberDropHolder{
+    height: 50px;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    width: 33px;
+}
+
+.searchResultNumberDrop{
+    position: relative;
+    left: 0px;
+    top: 0px;
+}
+
+.searchResultBoxTextContainer{
+    position: relative;
+    left: 34px;
+    top: 0px;
+}
+
+.searchResultHeaderText{
+    position: relative;
+    left: 27px;
+    top: -16px;
+    font-weight: bold;
+    font-size: 11pt;
+    width: 230px;
+}
+.searchResultContent {
+    font-size: 8pt;
+    left: 5px;
+    position: relative;
+    top: -16px;
+    width: 230px;
+}
+
+.searchResultContent a {
+    font-size: 8pt;
+	color: OliveDrab;
+}
+
+.ui-accordion-content{
+    padding-left: 20px;
+}*
+
+
+.searchResultTypeIceon {
+    height: 17px;
+    width:25px;
+    left: 0px;
+    position: relative;
+    top: 0px;
+}
+
+
+.s_result_icon{
+    background-image:url('../img/gui/poi_search_result_sprite.gif');
+    background-repeat:no-repeat;
+    height:17px;
+    width:25px;
+}
+.s_result_icon_1	{background-position:-429px 0px} /*Áningarstaður*/
+.s_result_icon_4	{background-position:-288px 0px} /*Skemmtigarður*/
+.s_result_icon_7	{background-position:-71px -18px} /*Tjaldsvæði*/
+.s_result_icon_9	{background-position:-95px -18px} /*Verkstæði*/
+.s_result_icon_10	{background-position:-454px -18px} /*Bensínstöð*/
+.s_result_icon_12	{background-position:-263px -19px} /*Bílaleiga*/
+.s_result_icon_16	{background-position:-505px -19px} /*Bílastæðahús*/
+.s_result_icon_18	{background-position:-216px 0px} /*Gisting*/
+.s_result_icon_19	{background-position:-169px 0px} /*Veitingastaður*/
+.s_result_icon_20	{background-position:-168px -19px} /*Safn*/
+.s_result_icon_21	{background-position:-287px -19px} /*Kvikmyndahús*/
+.s_result_icon_22	{background-position:-527px -1px} /*Leikhús*/
+.s_result_icon_25	{background-position:-168px -19px} /*Sýning*/
+.s_result_icon_27	{background-position:-73px 0px} /*Upplýsingar*/
+.s_result_icon_28	{background-position:-24px 0px} /*Athyglisverður staður*/
+.s_result_icon_30	{background-position:-97px -1px} /*Viti*/
+.s_result_icon_31	{background-position:-24px -19px} /*Kirkja*/
+.s_result_icon_32	{background-position:-358px -18px} /*Íþróttahús*/
+.s_result_icon_33	{background-position:-554px -19px} /*Íþróttasvæði*/
+.s_result_icon_34	{background-position:-358px -18px} /*Keilisalur*/
+.s_result_icon_35	{background-position:-48px 0px} /*Sundlaug*/
+.s_result_icon_36	{background-position:-383px -18px} /*Skautahöll*/
+.s_result_icon_37	{background-position:-263px 0px} /*Skíðasvæði*/
+.s_result_icon_38	{background-position:-480px 0px} /*Tennis*/
+.s_result_icon_40	{background-position:0px -18px} /*Golf*/
+.s_result_icon_41	{background-position:-334px 0px} /*Sjúkrahús*/
+.s_result_icon_43	{background-position:-282px -18px} /*Heilsugæsla*/
+.s_result_icon_45	{background-position:-122px -18px} /*Apótek*/
+.s_result_icon_47	{background-position:-408px 0px} /*Bæjarskrifstofur*/
+.s_result_icon_48	{background-position:-359px -1px} /*Opinber bygging*/
+.s_result_icon_49	{background-position:-191px 0px} /*Skólar*/
+.s_result_icon_50	{background-position:-384px 0px} /*Háskóli*/
+.s_result_icon_52	{background-position:-311px -1px} /*Bókasafn*/
+.s_result_icon_53	{background-position:-240px 0px} /*Lögregla*/
+.s_result_icon_54	{background-position:-454px 1px} /*Pósthús*/
+.s_result_icon_56	{background-position:-118px 0px} /*Verslunarmiðstöð*/
+.s_result_icon_57	{background-position:-144px 0px} /*Verslun*/
+.s_result_icon_58	{background-position:0px 0px} /*Banki*/
+.s_result_icon_59	{background-position:-47px -18px} /*Hraðbanki*/
+.s_result_icon_61	{background-position:-551px 0px} /*Flugvöllur*/
+.s_result_icon_62	{background-position:-190px -18px} /*Ferja*/
+.s_result_icon_71	{background-position:-313px -19px} /*Umferðarmiðstöð*/
+.s_result_icon_97	{background-position:-169px -19px} /*Listasafn*/
+.s_result_icon_300	{background-position:-144px -19px} /*Veiði*/
+.s_result_icon_301	{background-position:-239px -19px} /*Neyðarskýli*/
+.s_result_icon_ornefni_punkt	{background-position:-575px 0px} /*örnefni punktar*/
+.s_result_icon_ornefni_lin		{background-position:-575px 0px} /*örnefni línur*/
+.s_result_icon_postfong			{background-position:-576px -19px} /*póstföng*/
+
+
+
+.OpenLayers_Control_PanZoom_panup
+{
+	position: absolute;
+        left: 43px;
+	top: 102px;
+	width: 18px;
+	height: 19px;
+	z-index:1002;
+	cursor:pointer;
+}
+
+.OpenLayers_Control_PanZoom_panleft
+{
+	position: absolute;
+	/*left: 3px;
+	top: 22px;*/
+        left: 23px;
+	top: 122px;
+	width: 19px;
+	height: 18px;
+	z-index:1002;
+	cursor:pointer;	
+}
+
+.OpenLayers_Control_PanZoom_panright
+{
+	position: absolute;
+	/*left: 42px;
+	top: 22px;*/
+        left: 62px;
+	top: 122px;
+	width: 19px;
+	height: 18px;
+	z-index:1002;
+	cursor:pointer;
+}
+.OpenLayers_Control_PanZoom_pandown
+{
+	position: absolute;
+	/*left: 23px;
+	top: 42px;*/
+        left: 43px;
+	top: 142px;
+	width: 18px;
+	height: 19px;
+	z-index:1002;
+	cursor:pointer;
+}
+
+.leShadow
+{
+	position: absolute;
+	background-repeat: no-repeat;
+	left: 0px;
+	top: 0px;
+	background-image: url('../img/controls/LM_panzoomshadow2.png');
+	z-index: 1001;
+	width: 65px;
+	height: 65px;
+	z-index:1001;
+}
+
+.leIsland
+{
+	position: absolute;
+	background-repeat: no-repeat;
+	/*left: 17px;
+	top: 20px;*/
+        left: 37px;
+	top: 120px;
+	background-image: url('../img/controls/LM_panzoomisland3.png');
+	/*z-index: 1001;*/
+        z-index: 0;
+	width: 30px;
+	height: 25px;
+	/*z-index:1000;*/
+	cursor:pointer;
+}
+
+/**Mínustakki á Panzoombar fyrir 15 zoomlevel*/
+.LM_zoom-slider_minus_15
+{
+    top: 0px;
+}
+/**Mínustakki á Panzoombar fyrir 14 zoomlevel (�ll)*/
+.LM_zoom-slider_minus_14
+{
+    top: -9px;    
+}
+/**Mínustakki á Panzoombar fyrir 13 zoomlevel (�ll)*/
+.LM_zoom-slider_minus_13
+{
+    top: -18px;    
+}
+/**Mínustakki á Panzoombar fyrir 12 zoomlevel*/
+.LM_zoom-slider_minus_12
+{
+    top: -27px;    
+}
+/**Mínustakki á Panzoombar fyrir 11 zoomlevel*/
+.LM_zoom-slider_minus_11
+{
+    top: -36px;    
+}
+
+/**Mínustakki á Panzoombar fyrir 10 zoomlevel*/
+.LM_zoom-slider_minus_10
+{
+    top: -45px;
+}
+
+/**Mínustakki á Panzoombar fyrir 9 zoomlevel*/
+.LM_zoom-slider_minus_9
+{
+    top: -54px;
+}
+/**Mínustakki á Panzoombar fyrir 8 zoomlevel*/
+.LM_zoom-slider_minus_8
+{
+    top: -63px;    
+}
+
+.OpenLayers_Control_PanZoom_zoomin 
+{
+	/*top:66px;
+	left:23px;*/        
+        top:166px;
+	left:43px;        
+        height:13px;
+	position:absolute;
+	width:18px;
+	z-index:1005;
+	cursor:pointer;
+}
+
+.OpenLayers_Control_PanZoom_zoomout
+{
+	/*top:218px;  
+	left:23px;*/        
+        top:318px;  
+	left:43px;        
+	height:13px;
+	position:absolute;
+	width:18px;
+	z-index:1005;
+	cursor:pointer;
+}
+
+
+/**Panzoombar ne�ri takki fyrir 14 zoomlevel (�ll)*/
+.OpenLayers_Control_PanZoom_zoomout_15
+{
+	height:13px;
+	left:43px;
+	position:absolute;
+	top:340px;
+	width:18px;
+	z-index:1005;
+	cursor:pointer;
+}
+/**Panzoombar ne�ri takki fyrir 14 zoomlevel (�ll)*/
+.OpenLayers_Control_PanZoom_zoomout_14
+{
+	height:13px;
+	left:43px;
+	position:absolute;
+	top:329px;
+	width:18px;
+	z-index:1005;
+	cursor:pointer;
+}
+/**Panzoombar ne�ri takki fyrir 13 zoomlevel (�ll)*/
+.OpenLayers_Control_PanZoom_zoomout_13
+{
+	height:13px;
+	left:43px;
+	position:absolute;
+	top:318px;
+	width:18px;
+	z-index:1005;
+	cursor:pointer;
+}
+/**Panzoombar ne�ri takki fyrir 12 zoomlevel*/
+.OpenLayers_Control_PanZoom_zoomout_12
+{
+	height:13px;
+	left:43px;
+	position:absolute;
+	top:307px;
+	width:18px;
+	z-index:1005;
+	cursor:pointer;
+}
+/**Panzoombar ne�ri takki fyrir 11 zoomlevel*/
+.OpenLayers_Control_PanZoom_zoomout_11
+{
+	cursor:pointer;
+	height:13px;
+	left:43px;
+	position:absolute;
+	top:296px;
+	width:18px;
+	z-index:1005;
+}
+
+/**Panzoombar ne�ri takki fyrir 10 zoomlevel*/
+.OpenLayers_Control_PanZoom_zoomout_10
+{
+	cursor:pointer;
+	height:13px;
+	left:43px;
+	position:absolute;
+	top:284px;
+	width:18px;
+	z-index:1005;
+}
+
+/**Panzoombar ne�ri takki fyrir 9 zoomlevel*/
+.OpenLayers_Control_PanZoom_zoomout_9
+{
+	cursor:pointer;
+	height:13px;
+	left:43px;
+	position:absolute;
+	top:274px;
+	width:18px;
+	z-index:1005;
+}
+/**Panzoombar ne�ri takki fyrir 8 zoomlevel*/
+.OpenLayers_Control_PanZoom_zoomout_8
+{
+	cursor:pointer;
+	height:13px;
+	left:43px;
+	position:absolute;
+	top:262px;
+	width:18px;
+	z-index:1005;
+}
+
+.OpenLayers_Control_PanZoomBar_ZoombarOpenLayers
+{
+	background-image:url(img/controls/LM_zoombar_thin.png);
+	height:143px;
+	left:41px;
+	position:absolute;
+	top:206px;
+	width:10px;
+}
+
+#routingLoading
+{
+    visibility: hidden;
+    position: absolute;
+    left: 10px;
+    top: 136px;
+}
+
+#routingLoadingTxt
+{
+    visibility: hidden;
+    position: absolute;
+    left: 33px;
+    top: 139px;
 }

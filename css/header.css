@@ -1,0 +1,213 @@
+/* 
+    Document   : header
+    Created on : 1.6.2011, 11:25:38
+    Author     : hrannar
+    Description: Gott er að hafa svoldin stíl á hausnum, t.d. strípur (ef maður er með hár)
+*/
+
+#header {
+    background-image: url("../img/header_img/header_bg_fjallgardur.jpg");
+    background-position: right center;
+    background-repeat: no-repeat;
+    height: 84px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+#header_stripe
+{
+    position: absolute;
+    right: 0px;
+    top:56px;
+    width: 780px;
+    background-image: url("../img/header_img/header_stripe_bg.png");
+    height: 28px;
+}
+
+#header_stripe_cap
+{
+    position: absolute;
+    left: -30px;
+    top: 0px;
+    width: 30px;
+    background-image: url("../img/header_img/header_stripe_endcap.png");
+    height: 28px;
+}
+
+#map_type {
+    height: 20px;
+    left: 6px;
+    position: absolute;
+    top: 7px;
+    width: 100px;
+}
+
+#map_sel_kort_btn
+{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 74px;
+    height: 15px;
+    background-image: url("../img/header_img/map_selection_btn_dark.png");
+    font-family:  Helvetica, Arial, "Lucida Grande", Verdana, Geneva, Lucida,  sans-serif;
+    color: #FFF;
+    font-size: 11px;
+    font-weight: normal;
+    text-align: center;
+    padding-top: 1px;
+}
+#map_sel_kort_btn:hover
+{
+    background-image: url("../img/header_img/map_selection_btn_dark_hover.png");
+}
+
+.map_sel_selected
+{
+    position: absolute;
+    top: 0px;
+    width: 74px;
+    height: 15px;
+    background-image: url("../img/header_img/map_selection_btn_dark.png");
+    font-family:  Helvetica, Arial, "Lucida Grande", Verdana, Geneva, Lucida,  sans-serif;
+    color: #FFF;
+    font-size: 11px;
+    font-weight: normal;
+    text-align: center;
+    padding-top: 1px;
+    cursor:pointer;
+}
+.map_sel_selected:hover
+{
+    background-image: url("../img/header_img/map_selection_btn_dark_hover.png");
+}
+
+.map_sel_selected a
+{
+    font-family:  Helvetica, Arial, "Lucida Grande", Verdana, Geneva, Lucida,  sans-serif;
+    color: #FFF;
+    font-size: 11px;
+    text-decoration: none;
+    font-weight: normal;
+}
+
+#map_sel_loftmynd_btn
+{
+    position: absolute;
+    left: 81px;
+    top: 0px;
+    width: 74px;
+    height: 15px;
+    background-image: url("../img/header_img/map_selection_btn_light_hover.png");
+    font-family:  Helvetica, Arial, "Lucida Grande", Verdana, Geneva, Lucida,  sans-serif;
+    color: #FFF;
+    font-size: 11px;
+    font-weight: normal;
+    text-align: center;
+    padding-top: 1px;
+}
+#map_sel_loftmynd_btn:hover
+{
+    background-image: url("../img/header_img/map_selection_btn_light.png");
+}
+
+.map_sel_notselected
+{
+    position: absolute;
+    top: 0px;
+    width: 74px;
+    height: 15px;
+    background-image: url("../img/header_img/map_selection_btn_light_hover.png");
+    font-family:  Helvetica, Arial, "Lucida Grande", Verdana, Geneva, Lucida,  sans-serif;
+    color: #FFF;
+    font-size: 11px;
+    font-weight: normal;
+    text-align: center;
+    padding-top: 1px;
+    cursor:pointer;
+}
+.map_sel_notselected:hover
+{
+    background-image: url("../img/header_img/map_selection_btn_light.png");
+}
+
+.map_sel_notselected a
+{
+    font-family:  Helvetica, Arial, "Lucida Grande", Verdana, Geneva, Lucida,  sans-serif;
+    color: #FFF;
+    font-size: 11px;
+    text-decoration: none;
+    font-weight: normal;
+}
+
+#headerButtons
+{
+    position: absolute;
+    top: 6px;
+    right: 7px;
+    font-family:  Helvetica, Arial, "Lucida Grande", Verdana, Geneva, Lucida,  sans-serif;
+    color: #000;
+    font-size: 11px;
+    text-decoration: none;
+    font-weight: normal;
+}
+
+.headerBtnImg
+{
+    display: inline;
+    padding-left: 4px;
+    padding-right: 8px;
+    vertical-align: middle;
+    cursor:pointer;
+}
+
+#headerBtnMeasure:hover
+{
+    /*background-image: url("../img/header_img/maela_icon_hover.png");*/
+    display: inline;
+    background-repeat: no-repeat;
+}
+#headerBtnMeasure
+{
+    /*background-image: url("../img/header_img/maela_icon.png");*/
+    display: inline;
+    background-repeat: no-repeat;
+    cursor:pointer;
+}
+
+.headerBtnTxt
+{
+    display: inline-block;
+    padding-left: 0;
+    padding-right: 8px;
+    position: relative;
+    text-align: center;
+    width: 35px;
+    cursor:pointer;
+}
+
+.headerBtnTxtON
+{
+    font-weight: bold;
+}
+
+.headerBtnTxtSelected
+{
+    font-weight: bold;
+}
+
+#header_logo{
+	left: 15px;
+        position: absolute;
+        top: 18px;
+}
+
+#header_shadow{
+    height: 6px;
+    left: 0;
+    position: absolute;
+    top: 84px;
+    width: 100%;
+    z-index: 100;
+}

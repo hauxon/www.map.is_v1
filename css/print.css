@@ -1,0 +1,174 @@
+/* 
+    stíll fyrir prent
+*/
+
+#pmap{
+    left: 0px;
+    position: absolute;
+    top: 4px;
+}
+
+#printMapRightSpace
+{   left: 610px;
+    position: absolute;
+    top: 4px;
+    width:180px;
+    font-size: 9pt;
+}
+
+#printText{
+    position:relative;
+    background-color:#FFFFFF;
+    width:304px;
+    z-index:1010;
+    
+    color: #444444;
+    font-family: 'Myriad Pro',Arial;
+    font-size: 10pt;     
+}
+
+#printInfo{
+    width:280px;
+    margin-top:10px;
+    
+    color: #444444;
+    font-family: 'Myriad Pro',Arial;
+    font-size: 11pt;      
+    
+}
+
+#printHeaderTitle{
+    width:280px;
+    margin-top:20px;    
+}
+#printHeaderBox{
+    width:280px;
+}
+#printHeader{
+    width:280px;
+}
+#printInputTitle{
+    width:280px;
+    margin-top:10px;    
+}
+#printInputBox{
+    width:280px;
+}
+#printInput{
+    width:280px;
+    height:100px;
+}
+
+#sendToPrintButton{
+    width:280px;
+}
+
+#sendToPrint{
+    width:280px;
+    margin-top:15px;
+}
+
+#printHeaderResult{
+    position:absolute;
+    top:5px;
+    left:300px;    
+}
+
+#printInputResult{
+    position:absolute;
+    top:25px;
+    left:300px;    
+}
+
+
+.printfriendly { 
+    position: absolute;
+    top: 150px;
+    right: 300px;
+}
+
+#mapDotIsLMLogo{
+    position: absolute;    
+    left: 10px;
+    top: 1px;
+    background-color:#FFFFFF;
+}
+
+#mapDotIsLogo{
+    position: absolute;    
+    left: 35px;
+    top: 570px;
+}
+
+#printcontainer {
+	width:780px;
+	margin:0 auto;
+
+        position: absolute;
+        top:54px;
+        right:0px;        
+}
+
+
+#print_menu {
+	-moz-border-radius-topleft:5px;
+	-moz-border-radius-bottomleft:5px;
+	-moz-border-radius-bottomright:5px;
+	-webkit-border-top-left-radius:5px;
+	-webkit-border-bottom-left-radius:5px;
+	-webkit-border-bottom-right-radius:5px;
+	display:none;
+	/*background-color:#ddeef6;*/
+        background-color:#FFFFFF;
+	position:absolute;
+	/*width:340px;*/
+        width:304px;
+	z-index:100;
+	border:1px transparent;
+	text-align:left;
+	padding:12px;
+	top: 24.5px; 
+	right: 0px; 
+	margin-top:5px;
+	margin-right: 0px;
+	*margin-right: -1px;
+	color:#789;
+	font-size:11px;      
+        
+}
+
+#routingResultPrintDIV
+{
+    position: absolute;
+    top: 1100px;
+    visibility: hidden;
+    font-size: 10px;
+    width: 1600px;
+}
+
+
+#print_img_div
+{
+    visibility:hidden;
+    width:602px;
+    height:842px;
+    top:100px;
+    left:30px;
+    z-index:1200;
+    position:absolute;
+}
+
+#print_logo_div
+{
+    visibility:hidden;
+    left: 15px;
+    position: absolute;
+    top: 18px;
+    width: 69px;
+    height:53px;
+}
+
+#print_description_div
+{
+    visibility:hidden;
+}

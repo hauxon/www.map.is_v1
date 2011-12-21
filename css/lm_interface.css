@@ -1,0 +1,608 @@
+/*.LM_PanZoomBarContainer 
+{
+	position:absolute;
+        left:350px;
+	top:8px;
+	z-index:1002;
+}*/
+
+#LM_panzoombar
+{
+    position:absolute;
+    left:350px;
+    top:8px;
+    z-index:100;
+}
+
+.OpenLayers_Control_PanZoom_panup
+{
+	position: absolute;
+	/*left: 23px;
+	top: 2px;*/
+        left: 43px;
+	top: 102px;
+	width: 18px;
+	height: 19px;
+	z-index:1002;
+	cursor:pointer;
+}
+
+.OpenLayers_Control_PanZoom_panleft
+{
+	position: absolute;
+	/*left: 3px;
+	top: 22px;*/
+        left: 23px;
+	top: 122px;
+	width: 19px;
+	height: 18px;
+	z-index:1002;
+	cursor:pointer;	
+}
+
+.OpenLayers_Control_PanZoom_panright
+{
+	position: absolute;
+	/*left: 42px;
+	top: 22px;*/
+        left: 62px;
+	top: 122px;
+	width: 19px;
+	height: 18px;
+	z-index:1002;
+	cursor:pointer;
+}
+.OpenLayers_Control_PanZoom_pandown
+{
+	position: absolute;
+	/*left: 23px;
+	top: 42px;*/
+        left: 43px;
+	top: 142px;
+	width: 18px;
+	height: 19px;
+	z-index:1002;
+	cursor:pointer;
+}
+
+.leShadow
+{
+	position: absolute;
+	background-repeat: no-repeat;
+	left: 0px;
+	top: 0px;
+	background-image: url('../img/controls/LM_panzoomshadow2.png');
+	z-index: 1001;
+	width: 65px;
+	height: 65px;
+	z-index:1001;
+}
+
+.leIsland
+{
+	position: absolute;
+	background-repeat: no-repeat;
+	/*left: 17px;
+	top: 20px;*/
+        left: 37px;
+	top: 120px;
+	background-image: url('../img/controls/LM_panzoomisland3.png');
+	z-index: 1001;
+	width: 30px;
+	height: 25px;
+	/*z-index:1000;*/
+	cursor:pointer;
+}
+
+.OpenLayers_Control_PanZoom_zoomin 
+{
+	/*top:66px;
+	left:23px;*/        
+        top:166px;
+	left:43px;        
+        height:13px;
+	position:absolute;
+	width:18px;
+	z-index:1005;
+	cursor:pointer;
+}
+
+.OpenLayers_Control_PanZoom_zoomout
+{
+	/*top:218px;  
+	left:23px;*/        
+        top:318px;  
+	left:43px;        
+	height:13px;
+	position:absolute;
+	width:18px;
+	z-index:1005;
+	cursor:pointer;
+}
+/*
+.OpenLayers_Control_PanZoom_zoomout_skaga
+{
+	height:13px;
+	left:23px;
+	position:absolute;
+	top:206px;
+	width:18px;
+	z-index:1005;
+	cursor:pointer;
+}
+
+.OpenLayers_Control_PanZoom_zoomout_dala
+{
+	height:13px;
+	left:23px;
+	position:absolute;
+	top:196px;
+	width:18px;
+	z-index:1005;
+	cursor:pointer;
+}
+.OpenLayers_Control_PanZoom_zoomout_borgarf
+{
+	height:13px;
+	left:23px;
+	position:absolute;
+	top:184px;
+	width:18px;
+	z-index:1005;
+	cursor:pointer;
+}
+
+.OpenLayers_Control_PanZoom_zoomout_skutu
+{
+	height:13px;
+	left:23px;
+	position:absolute;
+	top:163px;
+	width:18px;
+	z-index:1005;
+	cursor:pointer;
+}
+
+.OpenLayers_Control_PanZoom_zoomout_ni
+{
+	height:13px;
+	left:23px;
+	position:absolute;
+	top:218px;
+	width:18px;
+	z-index:1005;
+	cursor:pointer;
+}
+*/
+        
+/**Panzoombar ne�ri takki fyrir 14 zoomlevel (�ll)*/
+.OpenLayers_Control_PanZoom_zoomout_15
+{
+	height:13px;
+	left:43px;
+	position:absolute;
+	top:340px;
+	width:18px;
+	z-index:1005;
+	cursor:pointer;
+}
+/**Panzoombar ne�ri takki fyrir 14 zoomlevel (�ll)*/
+.OpenLayers_Control_PanZoom_zoomout_14
+{
+	height:13px;
+	left:43px;
+	position:absolute;
+	top:329px;
+	width:18px;
+	z-index:1005;
+	cursor:pointer;
+}
+/**Panzoombar ne�ri takki fyrir 13 zoomlevel (�ll)*/
+.OpenLayers_Control_PanZoom_zoomout_13
+{
+	height:13px;
+	left:43px;
+	position:absolute;
+	top:318px;
+	width:18px;
+	z-index:1005;
+	cursor:pointer;
+}
+/**Panzoombar ne�ri takki fyrir 12 zoomlevel*/
+.OpenLayers_Control_PanZoom_zoomout_12
+{
+	height:13px;
+	left:43px;
+	position:absolute;
+	top:307px;
+	width:18px;
+	z-index:1005;
+	cursor:pointer;
+}
+/**Panzoombar ne�ri takki fyrir 11 zoomlevel*/
+.OpenLayers_Control_PanZoom_zoomout_11
+{
+	cursor:pointer;
+	height:13px;
+	left:43px;
+	position:absolute;
+	top:296px;
+	width:18px;
+	z-index:1005;
+}
+
+/**Panzoombar ne�ri takki fyrir 10 zoomlevel*/
+.OpenLayers_Control_PanZoom_zoomout_10
+{
+	cursor:pointer;
+	height:13px;
+	left:43px;
+	position:absolute;
+	top:284px;
+	width:18px;
+	z-index:1005;
+}
+
+/**Panzoombar ne�ri takki fyrir 9 zoomlevel*/
+.OpenLayers_Control_PanZoom_zoomout_9
+{
+	cursor:pointer;
+	height:13px;
+	left:43px;
+	position:absolute;
+	top:274px;
+	width:18px;
+	z-index:1005;
+}
+/**Panzoombar ne�ri takki fyrir 8 zoomlevel*/
+.OpenLayers_Control_PanZoom_zoomout_8
+{
+	cursor:pointer;
+	height:13px;
+	left:43px;
+	position:absolute;
+	top:262px;
+	width:18px;
+	z-index:1005;
+}
+
+.OpenLayers_Control_PanZoomBar_ZoombarOpenLayers
+{
+	background-image:url(../img/controls/LM_zoombar_thin.png);
+	height:143px;
+	left:41px;
+	position:absolute;
+	top:206px;
+	width:10px;
+}
+
+
+div.olLayerDiv {
+   -moz-user-select: none 
+}
+
+.olLayerGoogleCopyright {
+    left: 2px;
+    bottom: 2px;  
+}
+.olLayerGooglePoweredBy {
+    left: 2px;
+    bottom: 15px;   
+}
+.olControlAttribution {
+    font-size: smaller; 
+    /*right: 3px; 
+    bottom: 4.5em; */
+    right: 20px; 
+    bottom: 3px;
+    position: absolute; 
+    display: block;
+}
+.olControlScale {
+    right: 3px;
+    bottom: 3em;
+    display: block;
+    position: absolute;
+    font-size: smaller;
+}
+.olControlScaleLine {
+   left: 10px;
+   bottom: 15px;
+   font-size: xx-small;
+}
+.olControlScaleLineBottom {
+   border: solid 2px black;
+   border-bottom: none;
+   margin-top:-2px;
+   text-align: center;
+}
+.olControlScaleLineTop {
+   border: solid 2px black;
+   border-top: none;
+   text-align: center;
+}
+
+.olControlPermalink {
+    right: 3px;
+    bottom: 1.5em;
+    display: block;
+    position: absolute;
+    font-size: smaller;
+} 
+
+div.olControlMousePosition {
+    bottom: 0em;
+    right: 3px;
+    display: block;
+    position: absolute;
+    font-family: Arial;
+    font-size: smaller;
+}
+
+.olControlOverviewMapContainer {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+}
+
+.olControlOverviewMapElement {
+    padding: 10px 18px 10px 10px;
+    background-color: #00008B;
+    -moz-border-radius: 1em 0 0 0;
+}
+
+.olControlOverviewMapMinimizeButton {
+    right: 0px;
+    bottom: 80px;
+}    
+
+.olControlOverviewMapMaximizeButton {
+    right: 0px;
+    bottom: 80px;
+}
+
+.olControlOverviewMapExtentRectangle {
+    overflow: hidden;
+    background-image: url("../img/controls/blank.gif");
+    cursor: move;
+    border: 2px dotted red;
+}
+.olControlOverviewMapRectReplacement {
+    overflow: hidden;
+    cursor: move;
+    background-image: url("../img/controls/overview_replacement.gif");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.olLayerGeoRSSDescription {
+    float:left;
+    width:100%;
+    overflow:auto;
+    font-size:1.0em;
+}
+.olLayerGeoRSSClose {
+    float:right;
+    color:gray;
+    font-size:1.2em;
+    margin-right:6px;
+    font-family:sans-serif;
+}
+.olLayerGeoRSSTitle {
+    float:left;font-size:1.2em;
+}
+
+.olPopupContent {
+    padding:5px;
+    overflow: auto;
+}    
+.olControlNavToolbar { 
+    width:0px;
+    height:0px;
+}    
+.olControlNavToolbar div { 
+  display:block;
+  width:  28px;
+  height: 28px;
+  top: 300px;
+  left: 6px;
+  position: relative;
+}
+
+.olControlNavigationHistoryPreviousItemActive { 
+   background-image: url("../img/view_previous_on.png");
+   background-repeat: no-repeat;
+   width:  24px;
+   height: 24px;
+}
+.olControlNavigationHistoryPreviousItemInactive { 
+   background-image: url("../img/view_previous_off.png");
+   background-repeat: no-repeat;
+   width:  24px;
+   height: 24px;
+}
+.olControlNavigationHistoryNextItemActive { 
+   background-image: url("../img/view_next_on.png");
+   background-repeat: no-repeat;
+   width:  24px;
+   height: 24px;
+}
+.olControlNavigationHistoryNextItemInactive { 
+   background-image: url("../img/view_next_off.png");
+   background-repeat: no-repeat;
+   width:  24px;
+   height: 24px;
+}
+
+.olControlNavToolbar .olControlNavigationItemActive { 
+  background-image: url("../img/panning-hand-on.png");
+  background-repeat: no-repeat;
+}
+.olControlNavToolbar .olControlNavigationItemInactive { 
+  background-image: url("../img/panning-hand-off.png");
+  background-repeat: no-repeat;
+}
+.olControlNavToolbar .olControlZoomBoxItemActive { 
+  background-image: url("../img/drag-rectangle-on.png");
+  background-color: orange;
+  background-repeat: no-repeat;
+}
+.olControlNavToolbar .olControlZoomBoxItemInactive { 
+  background-image: url("../img/drag-rectangle-off.png");
+  background-repeat: no-repeat;
+}
+.olControlEditingToolbar  {
+    float:right;
+    right: 0px;
+    height: 30px; 
+    width: 200px;
+}
+.olControlEditingToolbar div { 
+  float:right;
+  width:  24px;
+  height: 24px;
+  margin: 5px;
+}
+.olControlEditingToolbar .olControlNavigationItemActive { 
+  background-image: url("../img/editing_tool_bar.png");
+  background-repeat: no-repeat;
+  background-position: -103px -23px; 
+}
+.olControlEditingToolbar .olControlNavigationItemInactive { 
+  background-image: url("../img/editing_tool_bar.png");
+  background-repeat: no-repeat;
+  background-position: -103px -0px; 
+}
+.olControlEditingToolbar .olControlDrawFeaturePointItemActive { 
+  background-image: url("../img/editing_tool_bar.png");
+  background-repeat: no-repeat;
+  background-position: -77px -23px; 
+}
+.olControlEditingToolbar .olControlDrawFeaturePointItemInactive { 
+  background-image: url("../img/editing_tool_bar.png");
+  background-repeat: no-repeat;
+  background-position: -77px -0px; 
+}
+.olControlEditingToolbar .olControlDrawFeaturePathItemInactive { 
+  background-image: url("../img/editing_tool_bar.png");
+  background-repeat: no-repeat;
+  background-position: -51px 0px; 
+}
+.olControlEditingToolbar .olControlDrawFeaturePathItemActive { 
+  background-image: url("../img/editing_tool_bar.png");
+  background-repeat: no-repeat;
+  background-position: -51px -23px; 
+}
+.olControlEditingToolbar .olControlDrawFeaturePolygonItemInactive { 
+  background-image: url("../img/editing_tool_bar.png");
+  background-repeat: no-repeat;
+  background-position: -26px 0px; 
+}
+.olControlEditingToolbar .olControlDrawFeaturePolygonItemActive { 
+  background-image: url("../img/editing_tool_bar.png");
+  background-repeat: no-repeat;
+  background-position: -26px -23px ;                                                                   
+}
+
+.olHandlerBoxZoomBox {
+    border: 2px solid red;
+    position: absolute;
+    background-color: white;
+    opacity: 0.50;
+    font-size: 1px;
+    filter: alpha(opacity=50);
+}   
+
+/* 
+ * Due to current limitations in the OpenLayers code, you can only
+ * replace this image with another image which is 17px x 17px. 
+ */   
+.olPopupCloseBox {
+  background: url("../img/close.gif") no-repeat;
+  cursor: pointer;
+}
+
+.olControlNoSelect {
+ -moz-user-select: none;
+}
+
+.prufa
+{
+    background-image: url(../img/LM_zoombar_thin.png); 
+    left: 13px; 
+    top: 81px; 
+    width: 10px; 
+    height: 143px; 
+    position: absolute;
+}
+
+#inputLinkEmail
+{
+    font-family: Verdana;
+    font-size: 7pt;
+    width:500px;
+}
+
+#inputLinkHTML
+{
+    font-family: Verdana;
+    font-size: 7pt;
+    width:500px;
+}
+
+.olControlnewLayerSwitcher {
+    background-color:transparent;
+    color:#000020;
+    font-family:Arial;
+    font-size:x-small;
+    font-weight:bold;
+    margin-bottom:3px;
+    margin-left:3px;
+    margin-top:3px;
+    position:absolute;
+    right:0;
+    top:25px;
+    width:175px;
+}
+.olControlnewLayerSwitcherLayer {
+    background-color:AliceBlue;
+    height:100%;
+    padding:5px 75px 5px 10px;
+    width:100%;
+}
+.olControlnewLayerSwitcherBaseLabel {
+    margin-bottom:3px;
+    margin-left:3px;
+    margin-top:3px;
+}
+.olControlnewLayerSwitcherBaseLayer {
+padding-left:10px;
+}
+.olControlnewLayerSwitcherDataLabel {
+    margin-bottom:3px;
+    margin-left:3px;
+    margin-top:3px;
+}
+.olControlnewLayerSwitcherDataLayer {
+padding-left:10px;
+}
+.olControlnewLayerSwitcherMaximizeButton {
+    background-image:url(../img/controls/LM_layer-switcher-max60b.png);
+    background-repeat:no-repeat;
+    display:none;
+    height:18px;
+    position:absolute;
+    right:0;
+    top:0;
+    width:31px;
+}
+.olControlnewLayerSwitcherMinimizeButton {
+    background-image:url(../img/controls/LM_layer-switcher-min60b.png);
+    background-repeat:no-repeat;
+    display:none;
+    height:18px;
+    position:absolute;
+    right:0;
+    top:0;
+    width:31px;
+}

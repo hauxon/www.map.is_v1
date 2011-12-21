@@ -1,6 +1,6 @@
 <?php
 	// Opnum config XML
-	$myFile = "../config/config.xml";
+	$myFile = "../xml/config.xml";
 	$fh = fopen($myFile, 'r');
 	$config = new SimpleXMLElement(fread($fh, filesize($myFile)));
 	fclose($fh);

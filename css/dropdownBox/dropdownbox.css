@@ -1,0 +1,109 @@
+#sharecontainer {
+	width:780px;
+	margin:0 auto;
+
+        position: absolute;
+        top:54px;
+        right:0px;
+        background-color: red;
+        background: red;
+        color: green;
+}
+
+#content {
+	width:520px;
+	min-height:500px;
+}
+
+
+#share_menu {
+	-moz-border-radius-topleft:5px;
+	-moz-border-radius-bottomleft:5px;
+	-moz-border-radius-bottomright:5px;
+	-webkit-border-top-left-radius:5px;
+	-webkit-border-bottom-left-radius:5px;
+	-webkit-border-bottom-right-radius:5px;
+	display:none;
+	/*background-color:#ddeef6;
+        background-color:#FFFFFF;*/
+        background-color:#EFF0F1;
+	position:absolute;
+	/*width:340px;*/
+        width:300px;
+	z-index:100;
+	border:1px transparent;
+	text-align:left;
+	padding:12px;
+	top: 24.5px; 
+	right: 0px; 
+	margin-top:5px;
+	margin-right: 0px;
+	margin-right: -1px;
+	color:#789;
+	font-size:11px;
+}
+
+
+#shareInfo{
+    color:#000000;
+    font-size:12px;
+    
+    color: #444444;
+    font-family: 'Myriad Pro',Arial;
+    font-size: 10pt;      
+}
+
+
+#shareFacebookText a{
+    color: #444444;
+    font-family: 'Myriad Pro',Arial;
+    font-size: 10pt;    
+}
+
+#shareSendText a{
+    color: #444444;
+    font-family: 'Myriad Pro',Arial;
+    font-size: 10pt;    
+}
+
+#shareTwitterText a{
+    color: #444444;
+    font-family: 'Myriad Pro',Arial;
+    font-size: 10pt;    
+}
+
+#shareSendIcon{
+    position: relative;
+    float:left;
+    padding:0 0 0 5px;
+}
+#shareSendText{
+    float:left;
+    padding:0 15px 0 5px;
+}
+
+#shareFacebookIcon{
+    float:left;
+    padding:0 0 0 5px;    
+}
+#shareFacebookText{
+    float:left;
+    padding:0 15px 0 5px;    
+}
+#shareTwitterIcon{
+    float:left;
+    padding:0 0 0 5px;    
+}
+#shareTwitterText{
+    float:left;
+    padding:0 15px 0 5px;    
+}
+
+
+#inputLinkEmail{
+    width:300px;
+}
+
+#inputLinkHTML{
+    width:300px;
+}

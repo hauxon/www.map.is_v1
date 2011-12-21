@@ -1,0 +1,61 @@
+/* 
+    Document   : malmoprint.css
+    Created on : 12.12.2011, 16:39:51
+    Author     : hrannar
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+
+#map, #header,#header_stripe, #sliderPanel, #LM_panzoombar, #images, searchDiv, #dialog, #LSHeaderDiv, #searchDiv,  #header_shadow, .ui-dialog-titlebar, .ui-dialog, .ui-widget-overlay, #ToolTip, #modalboxes, #printcontainer, #routingResultPrintDIV, #sharecontainer {display:none;}
+
+#print_img_div
+{
+    visibility:visible;
+    top:100px;
+    z-index:1200;
+    position:absolute;
+    width:602px;
+}
+#print_img
+{
+    width:600px;
+    height:600px;
+}
+
+.ui-dialog
+{
+    visibility:hidden;
+}
+
+#LSListContainerDiv
+{
+    visibility:hidden;
+}
+
+
+#print_logo_div
+{
+    visibility:visible;
+    left: 15px;
+    position: absolute;
+    top: 18px;
+    width: 69px;
+    height:53px;
+}
+
+#print_description_div
+{
+    visibility:visible;
+    left: 110px;
+    position: absolute;
+    top: 18px;
+    width: 550px;
+    height:50px;
+    font-size:8pt;
+    font-family: Arial; 
+}
+

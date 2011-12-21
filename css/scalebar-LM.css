@@ -1,0 +1,124 @@
+.olControlScaleBar {
+    bottom: 20px;
+    left: 10px;
+    font-family: Verdana;
+	color:#FFFFFF;
+}
+
+.olControlScaleBarBar {
+    height: 8px;
+    top: 12px;
+    background-image: url('../img/controls/LM_scalebar.png');
+    background-position: 0 0;
+    background-repeat: repeat-x;
+}
+
+.olControlScaleBarBarAlt {
+    height: 8px;
+    top: 12px;
+    background-image: url('../img/controls/LM_scalebar_alt2.png');
+    background-position: 0 0;
+    background-repeat: repeat-x;
+}
+
+.olControlScaleBarMarkerMajor {
+    height: 8px;
+    width: 1px;
+    top: 12px;
+    background-image: url('../img/controls/LM_scalebar_markermajor.png');
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    z-index: 5000;
+}
+
+.olControlScaleBarMarkerMinor {
+    height: 8px;
+    width: 1px;
+    top: 12px;
+    background-image: url('../img/controls/LM_scalebar_markerminor.png');
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    z-index: 5000;
+}
+
+
+
+
+
+
+.olControlScaleBarPrint {
+    bottom: 20px;
+    left: 10px;
+    font-family: Verdana;
+	/*color:#FFFFFF;*/
+}
+
+.olControlScaleBarBarPrint{
+    height: 8px;
+    top: 12px;
+    background-image: url('../img/controls/LM_scalebar.png');
+    background-position: 0 0;
+    background-repeat: repeat-x;
+}
+
+.olControlScaleBarBarAltPrint {
+    height: 8px;
+    top: 12px;
+    background-image: url('../img/controls/LM_scalebar_alt2.png');
+    background-position: 0 0;
+    background-repeat: repeat-x;
+}
+
+.olControlScaleBarMarkerMajorPrint {
+    height: 8px;
+    width: 1px;
+    top: 12px;
+    background-image: url('../img/controls/LM_scalebar_markermajor.png');
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    z-index: 5000;
+}
+
+.olControlScaleBarMarkerMinorPrint {
+    height: 8px;
+    width: 1px;
+    top: 12px;
+    background-image: url('../img/controls/LM_scalebar_markerminor.png');
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    z-index: 5000;
+}
+
+
+
+
+
+
+
+
+
+
+
+.olControlScaleBarNumbersBox {
+    height: 13px;
+    width: 40px;
+    top: 24px;
+    font-size: 8px;
+}
+
+.olControlScaleBarLabelBox {
+    height: 15px;
+    top: -2px;
+    font-size: 9px;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+	font-variant: small-caps;
+}
+
+.olControlScaleBarLabelBoxSingleLine {
+    height: 15px;
+    width: 35px;
+    top: 0px;
+    left: 10px;
+    font-size: 13px;
+}

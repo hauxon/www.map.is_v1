@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<headerButtons>
+    <button>
+        <name>Measure</name>
+        <captionICE>Mæla</captionICE>
+        <captionENG>Measure</captionENG>
+        <icon>img/header_img/maela_icon.png</icon>
+        <icon_hover>img/header_img/maela_icon_hover.png</icon_hover>
+        <icon_selected>img/header_img/maela_icon_hover.png</icon_selected>
+        <action>doMeasure();</action>
+        <offAction>doMeasure();</offAction>
+    </button>
+    <button>
+        <name>Print</name>
+        <captionICE>Prenta</captionICE>
+        <captionENG>Print</captionENG>
+        <icon>img/header_img/prenta_icon.png</icon>
+        <icon_hover>img/header_img/prenta_icon_hover.png</icon_hover>
+        <icon_selected>img/header_img/prenta_icon_hover.png</icon_selected>
+        <!--<action>openPrintStart();</action>-->
+        <action>/*doPrint();*/LM_createPrintMap();pressHeaderButton("Print");</action>
+        <offAction></offAction>
+    </button>
+    <button>
+        <name>Share</name>
+        <captionICE>Deila</captionICE>
+        <captionENG>Share</captionENG>
+        <icon>img/header_img/deila_icon.png</icon>
+        <icon_hover>img/header_img/deila_icon_hover.png</icon_hover>
+        <icon_selected>img/header_img/deila_icon_hover.png</icon_selected>
+        <action>doShare();</action>
+        <offAction></offAction>
+    </button>
+    <!--button>
+        <name>Language</name>
+        <captionICE>English</captionICE>
+        <captionENG>Íslenska</captionENG>
+        <icon>img/header_img/flag_eng.png</icon>
+        <icon_hover>img/header_img/maela_icon_hover.png</icon_hover>
+        <icon_selected>img/header_img/maela_icon_hover.png</icon_selected>
+        <action>alert("Langilangi");</action>
+        <offAction></offAction>
+    </button-->
+</headerButtons>

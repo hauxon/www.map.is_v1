@@ -1,0 +1,76 @@
+/* 
+    Document   : suggestion
+    Created on : 7.4.2011, 15:59:21
+    Author     : hrannar
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+
+h3 {
+        margin: 0px;
+        padding: 0px;	
+}
+
+.suggestionsBox {
+        position: relative;
+        left: 0px;
+        margin: 10px 0px 0px 0px;
+        width: 200px;
+        background-color: #FCFCFC;
+        -moz-border-radius: 7px;
+        -webkit-border-radius: 7px;
+        border: 1px solid #CCC;	
+        color: #000;
+        font-size: 8pt;
+}
+
+.suggestionList {
+        margin: 0px;
+        padding: 0px;
+}
+
+.suggestionList li {
+
+        margin: 0px 0px 3px 0px;
+        padding: 3px;
+        cursor: pointer;
+}
+
+.suggestionList li:hover {
+        background-color: #EEEEFF;
+}
+
+.current{
+  background:#EEEEFF;
+  color:#000033;
+}
+
+.clear {
+    clear:both;
+}
+
+#autoSuggestionsList {
+    margin-bottom: 15px;
+}
+    #autoSuggestionsList ul, #related ul {
+        padding: 0 0 0 20px;
+        margin: 0;
+    }
+        #autoSuggestionsList ul, #suggest li, #autoSuggestionsList p {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        #autoSuggestionsList li a {
+            display: block;
+            padding: 4px 4px;
+            color: #d84700;
+        }
+            #autoSuggestionsList li a:hover {
+                background: #d84700;
+                color: white;
+            }
+        #autoSuggestionsList.throbber {
+            background:#fff9dc url(ajax-loader.gif) bottom right no-repeat;
+        }

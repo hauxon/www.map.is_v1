@@ -1,0 +1,88 @@
+/* 
+    Document   : printit
+    Created on : 26.5.2011, 16:52:34
+    Author     : jonas
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+    
+#sliderPanel{
+    visibility:hidden;
+}
+.olControlScaleBar{
+    visibility:hidden;
+}
+#LM_panzoombar{
+    visibility:hidden;
+}
+.olControlnewLayerSwitcher{
+    visibility:hidden;
+}
+.olControlOverviewMap{
+    visibility:hidden;
+}
+#header{
+    visibility:hidden;
+}
+#printButton{
+    visibility:hidden;
+}
+#searchDiv{
+    visibility:hidden;
+}
+#searchInputString{
+    visibility:hidden;
+}
+#baselayers_chooser{
+    position:absolute;
+}
+#baselayers_chooser{
+    visibility:hidden;
+}
+#olControlOverviewMapMaximizeButton_innerImage_chooser{
+    visibility:hidden;
+}
+#olControlOverviewMapMinimizeButton_innerImage_chooser{
+    visibility:hidden;
+}
+#header_shadow{
+    visibility:hidden;
+}
+#map{
+    top:0px;
+}
+#map{
+    left:-135px;
+}
+body{
+    background-color:#FFFFFF;
+}
+.olControlAttribution{
+    visibility:hidden;
+}
+
+/*$j("#map").css("height", $j("#map").height() + 84 + "px" );
+
+$j("#sliderPanel").css( "visibility", "hidden");
+$j(".olControlScaleBar").css( "visibility", "hidden");
+$j("#LM_panzoombar").css( "visibility", "hidden");
+$j(".olControlnewLayerSwitcher").css( "visibility", "hidden");
+$j(".olControlOverviewMap").css( "visibility", "hidden");
+$j("#header").css( "visibility", "hidden");
+$j("#printButton").css( "visibility", "hidden");
+$j("#searchDiv").css( "visibility", "hidden");
+$j("#searchInputString").css( "visibility", "hidden");
+$j("#baselayers_chooser").css( "visibility", "hidden");
+$j("#olControlOverviewMapMaximizeButton_innerImage_chooser").css( "visibility", "hidden");   
+$j("#header_shadow").css( "visibility", "hidden");
+$j("#map").css( "top", "0px");
+//$j("#map").css("left", "-" + 135 + "px");
+$j("body").css("background-color", "#FFFFFF");
+//$j("body").css("background-color", "#95ABC0");
+$j(".olControlAttribution").css( "visibility", "hidden"); // þarf ekki lengur að vera á myndunum
+*/

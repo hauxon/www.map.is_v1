@@ -1,0 +1,9 @@
+#measurementResults{
+    position: absolute;
+    left: 500px;
+    top: 300px;
+    z-index:10000;
+    font-size: 12pt;
+    font-weight: bold;
+    font-family: Arial;
+}

@@ -1,0 +1,91 @@
+<!--: spam
+Content-Type: text/html
+
+<body bgcolor="#f0f0f8"><font color="#f0f0f8" size="-5"> -->
+<body bgcolor="#f0f0f8"><font color="#f0f0f8" size="-5"> --> -->
+</font> </font> </font> </script> </object> </blockquote> </pre>
+</table> </table> </table> </table> </table> </font> </font> </font><body bgcolor="#f0f0f8">
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#6622aa">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>&lt;type 'exceptions.ValueError'&gt;</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial">Python 2.6.7: C:\Python26\python.exe<br>Mon Nov 28 15:47:26 2011</font></td></tr></table>
+    
+<p>A problem occurred in a Python script.  Here is the sequence of
+function calls leading up to the error, in the order they occurred.</p>
+<table width="100%" cellspacing=0 cellpadding=0 border=0>
+<tr><td bgcolor="#d8bbff"><big>&nbsp;</big><a href="file://F:\apachewww\www.map.is\serverside\printIt.py">F:\apachewww\www.map.is\serverside\printIt.py</a> in <strong><module></strong>()</td></tr>
+<tr><td><font color="#909090"><tt><small>&nbsp;&nbsp;527</small>&nbsp;<br>
+</tt></font></td></tr>
+<tr><td><font color="#909090"><tt><small>&nbsp;&nbsp;528</small>&nbsp;if&nbsp;__name__=='__main__':<br>
+</tt></font></td></tr>
+<tr><td><font color="#909090"><tt><small>&nbsp;&nbsp;529</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cgitb.enable()&nbsp;#&nbsp;for&nbsp;debugging<br>
+</tt></font></td></tr>
+<tr><td><font color="#909090"><tt><small>&nbsp;&nbsp;530</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#cgitb.enable(display=0,&nbsp;logdir="\tmp")<br>
+</tt></font></td></tr>
+<tr><td bgcolor="#ffccee"><tt><small>&nbsp;&nbsp;531</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;main()<br>
+</tt></td></tr>
+<tr><td><small><font color="#909090"><strong>main</strong>&nbsp;= &lt;function main&gt;</font></small></td></tr></table>
+<table width="100%" cellspacing=0 cellpadding=0 border=0>
+<tr><td bgcolor="#d8bbff"><big>&nbsp;</big><a href="file://F:\apachewww\www.map.is\serverside\printIt.py">F:\apachewww\www.map.is\serverside\printIt.py</a> in <strong>main</strong>()</td></tr>
+<tr><td><font color="#909090"><tt><small>&nbsp;&nbsp;513</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print&nbsp;outputPath<br>
+</tt></font></td></tr>
+<tr><td><font color="#909090"><tt><small>&nbsp;&nbsp;514</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+</tt></font></td></tr>
+<tr><td bgcolor="#ffccee"><tt><small>&nbsp;&nbsp;515</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;img.save(outputPath,&nbsp;quality=quality)<br>
+</tt></td></tr>
+<tr><td><font color="#909090"><tt><small>&nbsp;&nbsp;516</small>&nbsp;<br>
+</tt></font></td></tr>
+<tr><td><font color="#909090"><tt><small>&nbsp;&nbsp;517</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Take&nbsp;the&nbsp;saved&nbsp;image&nbsp;and&nbsp;put&nbsp;it&nbsp;into&nbsp;a&nbsp;pdf&nbsp;with&nbsp;a&nbsp;text&nbsp;header.<br>
+</tt></font></td></tr>
+<tr><td><small><font color="#909090"><strong>img</strong>&nbsp;= &lt;Image.Image image mode=RGBA size=800x600&gt;, img.<strong>save</strong>&nbsp;= &lt;bound method Image.save of &lt;Image.Image image mode=RGBA size=800x600&gt;&gt;, <strong>outputPath</strong>&nbsp;= r'F:\apachewww\www.map.is\serverside\img\img.pdf', <strong>quality</strong>&nbsp;= 100</font></small></td></tr></table>
+<table width="100%" cellspacing=0 cellpadding=0 border=0>
+<tr><td bgcolor="#d8bbff"><big>&nbsp;</big><a href="file://C:\Python26\lib\site-packages\PIL\Image.py">C:\Python26\lib\site-packages\PIL\Image.py</a> in <strong>save</strong>(self=&lt;Image.Image image mode=RGBA size=800x600&gt;, fp=&lt;closed file 'F:\apachewww\www.map.is\serverside\img\img.pdf', mode 'wb'&gt;, format='PDF', **params={'quality': 100})</td></tr>
+<tr><td><font color="#909090"><tt><small>&nbsp;1437</small>&nbsp;<br>
+</tt></font></td></tr>
+<tr><td><font color="#909090"><tt><small>&nbsp;1438</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try:<br>
+</tt></font></td></tr>
+<tr><td bgcolor="#ffccee"><tt><small>&nbsp;1439</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;save_handler(self,&nbsp;fp,&nbsp;filename)<br>
+</tt></td></tr>
+<tr><td><font color="#909090"><tt><small>&nbsp;1440</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;finally:<br>
+</tt></font></td></tr>
+<tr><td><font color="#909090"><tt><small>&nbsp;1441</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;do&nbsp;what&nbsp;we&nbsp;can&nbsp;to&nbsp;clean&nbsp;up<br>
+</tt></font></td></tr>
+<tr><td><small><font color="#909090"><strong>save_handler</strong>&nbsp;= &lt;function _save&gt;, <strong>self</strong>&nbsp;= &lt;Image.Image image mode=RGBA size=800x600&gt;, <strong>fp</strong>&nbsp;= &lt;closed file 'F:\apachewww\www.map.is\serverside\img\img.pdf', mode 'wb'&gt;, <strong>filename</strong>&nbsp;= r'F:\apachewww\www.map.is\serverside\img\img.pdf'</font></small></td></tr></table>
+<table width="100%" cellspacing=0 cellpadding=0 border=0>
+<tr><td bgcolor="#d8bbff"><big>&nbsp;</big><a href="file://C:\Python26\lib\site-packages\PIL\PdfImagePlugin.py">C:\Python26\lib\site-packages\PIL\PdfImagePlugin.py</a> in <strong>_save</strong>(im=&lt;Image.Image image mode=RGBA size=800x600&gt;, fp=&lt;closed file 'F:\apachewww\www.map.is\serverside\img\img.pdf', mode 'wb'&gt;, filename=r'F:\apachewww\www.map.is\serverside\img\img.pdf')</td></tr>
+<tr><td><font color="#909090"><tt><small>&nbsp;&nbsp;106</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;procset&nbsp;=&nbsp;"/ImageC"&nbsp;#&nbsp;color&nbsp;images<br>
+</tt></font></td></tr>
+<tr><td><font color="#909090"><tt><small>&nbsp;&nbsp;107</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else:<br>
+</tt></font></td></tr>
+<tr><td bgcolor="#ffccee"><tt><small>&nbsp;&nbsp;108</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;raise&nbsp;ValueError("cannot&nbsp;save&nbsp;mode&nbsp;%s"&nbsp;%&nbsp;im.mode)<br>
+</tt></td></tr>
+<tr><td><font color="#909090"><tt><small>&nbsp;&nbsp;109</small>&nbsp;<br>
+</tt></font></td></tr>
+<tr><td><font color="#909090"><tt><small>&nbsp;&nbsp;110</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#<br>
+
+</tt></font></td></tr>
+<tr><td><small><font color="#909090"><em>builtin</em> <strong>ValueError</strong>&nbsp;= &lt;type 'exceptions.ValueError'&gt;, <strong>im</strong>&nbsp;= &lt;Image.Image image mode=RGBA size=800x600&gt;, im.<strong>mode</strong>&nbsp;= 'RGBA'</font></small></td></tr></table><p><strong>&lt;type 'exceptions.ValueError'&gt;</strong>: cannot save mode RGBA
+<br><tt><small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</small>&nbsp;</tt>args&nbsp;=
+('cannot save mode RGBA',)
+<br><tt><small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</small>&nbsp;</tt>message&nbsp;=
+'cannot save mode RGBA'
+
+
+<!-- The above is a description of an error in a Python program, formatted
+     for a Web browser because the 'cgitb' module was enabled.  In case you
+     are not reading this in a Web browser, here is the original traceback:
+
+Traceback (most recent call last):
+  File "F:/apachewww/www.map.is/serverside/printIt.py", line 531, in &lt;module&gt;
+    main()
+  File "F:/apachewww/www.map.is/serverside/printIt.py", line 515, in main
+    img.save(outputPath, quality=quality)
+  File "C:\Python26\lib\site-packages\PIL\Image.py", line 1439, in save
+    save_handler(self, fp, filename)
+  File "C:\Python26\lib\site-packages\PIL\PdfImagePlugin.py", line 108, in _save
+    raise ValueError("cannot save mode %s" % im.mode)
+ValueError: cannot save mode RGBA
+
+-->

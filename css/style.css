@@ -118,27 +118,8 @@ h6 {
     margin-bottom: 0.5em;
 }
 
-#header{
-	position: absolute;
-	left:0px;
-	top: 0px;
-	/*background-image:url("../img/gui/header_bh_v1.jpg");*/
-	height:83px;
-	width:100%;
-}
 
-#header_logo{
-	left: 15px;
-        position: absolute;
-        top: 18px;
-}
 
-#header_shadow{
-    height: 6px;
-    left: 0;
-    position: absolute;
-    top: 84px;
-    width: 100%;
-    z-index: 100;
+body{
+    /*overflow:hidden;*/
 }
-

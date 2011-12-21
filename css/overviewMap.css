@@ -1,0 +1,21 @@
+#map .olControlOverviewMapContainer {
+    bottom: 0px;
+}
+#map .olControlOverviewMapRectReplacement {
+}
+#map .olControlOverviewMapElement {
+    background-color: AliceBlue;
+    border-radius: 1em 0 0 0;
+    opacity: 0.8;
+}
+#map .olControlOverviewMapElement .olMap {
+    background-color: #95ABC0;
+}
+
+#OpenLayers_Control_minimizeDiv_innerImage{
+    top:78px;
+}
+
+#olControlOverviewMapMaximizeButton_innerImage{
+    top:80px;
+}

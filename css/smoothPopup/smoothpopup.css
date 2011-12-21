@@ -1,0 +1,225 @@
+/*html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em,
+font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody,
+ tfoot, thead, tr, th, td {
+border:0pt none;
+font-family:inherit;
+font-size:100%;
+font-style:inherit;
+font-weight:inherit;
+margin:0pt;
+padding:0pt;
+vertical-align:baseline;
+}
+body{
+background:#fff none repeat scroll 0%;
+line-height:1;
+font-size: 12px;
+font-family:arial,sans-serif;
+margin:0pt;
+height:100%;
+}*/
+/*table {
+border-collapse:separate;
+border-spacing:0pt;
+}
+caption, th, td {
+font-weight:normal;
+text-align:left;
+}
+blockquote:before, blockquote:after, q:before, q:after {
+content:"";
+}
+blockquote, q {
+quotes:"" "";
+}
+a{
+cursor: pointer;
+text-decoration:none;
+}
+br.both{
+clear:both;
+}*/
+#backgroundPopup{
+display:none;
+position:fixed;
+_position:absolute; /* hack for internet explorer 6*/
+height:100%;
+width:100%;
+top:0;
+left:0;
+background:#000000;
+border:1px solid #cecece;
+z-index:10000;
+}
+#smoothPopup{
+display:none;
+position:fixed;
+_position:absolute; /* hack for internet explorer 6*/
+
+/*width:408px;*/
+background:#FFFFFF;
+//border:2px solid #cecece;
+z-index:10001;
+padding:20px;
+font-size:13px;
+background-color:transparent;
+background-image: url('img/rounded344x307.png') ;
+/*background-image: url('img/roundedmore344x307.png') ;*/
+background-repeat:no-repeat;
+}
+
+#smoothPopupHeader{
+    text-align:left;
+    font-size:16px;
+    font-weight:bold;
+    /*position:absolute;*/
+    top:5px;
+    left:10px;
+}
+
+#smoothPopupArea{
+    text-align:left;
+    margin-top:10px;        
+    /*position:absolute;*/
+    /*top:0px;
+    left:0px;*/
+}
+
+#smoothPopup h1{
+text-align:left;
+color:#6FA5FD;
+font-size:22px;
+font-weight:700;
+border-bottom:1px dotted #D3D3D3;
+padding-bottom:2px;
+margin-bottom:20px;
+}
+#smoothPopup h2{
+text-align:left;
+color:#6FA5FD;
+font-size:18px;
+font-weight:700;
+border-bottom:1px dotted #D3D3D3;
+padding-bottom:2px;
+margin-bottom:20px;
+}
+
+/*#smoothPopupClose{
+font-size:14px;
+line-height:14px;
+right:8px;
+top:4px;
+position:absolute;
+color:#6fa5fd;
+font-weight:700;
+display:block;
+}*/
+
+#smoothPopupCloseDiv{
+    display: block;
+    position: relative;
+    
+}
+
+#smoothPopupClose {
+    background-image: url("img/close_22.png");
+    background-repeat: no-repeat;
+    cursor: pointer;
+    display: block;
+    height: 22px;
+    position: absolute;
+    left: 313px;
+    text-decoration: none;
+    top: -29px;
+    width: 22px;
+    z-index: 11003;
+}
+
+/*#button{
+text-align:center;
+margin:100px;
+}*/
+
+/*
+
+#smooothtooltip_mb {
+    background-image: url("img/smoothpopup10x1_mb.png");
+    background-repeat: repeat-x;
+    color: black;
+    cursor: pointer;
+    float: left;
+    font-family: arial;
+    font-size: 8px;
+    height: 10px;
+    position: relative;
+    z-index: 1000;
+}
+
+#smooothtooltip_mt {
+    background-image: url("img/smoothpopup10x1_mt.png");
+    background-repeat: repeat-x;
+    color: black;
+    cursor: pointer;
+    float: left;
+    font-family: arial;
+    font-size: 8px;
+    height: 10px;
+    position: relative;
+    z-index: 1000;
+}
+
+#ttDeiliTxt {
+    color: #333333;
+    font-family: tahoma;
+    font-size: 7pt;
+    font-weight: normal;
+    left: 0;
+    position: relative;
+    top: 1px;
+}
+
+#smoothtooltiptop{
+    position:absolute;
+    top:0px;
+    left:0px;
+}
+
+#smoothtooltipbottom{
+    position:absolute;
+    bottom:0px;
+    left:0px;
+}
+
+#smoothtooltip_rt {
+    
+    background-image: url("img/rounded10x10_tr.png");
+    float: left;
+    height: 10px;
+    position: relative;
+    width: 10px;
+    z-index: 1000;
+}
+#smoothtooltip_lt {
+    background-image: url("img/rounded10x10_lt.png");
+    float: left;
+    height: 10px;
+    position: relative;
+    width: 10px;
+    z-index: 1000;
+}
+#smoothtooltip_lb {
+    background-image: url("img/rounded10x10_lb.png");
+    float: left;
+    height: 10px;
+    position: relative;
+    width: 10px;
+    z-index: 1000;
+}
+#smoothtooltip_rb {
+    background-image: url("img/rounded10x10_rb.png");
+    float: left;
+    height: 10px;
+    position: relative;
+    width: 10px;
+    z-index: 1000;
+}*/

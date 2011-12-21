@@ -1,0 +1,184 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>acronym</title>
+    <script type="text/javascript">
+        var ToolTipEvents = {
+            //offsetLeft : (-25),
+            offsetLeft: (-35),
+            offsetTop: (10),
+            posRef: function () {
+                return (
+			(document.documentElement.scrollTop) ?
+				document.documentElement : document.body
+			);
+            },
+            showTooltip: function (e) {
+                ToolTipEvents._cleanup();
+                BubbleTips.bubbleNode.appendChild(this.tooltip);
+                //	Effects.fadeIn(this.tooltip,BubbleTips.opacity);
+                ToolTipEvents.followMouse(e);
+            },
+            hideTooltip: function (e) {
+                Effects.fadeOut(this.tooltip, ToolTipEvents._cleanup);
+            },
+            followMouse: function (e) {
+                if (e == null) { e = window.event };
+                var posx = ToolTipEvents.offsetLeft;
+                var posy = ToolTipEvents.offsetTop;
+                if (e.pageX || e.pageY) {
+                    posx += e.pageX;
+                    posy += e.pageY;
+                } else if (e.clientX || e.clientY) {
+                    posx += e.clientX + ToolTipEvents.posRef().scrollLeft;
+                    posy += e.clientY + ToolTipEvents.posRef().scrollTop;
+                }
+                BubbleTips.bubbleNode.style.top = (posy) + "px";
+                BubbleTips.bubbleNode.style.left = (posx) + "px";
+            },
+            _cleanup: function () {
+                var bubble = BubbleTips.bubbleNode;
+                if (bubble.childNodes.length > 0) {
+                    bubble.removeChild(bubble.firstChild);
+                }
+            }
+        };
+
+        var Effects = {
+            fadeIn: function (elem, maxOpac) {
+                elem.fadeIn = Effects._fadeIn;
+                elem.maxOpac = maxOpac;
+                elem.curOpac = 0;
+                this.cancelCurrent();
+                elem.fadeIn();
+            },
+            fadeOut: function (elem, fadeDoneF) {
+                elem.fadeOut = Effects._fadeOut;
+                elem.fadeOutDone = fadeDoneF;
+                this.cancelCurrent();
+                elem.fadeOut();
+            },
+            cancelCurrent: function () {
+                clearTimeout(window.evtId);
+            },
+            _fadeIn: function () {
+                if ((+this.curOpac) < (+this.maxOpac)) {
+                    this.curOpac = (+this.curOpac) + (0.20);
+                    Effects.setOpacity(this, this.curOpac);
+                    window.fadeInElem = this;
+                    window.evtId = setTimeout(function () { this.fadeInElem.fadeIn() }, 20);
+                } else {
+                    Effects.setOpacity(this, this.maxOpac);
+                    window.fadeInElem = null;
+                }
+            },
+            _fadeOut: function () {
+                if ((+this.curOpac) > 0) {
+                    this.curOpac = Math.max(0, (+this.curOpac) - (0.20));
+                    Effects.setOpacity(this, this.curOpac);
+                    window.fadeOutElem = this;
+                    window.evtId = setTimeout(function () { this.fadeOutElem.fadeOut() }, 20);
+                } else if (this.fadeOutDone) {
+                    this.fadeOutDone();
+                    window.fadeOutElem = null;
+                }
+            },
+            setOpacity: function (elem, opac) {
+                elem.style.filter = "alpha(opacity:" + ((+opac) * 100) + ")";
+                elem.style.KHTMLOpacity = opac;
+                elem.style.MozOpacity = opac;
+                elem.style.opacity = opac;
+            }
+        };
+
+        var BubbleTips = {
+            opacity: "1.00",
+            bubbleNode: null,
+            activateTipOn: function (type) {
+                var bubble = document.createElement("span");
+                bubble.style.position = "absolute";
+                bubble.style.zIndex = "9";
+                this.bubbleNode = bubble;
+                document.getElementsByTagName("body")[0].appendChild(bubble);
+                var tipTags = document.getElementsByTagName(type);
+                for (var i = 0; i < tipTags.length; i++) {
+                    this.bindBubbleTip(tipTags[i]);
+                }
+            },
+            bindBubbleTip: function (elem) {
+                var tipText = elem.getAttribute("title");
+                if (tipText == null || tipText.length == 0) {
+                    tipText = "-"; /* No title attribute - can't very well show a tooltip, can we?! */
+                }
+                elem.removeAttribute("title");
+                var bubble = this.createElem("span", "bubbleTooltip");
+                var tipTop = this.createElem("span", "top");
+                tipTop.appendChild(document.createTextNode(tipText));
+                bubble.appendChild(tipTop);
+                bubble.appendChild(this.createElem("span", "bottom"));
+                Effects.setOpacity(bubble, this.opacity);
+                elem.tooltip = bubble;
+                elem.onmouseover = ToolTipEvents.showTooltip;
+                elem.onmouseout = ToolTipEvents.hideTooltip;
+                elem.onmousemove = ToolTipEvents.followMouse;
+            },
+            createElem: function (tag, className) {
+                var elem = document.createElement(tag);
+                elem.className = className;
+                elem.style.display = "block";
+                return elem;
+            }
+        };
+
+
+    </script>
+    <style type="text/css">
+        .cd_price_notes
+        color:Red;
+        font-weight:bold;
+        }
+
+        .bubbleTooltip
+        {
+	        width: 100%;
+	        color:#000000;
+	        font: 8px sans-serif;
+	        text-decoration:none;
+	        text-align: left;
+        }
+
+        .bubbleTooltip span.top
+        {
+	        padding: 20px 75px 0;
+	        background: url(bubble.gif) no-repeat top;
+        }
+
+        .bubbleTooltip span.bottom
+        {
+	        padding:3px 75px 10px;
+	        color: #000000;
+	        background: url(bubble.gif) no-repeat bottom;
+        }
+
+        abbr, acronym
+        {
+	        background-color: #ffffff;
+	        border-bottom: none;
+	
+        }
+    </style>
+    </head>
+    <body>
+        <div style="width: 500px; height: 500px; postition: relative;">
+            <acronym title="þetta er prufa"><span class="cd_price_notes">Verð TILBOÐ 980...</span>
+                <img align="absmiddle" alt="i" src="/Images/i_icon.gif">
+            </acronym>
+        </div>
+        <script type="text/javascript">
+            window.onload = function () {
+                BubbleTips.activateTipOn("abbr");
+                BubbleTips.activateTipOn("acronym");
+            };
+        </script>
+    </body>
+</html>

@@ -1,0 +1,75 @@
+#lm_map_div{
+    background-color: #233E59;
+    width:400px;
+    height:300px;
+    position:absolute;
+}
+#baseSwitcher span
+{
+    color: #FFFFFF;
+    cursor: pointer;
+    font-family: Helvetica,Arial,"Lucida Grande",Verdana,Geneva,Lucida,sans-serif;
+    font-size: 11px;
+    font-weight: normal;
+    height: 15px;
+    padding-top: 1px;
+    position: absolute;
+    text-align: center;
+    width: 36px;
+}
+.map_sel_selected {
+    background-image: url("http://www.map.is/inline/map_selection_inline.png");
+    background-position: 36px 33px;
+}    
+.map_sel_selected:hover {
+    background-image: url("http://www.map.is/inline/map_selection_inline.png");
+    background-position: 36px 16;
+}    
+.map_sel_notselected {
+    background-image: url("http://www.map.is/inline/map_selection_inline.png");
+    background-position: 0 16px;
+}    
+.map_sel_notselected:hover {
+    background-image: url("http://www.map.is/inline/map_selection_inline.png");
+    background-position: 0 0px;
+}        
+#baseSwitcher a
+{
+    color: #FFFFFF;
+    font-family: Helvetica,Arial,"Lucida Grande",Verdana,Geneva,Lucida,sans-serif;
+    font-size: 11px;
+    font-weight: normal;
+    text-decoration: none;
+}
+#baseSwitcher
+{
+    position: relative;
+    right: 40px;
+    top: 20px;
+    float: right;
+    vertical-align: middle;
+    width: 0px;
+    z-index: 20000;  
+    height:0px;
+}
+#mapLogoDiv
+{
+    left: 5px;
+    position: absolute;
+    top: 260px;
+    z-index:1000;
+}
+#LM_linkDiv
+{
+    left: 239px;
+    position: absolute;
+    top: 283px;
+    z-index: 1000;
+    color: #E8E8E8;
+    font-family: Helvetica,Arial,"Lucida Grande",Verdana,Geneva,Lucida,sans-serif;
+    font-size: 10px;
+}
+#LM_linkDiv a:visited, #LM_linkDiv a:link
+{
+    color:#E8E8E8;
+}

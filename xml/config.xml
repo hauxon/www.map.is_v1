@@ -1,0 +1,638 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapDefaults>
+    <map>
+        <scales>6800000,3400000,1700000,1000000,500000,250000,100000,50000,25000,10000,5000,2000,1000</scales>
+        <maxExtent>143000,255000,866000,735000</maxExtent>
+        <!--restrictedExtent>143000,255000,866000,735000</restrictedExtent-->
+		<!--maxExtent>10,10,1000000,1000000</maxExtent-->
+        <!--restrictedExtent>10,10,1500000,1500000</restrictedExtent-->
+        <startZoom>2</startZoom>
+        <startLon>420000</startLon>
+        <startLat>500000</startLat>
+        <projection>EPSG:3057</projection>
+    </map>
+    <layers>
+        
+	<baseLayer>
+            <layerTitle>Kort</layerTitle>
+            <url>http://tc0.loftmyndir.is/tc_r/tilecache.py,http://tc1.loftmyndir.is/tc_r/tilecache.py,http://tc2.loftmyndir.is/tc_r/tilecache.py,http://tc3.loftmyndir.is/tc_r/tilecache.py</url>
+            <layerName>lightsaber</layerName>
+            <logName>www.map.is</logName>
+            <imageFormat>jpeg</imageFormat>
+            <displayInLayerSwitcher>true</displayInLayerSwitcher>
+            <tileCacheType>TMS</tileCacheType>
+            <attribution> © Loftmyndir ehf. Allur réttur áskilinn.</attribution>
+            <transitionEffect>resize</transitionEffect>
+            <scales>6800000,3400000,1700000,1000000,500000,250000,100000,50000,25000,10000,5000,2000</scales>
+            <buffer>1</buffer>
+        </baseLayer>
+        <!-- baseLayer>
+            <layerTitle>Lightsaber Devbuntu</layerTitle>
+            <url>http://devbuntu/tc/tilecache.py</url>
+            <layerName>lightsaber_ornefni_join</layerName>
+            <logName>www.map.is</logName>
+            <imageFormat>png</imageFormat>
+            <displayInLayerSwitcher>true</displayInLayerSwitcher>
+            <tileCacheType>TMS</tileCacheType>
+            <attribution> © Loftmyndir ehf. Allur réttur áskilinn.</attribution>
+            <transitionEffect>resize</transitionEffect>
+            <scales>6800000,3400000,1700000,1000000,500000,250000,100000,50000,25000,10000,5000,2000</scales>
+            <buffer>1</buffer>
+        </baseLayer --> 
+	<baseLayer>
+            <layerTitle>Loftmynd</layerTitle>
+            <url>http://tc0.loftmyndir.is/tc_r/tilecache.py,http://tc1.loftmyndir.is/tc_r/tilecache.py,http://tc2.loftmyndir.is/tc_r/tilecache.py,http://tc3.loftmyndir.is/tc_r/tilecache.py</url>
+            <layerName>myndkort</layerName>
+            <logName>www.map.is</logName>
+            <imageFormat>jpeg</imageFormat>
+            <displayInLayerSwitcher>true</displayInLayerSwitcher>
+            <tileCacheType>TMS</tileCacheType>
+            <attribution> © Loftmyndir ehf. Allur réttur áskilinn.</attribution>
+            <transitionEffect>resize</transitionEffect>
+            <scales>6800000,3400000,1700000,1000000,500000,250000,100000,50000,25000,10000,5000,2000, 1000</scales>
+            <buffer>1</buffer>
+        </baseLayer>
+  	<!-- baseLayer>
+            <layerTitle>Loftmynd alla leid</layerTitle>
+            <url>http://tc0.loftmyndir.is/tc_r/tilecache.py</url>
+            <layerName>hybrid_myndkort</layerName>
+            <logName>www.map.is</logName>
+            <imageFormat>jpeg</imageFormat>
+            <displayInLayerSwitcher>true</displayInLayerSwitcher>
+            <tileCacheType>TMS</tileCacheType>
+            <attribution> © Loftmyndir ehf. Allur réttur áskilinn.</attribution>
+            <transitionEffect>resize</transitionEffect>
+            <scales>6800000,3400000,1700000,1000000,500000,250000,100000,50000,25000,10000,5000,2000, 1000</scales>
+            <buffer>1</buffer>
+        </baseLayer>      
+           
+        <baseLayer>
+            <layerTitle>Lightsaber hrár</layerTitle>
+            <url>http://devbuntu/tc/tilecache.py</url>
+            <layerName>lightsaber_ow</layerName>
+            <logName>www.map.is</logName>
+            <imageFormat>jpeg</imageFormat>
+            <displayInLayerSwitcher>true</displayInLayerSwitcher>
+            <tileCacheType>TMS</tileCacheType>
+            <attribution> © Loftmyndir ehf. Allur réttur áskilinn.</attribution>
+            <transitionEffect>resize</transitionEffect>
+            <scales>6800000,3400000,1700000,1000000,500000,250000,100000,50000,25000,10000,5000,2000</scales>
+            <buffer>1</buffer>
+        </baseLayer>
+        <baseLayer>
+            <layerTitle>lightsaber_source_overlays</layerTitle>
+            <url>http://devbuntu/tc/tilecache.py</url>
+            <layerName>lightsaber_source_overlays</layerName>
+            <logName>www.map.is</logName>
+            <imageFormat>png</imageFormat>
+            <displayInLayerSwitcher>true</displayInLayerSwitcher>
+            <tileCacheType>TMS</tileCacheType>
+            <attribution> © Loftmyndir ehf. Allur réttur áskilinn.</attribution>
+            <transitionEffect>resize</transitionEffect>
+            <scales>6800000,3400000,1700000,1000000,500000,250000,100000,50000,25000,10000,5000,2000</scales>
+            <buffer>1</buffer>
+        </baseLayer> 
+        <baseLayer>
+            <layerTitle>hybrid_photomap_gs</layerTitle>
+            <url>http://devbuntu/tc/tilecache.py</url>
+            <layerName>hybrid_photomap_gs</layerName>
+            <logName>www.map.is</logName>
+            <imageFormat>png</imageFormat>
+            <displayInLayerSwitcher>true</displayInLayerSwitcher>
+            <tileCacheType>TMS</tileCacheType>
+            <attribution> © Loftmyndir ehf. Allur réttur áskilinn.</attribution>
+            <transitionEffect>resize</transitionEffect>
+            <scales>6800000,3400000,1700000,1000000,500000,250000</scales>
+            <buffer>1</buffer>
+        </baseLayer> 
+        
+        <layer>
+            <layerTitle>Lightsaber Extras</layerTitle>
+            <layerName>lightsaberExtras</layerName>
+            <layerType>WMS.Untiled</layerType>
+            <url>http://193.4.153.189/geoserver/wms</url>
+            <layerNames>kortasja:lm_thettbylissvaedi,kortasja:hl100_i_butum,kortasja:lm_vatnafar_linur,kortasja:lm_vatnafar_poly,kortasja:isl_sjomaski,kortasja:lm_eyjar_i_sjo,kortasja:lm_sveitarfelog_linur</layerNames>
+            <layerStyles>lm_thettbylissvaedi,h100_i_butum,lm_vatnafar_linur,lm_vatnafar_poly,isl_sjomaski,eyjar,lm_sveitarfelog_lina</layerStyles>
+            <format>image/png</format>
+            <transparent>true</transparent>
+            <visibility>false</visibility>
+            <singleTile>true</singleTile>
+            <displayInLayerSwitcher>true</displayInLayerSwitcher>
+            <layerScales>6800000,3400000,1700000,1000000,500000,250000,100000,50000,25000,10000,5000,2000,1000,500,250</layerScales>
+            <isBaseLayer>false</isBaseLayer>
+            <unsupportedBrowsers>[]</unsupportedBrowsers>
+        </layer -->
+        <layer>
+            <layerTitle>VegirMyndkort</layerTitle>
+            <layerName>VegirMyndkort</layerName>
+            <layerType>WMS.Untiled</layerType>
+            <url>http://geoserver.loftmyndir.is/geoserver/wms</url>
+            <layerNames>postgis:lm_vegir_desc,postgis:lm_vegir</layerNames>
+            <layerStyles>lm_vegir_noskuggi,lm_labelvegir</layerStyles>
+            <format>image/png</format>
+            <transparent>true</transparent>
+            <visibility>false</visibility>
+            <singleTile>true</singleTile>
+            <displayInLayerSwitcher>true</displayInLayerSwitcher>
+            <layerScales>6800000,3400000,1700000,1000000,500000,250000,100000,50000,25000,10000,5000,2000,1000,500,250</layerScales>
+            <isBaseLayer>false</isBaseLayer>
+            <unsupportedBrowsers>[]</unsupportedBrowsers>
+        </layer>
+        <layer>
+            <layerTitle>Örnefni_myndkort</layerTitle>
+            <layerName>ornefnimyndkort</layerName>
+            <layerType>WMS.Untiled</layerType>
+            <url>http://geoserver.loftmyndir.is/geoserver/wms</url>
+            <layerNames>postgis:lm_ornefni_union,postgis:lm_ornefni_union,postgis:lm_ornefni_union,postgis:lm_ornefni_union</layerNames>
+            <layerStyles>lm_ornefni_2011_myndkort,lm_ornefni_1700k_myndkort,lm_ornefni_1000k_myndkort,lm_ornefni_500k_myndkort</layerStyles>
+            <format>image/png</format>
+            <transparent>true</transparent>
+            <visibility>false</visibility>
+            <singleTile>true</singleTile>
+            <displayInLayerSwitcher>true</displayInLayerSwitcher>
+            <layerScales>6800000,3400000,1700000,1000000,500000,250000,100000,50000,25000,10000,5000,2000,1000,500,250</layerScales>
+            <isBaseLayer>false</isBaseLayer>
+            <unsupportedBrowsers>[]</unsupportedBrowsers>
+        </layer>
+        <!-- layer>
+            <layerTitle>Örnefni 1:1.700k</layerTitle>
+            <layerName>ornefni1700</layerName>
+            <layerType>WMS.Untiled</layerType>
+            <url>http://193.4.153.189/geoserver/wms</url>
+            <layerNames>kortasja:lm_ornefni_union</layerNames>
+            <layerStyles>ornefni_1700</layerStyles>
+            <format>image/png</format>
+            <transparent>true</transparent>
+            <visibility>false</visibility>
+            <singleTile>true</singleTile>
+            <displayInLayerSwitcher>true</displayInLayerSwitcher>
+            <layerScales>6800000,3400000,1700000,1000000,500000,250000,100000,50000,25000,10000,5000,2000,1000,500,250</layerScales>
+            <isBaseLayer>false</isBaseLayer>
+            <unsupportedBrowsers>[]</unsupportedBrowsers>
+        </layer>
+        <layer>
+            <layerTitle>Örnefni 1:1.700k plus</layerTitle>
+            <layerName>ornefni1700plus</layerName>
+            <layerType>WMS.Untiled</layerType>
+            <url>http://193.4.153.189/geoserver/wms</url>
+            <layerNames>kortasja:lm_ornefni_union</layerNames>
+            <layerStyles>ornefni_1700plus</layerStyles>
+            <format>image/png</format>
+            <transparent>true</transparent>
+            <visibility>false</visibility>
+            <singleTile>true</singleTile>
+            <displayInLayerSwitcher>true</displayInLayerSwitcher>
+            <layerScales>6800000,3400000,1700000,1000000,500000,250000,100000,50000,25000,10000,5000,2000,1000,500,250</layerScales>
+            <isBaseLayer>false</isBaseLayer>
+            <unsupportedBrowsers>[]</unsupportedBrowsers>
+        </layer>
+        <layer>
+            <layerTitle>Örnefni 1:1.000k</layerTitle>
+            <layerName>ornefni1000</layerName>
+            <layerType>WMS.Untiled</layerType>
+            <url>http://193.4.153.189/geoserver/wms</url>
+            <layerNames>kortasja:lm_ornefni_union</layerNames>
+            <layerStyles>ornefni_1000</layerStyles>
+            <format>image/png</format>
+            <transparent>true</transparent>
+            <visibility>false</visibility>
+            <singleTile>true</singleTile>
+            <displayInLayerSwitcher>true</displayInLayerSwitcher>
+            <layerScales>6800000,3400000,1700000,1000000,500000,250000,100000,50000,25000,10000,5000,2000,1000,500,250</layerScales>
+            <isBaseLayer>false</isBaseLayer>
+            <unsupportedBrowsers>[]</unsupportedBrowsers>
+        </layer>
+        <layer>
+            <layerTitle>Örnefni 1:500k</layerTitle>
+            <layerName>ornefni500</layerName>
+            <layerType>WMS.Untiled</layerType>
+            <url>http://193.4.153.189/geoserver/wms</url>
+            <layerNames>kortasja:lm_ornefni_union</layerNames>
+            <layerStyles>ornefni_500</layerStyles>
+            <format>image/png</format>
+            <transparent>true</transparent>
+            <visibility>false</visibility>
+            <singleTile>true</singleTile>
+            <displayInLayerSwitcher>true</displayInLayerSwitcher>
+            <layerScales>6800000,3400000,1700000,1000000,500000,250000,100000,50000,25000,10000,5000,2000,1000,500,250</layerScales>
+            <isBaseLayer>false</isBaseLayer>
+            <unsupportedBrowsers>[]</unsupportedBrowsers>
+        </layer>
+        <layer>
+            <layerTitle>Örnefni 2011</layerTitle>
+            <layerName>ornefni2011</layerName>
+            <layerType>WMS.Untiled</layerType>
+            <url>http://193.4.153.189/geoserver/wms</url>
+            <layerNames>kortasja:lm_ornefni_union</layerNames>
+            <layerStyles>lm_ornefni_2011_style</layerStyles>
+            <format>image/png</format>
+            <transparent>true</transparent>
+            <visibility>false</visibility>
+            <singleTile>true</singleTile>
+            <displayInLayerSwitcher>true</displayInLayerSwitcher>
+            <layerScales>6800000,3400000,1700000,1000000,500000,250000,100000,50000,25000,10000,5000,2000,1000,500,250</layerScales>
+            <isBaseLayer>false</isBaseLayer>
+            <unsupportedBrowsers>[]</unsupportedBrowsers>
+        </layer>
+        
+        <layer>
+            <layerTitle>Örnefni 2011_tc</layerTitle>
+            <layerName>lightsaber_ornefni_tctc</layerName>
+            <layerType>TMS</layerType>
+            <url>http://devbuntu/tc/tilecache.py</url>
+            <layerNames>lightsaber_ornefni</layerNames>
+            <format>image/png</format>
+            <transparent>true</transparent>
+            <visibility>false</visibility>
+            <singleTile>false</singleTile>
+            <displayInLayerSwitcher>true</displayInLayerSwitcher>
+            <layerScales>6800000,3400000,1700000,1000000,500000,250000,100000,50000,25000,10000,5000,2000,1000,500,250</layerScales>
+            <isBaseLayer>false</isBaseLayer>
+            <unsupportedBrowsers>[]</unsupportedBrowsers>
+            
+        </layer>
+        
+        <layer>
+            <layerTitle>Örnefni Olde</layerTitle>
+            <layerName>ornefniolde</layerName>
+            <layerType>WMS.Untiled</layerType>
+            <url>http://193.4.153.189/geoserver/wms</url>
+            <layerNames>kortasja:lm_ornefni_union</layerNames>
+            <layerStyles>lm_ornefni_olde</layerStyles>
+            <format>image/png</format>
+            <transparent>true</transparent>
+            <visibility>false</visibility>
+            <singleTile>true</singleTile>
+            <displayInLayerSwitcher>true</displayInLayerSwitcher>
+            <layerScales>6800000,3400000,1700000,1000000,500000,250000,100000,50000,25000,10000,5000,2000,1000,500,250</layerScales>
+            <isBaseLayer>false</isBaseLayer>
+            <unsupportedBrowsers>[]</unsupportedBrowsers>
+        </layer -->        
+        <layer>
+            <layerTitle>Skámyndir</layerTitle>
+            <layerName>skamyndir</layerName>
+            <layerType>WMS.Untiled</layerType>
+            <url>http://geoserver.loftmyndir.is/geoserver/wms?</url>
+            <layerNames>postgis:lm_skamyndir_view</layerNames>
+            <layerStyles></layerStyles>
+            <format>image/png</format>
+            <transparent>true</transparent>
+            <visibility>false</visibility>
+            <singleTile>true</singleTile>
+            <displayInLayerSwitcher>true</displayInLayerSwitcher>
+            <layerScales>6800000,3400000,1700000,1000000,500000,250000,100000,50000,25000,10000,5000,2000,1000,500,250</layerScales>
+            <isBaseLayer>false</isBaseLayer>
+            <unsupportedBrowsers>[]</unsupportedBrowsers>
+        </layer>
+        <layer>
+            <layerTitle>Vefmyndavélar</layerTitle>
+            <layerName>vefmyndavelar</layerName>
+            <layerType>WMS.Untiled</layerType>
+            <url>http://geoserver.loftmyndir.is/geoserver/wms?</url>
+            <layerNames>postgis:lm_vefmynd_join_vefmynd_group</layerNames>
+            <layerStyles></layerStyles>
+            <format>image/png</format>
+            <transparent>true</transparent>
+            <visibility>false</visibility>
+            <singleTile>true</singleTile>
+            <displayInLayerSwitcher>true</displayInLayerSwitcher>
+            <layerScales>6800000,3400000,1700000,1000000,500000,250000,100000,50000,25000,10000,5000,2000,1000,500,250</layerScales>
+            <isBaseLayer>false</isBaseLayer>
+            <unsupportedBrowsers>[]</unsupportedBrowsers>
+        </layer>        
+        <!-- layer>
+            <layerTitle>punktar</layerTitle>
+            <layerName>vertices_temp</layerName>
+            <layerType>WMS.Untiled</layerType>
+            <url>http://geoserver.loftmyndir.is/geoserver/wms?</url>
+            <layerNames>postgis:vertices_tmp</layerNames>
+            <layerStyles>routing_vertices</layerStyles>
+            <format>image/png</format>
+            <transparent>true</transparent>
+            <visibility>false</visibility>
+            <singleTile>true</singleTile>
+            <displayInLayerSwitcher>true</displayInLayerSwitcher>
+            <layerScales>6800000,3400000,1700000,1000000,500000,250000,100000,50000,25000,10000,5000,2000,1000,500,250</layerScales>
+            <isBaseLayer>false</isBaseLayer>
+            <unsupportedBrowsers>[]</unsupportedBrowsers>
+        </layer --> 
+        <layer>
+            <layerTitle>POI Vector</layerTitle>
+            <layerName>poi</layerName>
+            <layerType>WMS.Untiled</layerType>
+            <url>http://geoserver.loftmyndir.is/geoserver/wms?</url>
+            <layerNames>isl_poi_ordered</layerNames>
+            <layerStyles>isl_poi_16x</layerStyles>
+            <format>image/png</format>
+            <transparent>true</transparent>
+            <visibility>false</visibility>
+            <singleTile>true</singleTile>
+            <displayInLayerSwitcher>true</displayInLayerSwitcher>
+            <layerScales>50000, 25000, 10000, 5000, 2000, 1000, 500, 250</layerScales>
+            <isBaseLayer>false</isBaseLayer>
+            <unsupportedBrowsers>[]</unsupportedBrowsers>
+        </layer>          
+        
+        <vectorlayer>
+            <layerTitle>Skámyndir</layerTitle>
+            <layerName>skamyndir</layerName>
+            <layerType>WFS</layerType>
+            <url>proxies/queryWFS.php?</url>
+            <layerNames>postgis:lm_skamyndir_view</layerNames>
+            <maxFeatures>200</maxFeatures>
+            <extractAttributes>true</extractAttributes>
+            <!--<layerStyles>styleMap</layerStyles>-->
+            <layerScales>[6800000,3400000,1700000,1000000,500000,250000,100000,50000,25000,10000,5000,2000,1000,500,250]</layerScales>
+            <displayInLayerSwitcher>true</displayInLayerSwitcher>            
+            <visibility>false</visibility>
+            <styleMap>
+                <!--
+                <useStyleMap>true</useStyleMap>                
+                <componentFileName>styleMaps.js.php</componentFileName>
+                <anotherStyleMapName></anotherStyleMapName>
+                -->
+                <default>
+                    <fillColor>white</fillColor>
+                    <strokeColor>white</strokeColor>
+                    <strokeWidth>5</strokeWidth>
+                    <strokeOpacity>0.1</strokeOpacity>
+                    <fillOpacity>0.1</fillOpacity>
+                    <pointRadius>5</pointRadius>
+                </default>
+                <select>
+                    <fillColor>yellow</fillColor>
+                    <strokeColor>yellow</strokeColor>
+                    <strokeWidth>8</strokeWidth>
+                    <fillOpacity>0.6</fillOpacity>
+                    <strokeOpacity>0.6</strokeOpacity>
+                    <pointRadius>8</pointRadius>
+                    <cursor>pointer</cursor>   
+                  </select>
+            </styleMap>
+            <!-- Aðeins skilgreindir auka parametrar, feature alltaf sent inn og fyrir onSelect og onClick þarf að senda x og y hnit.  Hægt er að senda fleiri parametra -->
+            <onSelect>onSkamyndirSelectCallback(feature, this.handlers.feature.evt.xy.x, this.handlers.feature.evt.xy.y);</onSelect>
+            <onUnSelect>onSkamyndirUnselectCallback(feature);</onUnSelect>
+            <onClick>onSkamyndirClickCallback(feature, this.handlers.feature.evt.xy.x, this.handlers.feature.evt.xy.y);</onClick>
+        </vectorlayer>          
+        <vectorlayer>
+            <layerTitle>Vefmyndavélar</layerTitle>
+            <layerName>vefmyndavelar</layerName>
+            <layerType>WFS</layerType>
+            <url>proxies/queryWFS.php?</url>
+            <!--<layerNames>postgis:lm_vefmyndavelar</layerNames>-->
+            <layerNames>postgis:lm_vefmynd_join_vefmynd_group</layerNames>
+            <maxFeatures>200</maxFeatures>
+            <extractAttributes>true</extractAttributes>
+            <!--<layerStyles>styleMap</layerStyles>-->
+            <layerScales>[6800000,3400000,1700000,1000000,500000,250000,100000,50000,25000,10000,5000,2000,1000,500,250]</layerScales>
+            <displayInLayerSwitcher>true</displayInLayerSwitcher>            
+            <visibility>false</visibility>
+            <styleMap>
+                <!--
+                <useStyleMap>true</useStyleMap>                
+                <componentFileName>styleMaps.js.php</componentFileName>
+                <anotherStyleMapName></anotherStyleMapName>
+                -->
+                <default>
+                    <fillColor>white</fillColor>
+                    <strokeColor>white</strokeColor>
+                    <strokeWidth>5</strokeWidth>
+                    <strokeOpacity>0.1</strokeOpacity>
+                    <fillOpacity>0.1</fillOpacity>
+                    <pointRadius>5</pointRadius>
+                </default>
+                <select>
+                    <fillColor>yellow</fillColor>
+                    <strokeColor>yellow</strokeColor>
+                    <strokeWidth>8</strokeWidth>
+                    <fillOpacity>0.6</fillOpacity>
+                    <strokeOpacity>0.6</strokeOpacity>
+                    <pointRadius>8</pointRadius>
+                    <cursor>pointer</cursor>   
+                  </select>
+            </styleMap>
+            <!-- Aðeins skilgreindir auka parametrar, feature alltaf sent inn og fyrir onSelect og onClick þarf að senda x og y hnit. -->
+            <onSelect>onVefmyndavelarSelectCallback(feature, this.handlers.feature.evt.xy.x, this.handlers.feature.evt.xy.y);</onSelect>
+            <onUnSelect>onVefmyndavelarUnselectCallback(feature);</onUnSelect>
+            <onClick>onVefmyndavelarClickCallback(feature, this.handlers.feature.evt.xy.x, this.handlers.feature.evt.xy.y);</onClick>
+        </vectorlayer> 
+        
+        <vectorlayer>
+            <layerTitle>POI Vector</layerTitle>
+            <layerName>poi</layerName>
+            <layerType>WFS</layerType>
+            <url>proxies/queryWFS.php?</url>
+            <layerNames>postgis:isl_poi_ordered</layerNames>
+            <maxFeatures>200</maxFeatures>
+            <extractAttributes>true</extractAttributes>
+            <layerScales>[50000, 25000, 10000, 5000, 2000, 1000, 500, 250]</layerScales>
+            <displayInLayerSwitcher>true</displayInLayerSwitcher>            
+            <visibility>false</visibility>
+            <styleMap>
+                <default>
+                    <fillColor>white</fillColor>
+                    <strokeColor>white</strokeColor>
+                    <strokeWidth>5</strokeWidth>
+                    <strokeOpacity>0.1</strokeOpacity>
+                    <fillOpacity>0.1</fillOpacity>
+                    <pointRadius>5</pointRadius>
+                </default>
+                <select>
+                    <fillColor>yellow</fillColor>
+                    <strokeColor>yellow</strokeColor>
+                    <strokeWidth>8</strokeWidth>
+                    <fillOpacity>0.6</fillOpacity>
+                    <strokeOpacity>0.6</strokeOpacity>
+                    <pointRadius>8</pointRadius>
+                    <cursor>pointer</cursor>   
+                  </select>
+            </styleMap>
+            <!-- Aðeins skilgreindir auka parametrar, feature alltaf sent inn og fyrir onSelect og onClick þarf að senda x og y hnit. -->
+            <onSelect>onPoiSelectCallback(feature, this.handlers.feature.evt.xy.x, this.handlers.feature.evt.xy.y);</onSelect>
+            <onUnSelect>onPoiUnselectCallback(feature);</onUnSelect>
+            <onClick>onPoiClickCallback(feature, this.handlers.feature.evt.xy.x, this.handlers.feature.evt.xy.y);</onClick>           
+        </vectorlayer> 
+        
+        <!-- Þessi markerlayer er keyrður sem á eftir  -->
+        <markerlayer>
+            <layerTitle>Merki</layerTitle>
+            <layerName>markers</layerName>
+            <layerType>Markers</layerType>   
+            <displayInLayerSwitcher>false</displayInLayerSwitcher> 
+        </markerlayer>
+    </layers>
+    
+    <!-- controls er bætt inn í kortasja.js.is þar sem map objectinn er skilgreindur -->
+    <controls>
+        <!--<control>
+            <name>overviewmap</name>
+            <controlFile>overviewMap.js.php</controlFile>
+            <controlInitScript>initOverviewMap();</controlInitScript>
+            <configXML></configXML>
+            <controlCSS>overviewMap.css</controlCSS>            
+        </control>-->
+        <control>
+            <name>overviewmapstatic</name>
+            <controlFile>overviewMapStatic.js.php</controlFile>
+            <controlInitScript>initOverviewMapStatic();</controlInitScript>
+            <configXML></configXML>
+            <controlCSS>overviewMapStatic.css</controlCSS>            
+        </control>
+        <control>
+            <name>measure</name>
+            <controlFile>measuretool.js.php</controlFile>
+            <controlInitScript>initMeasure();</controlInitScript>
+            <configXML></configXML>
+            <controlCSS>measuretool.css</controlCSS>            
+        </control>
+        <!-- þeir vilja helst að permalink sé alltaf síðasta control -->
+        <control>
+            <name>permalink</name>
+            <controlFile>permalink.js.php</controlFile>
+            <controlInitScript>initPermalink();</controlInitScript>
+            <configXML></configXML>
+            <controlCSS>permalink.css</controlCSS>            
+        </control>        
+    </controls>
+    
+    <components>
+        <component>
+            <name>slider</name>
+            <componentFile>slider.js.php</componentFile>
+            <componentInitScript>initSlider();</componentInitScript>
+            <configXML></configXML>
+            <componentCSS>slider.css</componentCSS>
+        </component>         
+        <component>
+            <name>contextmenu</name>
+            <componentFile>contextMenu.js.php</componentFile>
+            <componentInitScript>/* No init for contex menu */</componentInitScript>
+            <componentXML>contextMenu.xml</componentXML>
+            <componentCSS>context_menu.css</componentCSS>
+        </component>
+         <component>
+            <name>suggestions</name>
+            <componentFile>suggestions.js.php</componentFile>
+            <componentInitScript>initSuggestions();</componentInitScript>
+            <configXML>suggestions.xml</configXML>
+            <componentCSS>suggestions.css</componentCSS>
+        </component>         
+        <component>
+            <name>routing</name>
+            <componentFile>routing.js.php</componentFile>
+            <componentInitScript>initRouting();</componentInitScript>
+            <configXML>routing.xml</configXML>
+            <componentCSS>routing.css</componentCSS>
+        </component> 
+       <component>
+            <name>tooltipflex</name>
+            <componentFile>toolTipFlex.js.php</componentFile>
+            <componentInitScript>initToolTipFlex();</componentInitScript>
+            <configXML></configXML>
+            <componentCSS>tooltipflex.css</componentCSS>
+        </component>  
+       <component>
+            <name>smoothpopup</name>
+            <componentFile>smoothpopup.js.php</componentFile>
+            <componentInitScript>initSmoothPopup();</componentInitScript>
+            <configXML></configXML>
+            <componentCSS>smoothPopup/smoothpopup.css</componentCSS>
+        </component>  
+       <component>
+            <name>skamyndir</name>
+            <componentFile>skamyndir.js.php</componentFile>
+            <componentInitScript>initSkamyndir();</componentInitScript>
+            <configXML></configXML>
+            <componentCSS>skamyndir.css</componentCSS>
+       </component>        
+        <component>
+            <name>lm_dialog</name>
+            <componentFile>dialog.js.php</componentFile>
+            <componentInitScript>initDialog();</componentInitScript>
+            <configXML></configXML>
+            <componentCSS>dialog.css</componentCSS>
+        </component>  
+        <component>
+            <name>modalBox</name>
+            <componentFile>modalBox.js.php</componentFile>
+            <componentInitScript>initModalBox();</componentInitScript>
+            <configXML></configXML>
+            <componentCSS>modalBox.css</componentCSS>
+        </component>          
+        <component>
+            <name>print</name>
+            <componentFile>print.js.php</componentFile>
+            <componentInitScript>initPrint(); initMalmoPrint();</componentInitScript>
+            <configXML></configXML>
+            <componentCSS>print.css</componentCSS>
+        </component>         
+       <component>
+            <name>vefmyndavelar</name>
+            <componentFile>vefmyndavelar.js.php</componentFile>
+            <componentInitScript>initVefmyndavelar();</componentInitScript>
+            <configXML></configXML>
+            <componentCSS>vefmyndavelar.css</componentCSS>
+        </component>
+        <component>
+            <name>mapSearch</name>
+            <componentFile>search.js.php</componentFile>
+            <componentInitScript>initSearch();</componentInitScript>
+            <configXML></configXML>
+            <componentCSS></componentCSS>
+        </component>
+        <component>
+            <name>accordion</name>
+            <componentFile>accordion.js.php</componentFile>
+            <componentInitScript>initAccordion();</componentInitScript>
+            <configXML></configXML>
+            <componentCSS></componentCSS>
+        </component>         
+        
+        <component>
+            <name>poi</name>
+            <componentFile>poi.js.php</componentFile>
+            <componentInitScript>initPOI();</componentInitScript>
+            <configXML></configXML>
+            <componentCSS>poi.css</componentCSS>
+        </component>                 
+        
+        <!-- þarf að vera á eftir vectorlayerum sem eru með clientselect -->
+        <component>
+            <name>clientselect</name>
+            <componentFile>clientSelect.js.php</componentFile>
+            <componentInitScript>initClientSelect();</componentInitScript>
+            <configXML></configXML>
+            <componentCSS></componentCSS>
+        </component>             
+        <component>
+            <name>baseLayersChooser</name>
+            <componentFile>baseLayersChooser.js.php</componentFile>
+            <componentInitScript>initBaseLayersChooser("Kort, Myndkort");</componentInitScript>
+            <configXML></configXML>
+            <componentCSS>baseLayersChooser.css</componentCSS>
+        </component> 
+        <component>
+            <name>headerButtons</name>
+            <componentFile>headerButtons.js.php</componentFile>
+            <componentInitScript>initHeaderButtons();</componentInitScript>
+            <configXML></configXML>
+            <componentCSS></componentCSS>
+        </component>  
+        <component>
+            <name>dropdownbox</name>
+            <componentFile>dropdownBox.js.php</componentFile>
+            <componentInitScript>initDropdownBox();</componentInitScript>
+            <configXML></configXML>
+            <componentCSS>dropdownBox.css</componentCSS>
+        </component>  
+        <component>
+            <name>customLayerSwitcher</name>
+            <componentFile>customLayerSwitcher.js.php</componentFile>
+            <componentInitScript>initCustomLayerSwitcher();</componentInitScript>
+            <configXML></configXML>
+            <componentCSS>customLayerSwitcher.css</componentCSS>
+        </component>   
+    </components> 
+</mapDefaults>
+
+

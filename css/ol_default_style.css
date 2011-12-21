@@ -332,6 +332,11 @@ div.olControlSaveFeaturesItemInactive {
     filter: alpha(opacity=50); /* IE */
 }
 
+/* avoid pink tiles -- Hrannar*/ 
+.olImageLoadError {
+    background-color: transparent !important;
+}
+
 /**
  * Cursor styles
  */

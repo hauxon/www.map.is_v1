@@ -1,0 +1,22 @@
+#baselayers_chooser{
+    position: absolute;
+    top:86px;
+    right:10px;
+    z-index:2000;
+    
+
+}
+
+#baselayers_chooser span{
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 5px;
+    background-color: AliceBlue;
+    border-radius: 0 0 1em 1em;    
+    opacity: 0.8;    
+}
+
+#baselayers_chooser a{
+    text-decoration: none;
+}
+

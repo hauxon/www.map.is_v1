@@ -1,4 +1,4 @@
-<!--script type="text/javascript"-->
+<! --script -->
 /*
  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
  routing.js.php
@@ -33,8 +33,6 @@ var vectors = null;
 // Hér kemur það sem þarf að keyra eftir að kortið hefur initað sig
 function initRouting()
 {
-   
-
     /*var wms_routing_vegir = new OpenLayers.Layer.WMS.Untiled( "Vegir overlay","http://212.30.228.18/geoserver/wms",
     {layers:'postgis:routing_vegir',format:'image/jpeg',transparent: true, styles:'line_routingtest'},
     {'displayInLayerSwitcher':true, 'isBaseLayer':false,visibility:false});
@@ -60,34 +58,30 @@ function initRouting()
      map.addLayer(vectors);
     //////////////////////////////////////////////////////////////////////////// Vector end
 
-
+    //$j("#sliderAccordion").append("<h3><a href='#'>Leit</a></h3><div><p><div id='searchResultPanel'>Velkomin á map.is</div></p></div>");
     //Insert HTML Container for Routing
-    RoutingHtml = "<h3><a href='#'>Vegvísun</a></h3><div>";
-    RoutingHtml += "<div id='RoutingDIV'>";
+    //RoutingHtml = "<h3><a href='#'>Vegvísun</a></h3><div>";
+    RoutingHtml = "<div id='RoutingDIV'>";
     RoutingHtml += "<img id='vegvisun_divider1' src='img/vegvisun/vegvisun_divider_pixel.gif'>";
-    RoutingHtml += "<div id='vegvisun_A'><img src='img/vegvisun/vegvisun_A.png'></div><div id='fromtext'>Frá:</div><input id='routing_from_addr' type='text'>";
-    RoutingHtml += "<div id='vegvisun_B'><img src='img/vegvisun/vegvisun_B.png'></div><div id='totext'>Til:</div><input id='routing_to_addr' type='text'>";
+    RoutingHtml += "<div id='vegvisun_A'><img src='img/routing/routing_marker_A.png'></div><div id='fromtext'>Frá:</div><input id='routing_from_addr' type='text'>";
+    RoutingHtml += "<div id='vegvisun_B'><img src='img/routing/routing_marker_B.png'></div><div id='totext'>Til:</div><input id='routing_to_addr' type='text'>";
     RoutingHtml += "<img id='vegvisun_divider2' src='img/vegvisun/vegvisun_divider_pixel.gif'>";
-    RoutingHtml += "<input id='routing_button' type='button' value='Finna leið' onclick='clearZips();getRoute();'>";
+    RoutingHtml += "<img id='routingLoading' src='img/gui/loading_16x16_trans.gif' width='16' height='16' /><div id='routingLoadingTxt'>...reikna út vegvísun.</div><input id='clear_routing_button' class='hidden' type='button' value='Hreinsa' onclick='clearRoutingResults();'><input id='routing_button' type='button' value='Finna leið' onclick='clearZips();getRoute();'>";
     //Insert HTML container for routing results
     RoutingHtml += "<div id='RoutingResultsDIV'><div id='rResultsHtml'></div></div>";
     RoutingHtml += "</div>";
-    RoutingHtml += "</div>";
-    $j("#sliderAccordion").append(RoutingHtml);
-    //$j("#sliderAccordion").accordion();
+    //RoutingHtml += "</div>";
+    $j("#routingPanel").append(RoutingHtml);
     
-    $j("#sliderAccordion").append("<h3><a href='#'>Skámyndir</a></h3><div><p>Hér koma skámyndirnar góðu!</p></div>");
-    $j("#sliderAccordion").append("<h3><a href='#'>Fleira</a></h3><div><p>Dóterí</p></div>");
-    $j("#sliderAccordion").accordion({ fillSpace: true, animated:'easeInOutQuad', duration:'fast', collapsible: true });
-    //$j("#accordion").accordion();
-
     
-    //$j("#sliderAccordion").append(RoutingResultsHtml);
 
     // Búum til nýtt context menu (f. hægrismell)
-    var cuztomContextMenu = "<!-- The second Menu(Special) --><ul class=context-menu id=special-menu><li><a href=javascript:contextZoomIn();>Þysja inn</a></li>";
-    cuztomContextMenu += "<li><a href=javascript:contextZoomOut();>Þysja út</a></li><li><a href=javascript:centerMapHere();>Miðja kort hér</a></li>";
-    cuztomContextMenu += "<li><a href=javascript:routeFromHere();>Vegvísun frá</a></li><li><a href=javascript:routeToHere();>Vegvísun til</a></li></ul>";
+    var cuztomContextMenu = "<!-- The second Menu(Special) --><ul class=context-menu id=special-menu>";
+    cuztomContextMenu += "<li><a href=javascript:contextZoomIn();><div class='contextMenuLiDiv'><div class='contextMenuIconDiv'><img class='ContextIconZoomInImg' src='img/clearpix.gif' /></div><div class='contextMenuTextDiv'>Þysja inn</div></div></a></li>";
+    cuztomContextMenu += "<li><a href=javascript:contextZoomOut();><div class='contextMenuLiDiv'><div class='contextMenuIconDiv'><img class='ContextIconZoomOutImg' src='img/clearpix.gif' /></div><div class='contextMenuTextDiv'>Þysja út</div></div></a></li>";
+    cuztomContextMenu += "<li><a href=javascript:centerMapHere();><div class='contextMenuLiDiv'><div class='contextMenuIconDiv'><img class='ContextIconCenterHereImg' src='img/clearpix.gif' /></div><div class='contextMenuTextDiv'>Miðja kort hér</div></div></a></li>";
+    cuztomContextMenu += "<li><a href=javascript:routeFromHere();><div class='contextMenuLiDiv'><div class='contextMenuIconDiv'><img class='ContextIconRouteFromImg' src='img/clearpix.gif' /></div><div class='contextMenuTextDiv'>Vegvísun frá</div></div></a></li>";
+    cuztomContextMenu += "<li><a href=javascript:routeToHere();><div class='contextMenuLiDiv'><div class='contextMenuIconDiv'><img class='ContextIconRouteToImg' src='img/clearpix.gif' /></div><div class='contextMenuTextDiv'>Vegvísun til</div></div></li></a></ul>";
     $j("body").append(cuztomContextMenu); // Öddum þessu á domið
 
     ContextMenu.set("special-menu", "map");
@@ -102,7 +96,69 @@ function initRouting()
      clickWMSFeature.activate(); */
 
      // höfum höndina á default
-     document.body.style.cursor='pointer';
+     //document.body.style.cursor='pointer';
+     
+     markers.setZIndex(10000); // svo að markerar komi alltaf ofan á.
+     
+     
+   // To handle Enter keypress 
+   $j('#routing_to_addr').keyup(
+        function (e)
+        {
+            if (e.keyCode == 13) //Enter
+            { 
+                if ( $j('#routing_to_addr').val() != '' )
+                {
+                    if ( $j('#routing_from_addr').val() != '' )
+                    {
+                        // ----- Let's route!! ------
+                        // make sure inputbox background color is white
+                        $j('#routing_from_addr').css( 'background-color', '#FFFFFF' );
+                        $j('#routing_to_addr').css( 'background-color', '#FFFFFF' );
+                        $j("#rResultsHtml").html("");
+                        clearZips();
+                        getRoute();
+                    }
+                    
+                    else
+                    {
+                        $j('#routing_from_addr').css( 'background-color', '#FFDDDD' ); //pink warning background color
+                        $j('#routing_from_addr').focus();
+                    }
+                }
+                
+            }
+        }
+    )
+        
+    $j('#routing_from_addr').keyup(
+        function (e)
+        {
+            if (e.keyCode == 13) //Enter
+            { 
+                if ( $j('#routing_from_addr').val() != '' )
+                {
+                    if ( $j('#routing_to_addr').val() != '' )
+                    {
+                        // ----- Let's route!! ------
+                        // make sure inputbox background color is white
+                        $j('#routing_from_addr').css( 'background-color', '#FFFFFF' );
+                        $j('#routing_to_addr').css( 'background-color', '#FFFFFF' );
+                        $j("#rResultsHtml").html("");
+                        clearZips();
+                        getRoute();
+                    }
+                    else
+                    {
+                        $j('#routing_to_addr').css( 'background-color', '#FFDDDD' ); //pink warning background color
+                        $j('#routing_to_addr').focus();
+                    }
+                }
+                
+            }
+        }
+    )
+     
 }
 
 
@@ -126,8 +182,10 @@ function routingDataObject(roadname, length,speed,vegnumer,sdirection,tdirection
 
 function getRoute()
 {
-	//Hreinsa gamlar niðurstöður
+
+        //Hreinsa gamlar niðurstöður
 	vectors.destroyFeatures();
+        markers.clearMarkers();
 
 	// From:
 	if (chosenFromZip == "")
@@ -143,7 +201,7 @@ function getRoute()
 		{
 			htmlZippoz = "<b><font color=red >ATH!</font></b> Heimilisfangið <b>" + $j("#routing_from_addr").val()  + "</b> fannst á " + fromZips.length + " stöðum. Þrengið leitina með því að velja póstnúmer.<br>";
 			for( i=0; i < fromZips.length; i++)
-			{
+			{ 
 				var svf = fromZips[i][2]; // Þéttbýlisstaður
 				if (svf == "")
 					svf = fromZips[i][1]; // Ef ekki þéttblisstaður þá birta sveitarfélagsnafn
@@ -213,7 +271,31 @@ function getRoute()
 	// Jæja nú ættu leitarskilyrðin að vera klár til að sækja leiðina
 	//getRoutePath(submitFromAddr,chosenFromZip,submitToAddr,chosenToZip);
         getRoutePathClick();
+        
+        //Birta Hreinsa takkann
+        $j("#clear_routing_button").removeClass('hidden').html('');
+        $j("#clear_routing_button").addClass('visible').html('');
+        
  }
+ 
+function clearRoutingResults()
+{
+    //Hreinsa gamlar niðurstöður
+    vectors.destroyFeatures();
+    markers.clearMarkers();
+    clearZips();
+    // Hreinsa Akstursleiðbeiningar
+    $j("#rResultsHtml").html("");
+    // Fela Akstursleiðbeiningaglugga
+    $j("#RoutingResultsDIV").css("visibility","visible");
+    //Birta Hreinsa takkann
+    $j("#clear_routing_button").removeClass('hidden').html('');
+    $j("#clear_routing_button").addClass('visible').html('');
+    
+    //Fela Hreinsa takkann
+    $j("#clear_routing_button").removeClass('visible').html('');
+    $j("#clear_routing_button").addClass('hidden').html('');
+}
 
 function selectFromPoint(pointInfoArr)
 {
@@ -234,9 +316,9 @@ function selectFromPoint(pointInfoArr)
     //Add marker for start point . First we check if there is already a "routeFrom" marker
     var marker = getMarkerByName("routeFrom");
     if (typeof(marker) == "undefined" || marker == "") {
-            var size = new OpenLayers.Size(43, 35);
+            var size = new OpenLayers.Size(24, 27);
             var offset = new OpenLayers.Pixel(-10, -27);
-            var icon = new OpenLayers.Icon('img/routing/LM_routing_markerA.png', size, offset);
+            var icon = new OpenLayers.Icon('img/routing/routing_marker_A.png', size, offset);
             marker = new OpenLayers.Marker(lonlat, icon);
             marker.name = "routeFrom";
             markers.addMarker(marker);
@@ -265,9 +347,9 @@ function selectToPoint(pointInfoArr)
     //Add marker for end point . First we check if there is already a "routeTo" marker
     var marker = getMarkerByName("routeTo");
     if (typeof(marker) == "undefined" || marker == "") {
-            var size = new OpenLayers.Size(43, 35);
+            var size = new OpenLayers.Size(24, 27);
             var offset = new OpenLayers.Pixel(-10, -27);
-            var icon = new OpenLayers.Icon('img/routing/LM_routing_markerB.png', size, offset);
+            var icon = new OpenLayers.Icon('img/routing/routing_marker_B.png', size, offset);
             marker = new OpenLayers.Marker(lonlat, icon);
             marker.name = "routeTo";
             markers.addMarker(marker);
@@ -281,7 +363,6 @@ function selectToPoint(pointInfoArr)
  // Tekur inn innihald innsláttorboxins og hvort um er að ræða to eða from boxið.
  function saekjaPostnumer(inputAddress , ToFrom)
  {
-	//debugger;
 	var retZips = new Array(); // tekur við póstnúmerum úr uppflettingu
 
 	inputAddress=inputAddress.replace(/\,/g," " ); // strip commas
@@ -380,15 +461,16 @@ function selectToPoint(pointInfoArr)
 	// If no matching address is found return zip hold 666!
 
 	var zipArray = new Array();
-	sendSyncAJAXRequest("proxies/leit_proxy.php?sKey=checkAddressAndZipUnique&url=http://geoserver.loftmyndir.is/kortasja/leit/routing_service.php&sValue=" + sValue1+"|"+sValue2+"&remotePage=routing_service");
-	var numberOfResults = $j(xmlHttp.responseXML).find("row").length;
+	//sendSyncAJAXRequest("proxies/leit_proxy.php?sKey=checkAddressAndZipUnique&url=http://geoserver.loftmyndir.is/kortasja/leit/routing_service.php&sValue=" + sValue1+"|"+sValue2+"&remotePage=routing_service");
+	sendSyncAJAXRequest("db/routingDB.php?sKey=checkAddressAndZipUnique&url=http://geoserver.loftmyndir.is/kortasja/leit/routing_service.php&sValue=" + sValue1+"|"+sValue2+"&remotePage=routing_service");
+        var numberOfResults = $j(xmlHttp.responseXML).find("row").length;
 	//alert(numberOfResults);
 	// Lets walk through the response XML and pick out the zip codes
 	$j(xmlHttp.responseXML).find("row").each(function()
 	{
 		var zippo = new Array();
-		zippo[0] = $j(this).find("postnumer").text();
-		zippo[1] = $j(this).find("sveitarfel").text();
+		zippo[0] = $j(this).find("zip").text();
+		zippo[1] = $j(this).find("svf_nafn").text();
 		zippo[2] = $j(this).find("tettbyliss").text();
                 zippo[3] = $j(this).find("the_geom").text();
 		zipArray.push( zippo ); // insert zip to array
@@ -437,15 +519,16 @@ function selectToPoint(pointInfoArr)
 
 	//((sendSyncAJAXRequest("proxies/leit_proxy.php?sKey=checkUniqueAddress&url=http://geoserver.loftmyndir.is/kortasja/leit/routing_service.php&sValue=" + theAddress + "&remotePage=routing_service", checkAddressCallback);
 	var zipArray = new Array();
-	sendSyncAJAXRequest("proxies/leit_proxy.php?sKey=checkUniqueAddress&sValue=" + sValue);
+	//sendSyncAJAXRequest("proxies/leit_proxy.php?sKey=checkUniqueAddress&sValue=" + sValue); //Úrelt
+        sendSyncAJAXRequest("db/routingDB.php?sKey=checkUniqueAddress&sValue=" + sValue);
 	var numberOfResults = $j(xmlHttp.responseXML).find("row").length;
 	//alert(numberOfResults);
 	// Lets walk through the response XML and pick out the zip codes
 	$j(xmlHttp.responseXML).find("row").each(function()
 	{
 		var zippo = new Array();
-		zippo[0] = $j(this).find("postnumer").text();
-		zippo[1] = $j(this).find("sveitarfel").text();
+		zippo[0] = $j(this).find("zip").text();
+		zippo[1] = $j(this).find("svf_nafn").text();
 		zippo[2] = $j(this).find("tettbyliss").text();
                 zippo[3] = $j(this).find("the_geom").text();
 		zipArray.push( zippo ); // insert zip to array
@@ -486,6 +569,10 @@ function getRoutePathClick()
 {
 	if (routeFromHereCoords != "" && routeToHereCoords != "")
 	{
+            // Sýna "loading" icon og texta
+            $j("#routingLoading").css("visibility","visible");
+            $j("#routingLoadingTxt").css("visibility","visible");
+        
 		//Hreinsa gamlar niðurstöður
 		vectors.destroyFeatures();
 		// Jæja sækja leiðina
@@ -499,6 +586,9 @@ function displayResultsGeoJSON(resp)
     if(xmlHttp.readyState == 4)
     {
 
+        $j("#routingLoading").css("visibility","hidden");
+        $j("#routingLoadingTxt").css("visibility","hidden");
+    
             // Now we have a positive routing result.  The returned data is delimetered with || (two pipes)
             // First we need to read through the GeoJSON responseText to make an array of features by splitting
             // the response by the "||" delimeter to an array of elements (elements[]).  Each element consists of
@@ -571,7 +661,6 @@ function displayResultsGeoJSON(resp)
             for(var j=0; j<rData.length; ++j)
             {
 
-                //debugger;
                 var turnObj = new turnObject();
                 if (j==0) // Fyrsti leggur
                 {
@@ -677,7 +766,7 @@ function displayResultsGeoJSON(resp)
                                 turnObj.turnTxt = " <img src=http://www.loftmyndir.is/k/img/routing/turn_right.png> ";
                                 
                             
-                                /*/debugger;
+                                /*
                                 if(rData[j].roundabout == "Y")
                                 turnObj.turnTxt += " O ";    */
                             
@@ -724,7 +813,7 @@ function displayResultsGeoJSON(resp)
                     previousRoad.source=rData[j].source;
                     previousRoad.target=rData[j].target;	
                     
-                    console.log(j+". " +rData[j].roadname + " - " + rData[j].length +"m");
+                    //console.log(j+". " +rData[j].roadname + " - " + rData[j].length +"m");
                     
                     //eachRoadLength = rData[j].length/1;
                 }
@@ -775,7 +864,7 @@ function displayResultsGeoJSON(resp)
                             legLength = Math.round(finalLength) + "m";}
                         rrhtml += " " + legLength + "<HR witdth='80%' style='border:0;color:#DDD;height:1px;background-color:#DDD'>";
                         eachRoadLength = 0;
-                        console.log("(!lastRow && newRoad && !fromRoundabout)");
+                        //console.log("(!lastRow && newRoad && !fromRoundabout)");
                     }
                     if(!lastRow && !newRoad && !fromRoundabout)
                     {
@@ -794,13 +883,13 @@ function displayResultsGeoJSON(resp)
                             rrhtml += " " + legLength + "<HR witdth='80%' style='border:0;color:#DDD;height:1px;background-color:#DDD'>";
                             eachRoadLength = 0;
                          }
-                         console.log("(!lastRow && !newRoad && !fromRoundabout)");
+                         //console.log("(!lastRow && !newRoad && !fromRoundabout)");
                     }
                     if(!lastRow && !newRoad && fromRoundabout)
                     {
                          // Sami vegur áfram og við komum úr hringtorgi
                          // Hér þarf ekkert að gera nema að telja áfram
-                         console.log("(!lastRow && !newRoad && fromRoundabout)");
+                         //console.log("(!lastRow && !newRoad && fromRoundabout)");
                     }
                     if(!lastRow && newRoad && fromRoundabout)
                     {
@@ -821,7 +910,7 @@ function displayResultsGeoJSON(resp)
                             fromRoundabout = false;
                             roundaboutInsert = "";
                          }
-                         console.log("(!lastRow && newRoad && fromRoundabout)");
+                         //console.log("(!lastRow && newRoad && fromRoundabout)");
                         
                     }
                     
@@ -913,7 +1002,7 @@ function displayResultsGeoJSON(resp)
                     // it's time for writing out directions for road we've been travelling
                     if( (newRoad && !fromRoundabout) || enteringRoundabout || lastRow)
                     {
-                        console.log(rData[j].roadname + " -  Ný eða síðastaa gata => skrifa út");
+                        //console.log(rData[j].roadname + " -  Ný eða síðastaa gata => skrifa út");
                         
                         // Það er kominn nýr vegur eða síðasta færsla
                         // skrifum veginn sem við erum með út.
@@ -1009,7 +1098,7 @@ function displayResultsGeoJSON(resp)
                     var hringtxt = "";
                     if (rData[j].roundabout == "Y")
                         hringtxt = " - hringtorg"; 
-                    console.log(j+". " +rData[j].roadname + " - " + rData[j].length +"m /x " + (eachRoadLength/1+rData[j].length/1) + "m (" + Math.round((totalLength+(rData[j].length/1))) + "m)" + hringtxt);
+                    //console.log(j+". " +rData[j].roadname + " - " + rData[j].length +"m /x " + (eachRoadLength/1+rData[j].length/1) + "m (" + Math.round((totalLength+(rData[j].length/1))) + "m)" + hringtxt);
 
                     // Fetch info into a routing object for comparison with 
                     previousRoad.roadname = rData[j].roadname;
@@ -1211,23 +1300,22 @@ function rotate180(input)
 // Finds road vertext close to where the user clicked to route from (start point)
 function routeFromHere()
 {
-	var maptop = $j('#map').css('top').replace("px","");
-	var mapleft = $j('#map').css('left').replace("px","");
+	var maptop = $j('#map').position().top; //$j('#map').css('top').replace("px","");
+	var mapleft = $j('#map').position().left; //$j('#map').css('left').replace("px","");
 	var lonlat = map.getLonLatFromViewPortPx(new OpenLayers.Pixel(rightClickMousePosX-mapleft , rightClickMousePosY-maptop) );
 	// Global variable to routeFrom location
 	routeFromHereCoords = lonlat;
 
 	// returns path is routable
 	getRoutePathClick();
-
 	//Add marker for starting point
 	// First we check if there is already a "routeFrom" marker
 	var marker = getMarkerByName("routeFrom");
 
 	if (typeof(marker) == "undefined" || marker == "") {
-		var size = new OpenLayers.Size(43, 35);
+		var size = new OpenLayers.Size(24, 27);
 		var offset = new OpenLayers.Pixel(-10, -27);
-		var icon = new OpenLayers.Icon('img/routing/LM_routing_markerA.png', size, offset);
+		var icon = new OpenLayers.Icon('img/routing/routing_marker_A.png', size, offset);
 		marker = new OpenLayers.Marker(lonlat, icon);
 		marker.name = "routeFrom";
 		markers.addMarker(marker);
@@ -1242,8 +1330,8 @@ function routeFromHere()
 // Finds road vertext close to where the user clicked to route to (end point)
 function routeToHere()
 {
-	var maptop = $j('#map').css('top').replace("px","");
-	var mapleft = $j('#map').css('left').replace("px","");
+	var maptop = $j('#map').position().top;//$j('#map').css('top').replace("px","");
+	var mapleft = $j('#map').position().left; //$j('#map').css('left').replace("px","");
 	var lonlat = map.getLonLatFromViewPortPx(new OpenLayers.Pixel(rightClickMousePosX-mapleft , rightClickMousePosY-maptop) );
 
 	// TODO: Insert marker for routing end point
@@ -1261,9 +1349,9 @@ function routeToHere()
 	var marker = getMarkerByName("routeTo");
 
 	if (typeof(marker) == "undefined" || marker == "" ) {
-		var size = new OpenLayers.Size(43, 35);
+		var size = new OpenLayers.Size(24, 27);
 		var offset = new OpenLayers.Pixel(-10, -27);
-		var icon = new OpenLayers.Icon('img/routing/LM_routing_markerB.png', size, offset);
+		var icon = new OpenLayers.Icon('img/routing/routing_marker_B.png', size, offset);
 		marker = new OpenLayers.Marker(lonlat, icon);
 		marker.name = "routeTo";
 		markers.addMarker(marker);
@@ -1296,5 +1384,4 @@ function contextZoomOut()
 	var zoomy = map.getZoom()-2; // Get current zoom level from map minus 2 since we're zooming out
 	map.zoomTo(zoomy);
 }
-
-<!--/script-->
+<!-- /script -->

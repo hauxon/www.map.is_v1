@@ -1,3 +1,22 @@
+@font-face {
+    font-family: "MetaWebBold";
+    src: url("../font/MetaWeb-Bold.woff") format("woff"), url("../font/nokia_large_light-webfont.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "NokiaLargeLight";
+    src: url("../font/nokia_large_light-webfont.woff") format("woff"), url("../font/nokia_large_light-webfont.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "DINWebBold";
+    src: url("../font/DINWeb-Bold.woff") format("woff"), url("../font/nokia_large_light-webfont.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Myriad Pro";
+    src: url("../font/myriad-pro.woff") format("woff"), url("../font/myriad-pro.ttf") format("truetype");
+}
 
 div#wrap {
   	position: absolute;
@@ -21,7 +40,7 @@ a#sliderPanelBtn.open {
 	background: transparent url(../img/gui/hidepanel.png) no-repeat left center;
 	color: #FFFFFF;
 	top: 2px;
-	left:300px;
+	left:330px;
 	position: absolute;
 	width:20px;
 	height:16px;
@@ -33,7 +52,7 @@ a#sliderPanelBtn.close {
 	background: transparent url(../img/gui/showpanel.png) no-repeat left center;
 	color: #FFFFFF;
 	top: 2px;
-	left: 332px;
+	left: 361px;
 	position: absolute;
 	width:21px;
 	height:16px;
@@ -43,18 +62,19 @@ a#sliderPanelBtn.close {
 
 div#linkblock {
 	float: left;
-	width: 310px;
+	width: 340px;
 	margin-left: -320px;
 }
 
 div#sliderPanel {
 	background: none repeat scroll 0 0 #FFFFFF;
     float: left;
-    height: 665px;
+    /*height: 665px;*/
+    height: 1000px;
     margin-left: 0;
     position: absolute;
     top: 84px;
-    width: 320px;
+    width: 350px;
     z-index: 10;
 	background-color:#FFFFFF;
 }
@@ -95,4 +115,23 @@ h4 {
 	font-family: Helvetica, Arial, sans-serif;
 	font-weight: bold;
 	clear: none;
+}
+
+
+.slider_sub_header
+{
+    color: #375171; 
+    text-decoration: none;  
+    font-family: 'Myriad Pro',Arial; 
+    font-size: 12pt;
+    padding-top: 7px;
+}
+
+.slider_sub_txt
+{
+    color: #444444;
+    font-family: 'Myriad Pro',Arial;
+    font-size: 9pt;
+    padding-top: 7px;
+    text-decoration: none;
 }

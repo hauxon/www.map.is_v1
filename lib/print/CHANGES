@@ -1,0 +1,72 @@
+3.5
+====
+* Easier installation: PEAR is no longer needed
+* Added more hints in the README for installation on Windows
+* Input tags are handled better so they don't mess up the PDF
+* You can now pass raw HTML into the class making it easier to convert
+  dynamic pages (see example3.php)
+* Getting CSS from an external file via "<link..." now works (Mike King)
+
+3.4
+====
+* Much better support for Windows (see README for details)
+* Relative paths for images, css, etc. now work by using setDefaultPath()
+  (Christian Beck <christian.beck@itc-halle.de>)
+* Example 3 now shows how you can have the PDF open straight into the browser.
+* Added a python version of the class (Trevor Meyer <pdf@buildersadvantage.net>).
+* Added a java class in lib that allows you to concatenate PDF files.
+* The option to render images in grayscale now works (Steve Milner).
+* Example 1 now includes both a jpg and gif
+* Upgraded to itext 1.3
+* Fixed bug where font-size was always getting set to 12pt (Chris).
+* Fixed bug where temp files were being left behind (Chris).
+
+3.3
+===
+* Fixed bug where empty headers and footers were not being set correctly.
+* Fixed a bug where some versions of html2ps require an html extension on the
+  tmp file (Brent)
+* Added support for retrieving remote pages over https (Oliver)
+* The include path for ps2pdf can now be set (to specify where to search for
+  font files) (Sascha)
+* Changing relative image paths to absolute urls is now an option (on by
+  default).  If turned off the image urls will be left relative allowing for
+  the images to be pulled from the local machine. (Sascha)
+
+3.2
+===
+* Greatly improved the quality of converted images (Adrian)
+* Fixed bugs in debug output which was causing invalid variables to be
+  displayed for the execution of ps2pdf
+* Updated docs to incorporate new hints and problem fixes.
+
+3.1
+===
+* Added setDebug() option which makes it much easier to catch problems (even
+  when being run from a webpage).
+* Added support for a4 paper size.
+* Added support for setting the paper orientation using the @page block.
+
+3.0
+===
+* Added support for HTML_ToPDF and PDFEncryptor to run on windows.
+* Added ability to set headers and footers.
+* Added an encryptor class which can encrypt and set permissions on a PDF file.
+* Added ability to specify different paper sizes using the @page tag.
+* Added more of the CSS options to the examples.
+* Fixed several more bugs in the examples. 
+
+2.0.1
+=====
+* Fixed some bugs in the examples. 
+
+2.0
+===
+* Redid the commands into a class.
+* Added support for taking the CSS out of an HTML file and using it.
+* Tries to eliminate tags that break html2ps
+* Added 3 examples.
+
+1.0
+===
+* Initial release.  Basically a hacked together set of commands.

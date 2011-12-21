@@ -1,0 +1,188 @@
+/* 
+    Document   : customLayerSwitcher
+    Created on : 30.8.2011, 14:05:28
+    Author     : hrannar
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+#LSHeaderDiv
+{
+    position: absolute;
+    right: 0px;
+    top: 84px;
+    background-image: url('../img/header_img/layers_bg.png');
+    width: 44px;
+    height: 22px;
+    z-index: 15;
+    cursor: pointer;
+}
+
+#LSImg
+{
+    position: absolute;
+    left: 23px;
+    top: 5px;
+}
+
+#LSListContainerDiv
+{
+    background-image: url("../img/transparent_pixel.gif");
+    display: none;
+    position: absolute;
+    right: 0px;
+    top: 84px;
+    width: 175px;
+    z-index: 16;
+    opacity:0.8;
+    filter:alpha(opacity=80)
+    
+}
+
+#LSListDiv
+{
+    background-color: #EEEEEE;
+    font-family: arial;
+    font-size: 9pt;
+    margin: 28px 0 20px 20px;
+    padding: 5px;
+    position: absolute;
+    right: 5px;
+    top: 20px;
+    width: 140px;
+    z-index: 17;
+    height: 69px;
+}
+
+#LSListItem
+{
+    position: absolute;
+    top:23px;
+    background-color: #EEEEEE;
+}
+
+.LSTextEntry
+{
+    font-family: arial;
+    font-size: 10.5px;
+    color: #333333;
+    cursor: pointer;
+}
+
+
+#skamyndir_icon:hover
+{
+    background-image:url('../img/gui/LS_icon_sprite_on.png');
+    background-position: -1px -1px;
+}
+
+.skamyndir_icon_on
+{
+    background-image:url('../img/gui/LS_icon_sprite_on.png');
+    background-position: -1px -1px;
+    height: 20px;
+    left: 5px;
+    position: absolute;
+    top: 5px;
+    width: 20px;
+}
+.skamyndir_icon_off
+{
+    background-image:url('../img/gui/LS_icon_sprite_off.png');
+    background-position: 0px 0px;
+    height: 20px;
+    left: 5px;
+    position: absolute;
+    top: 5px;
+    width: 20px;
+}
+
+#skamyndir_txt
+{
+    left: 30px;
+    position: absolute;
+    top: 10px;
+    height:20px;
+}
+
+.vefmyndavelar_icon_off {
+    background-image: url("../img/gui/LS_icon_sprite_off.png");
+    background-position: 0px -27px;
+    height: 20px;
+    left: 5px;
+    position: absolute;
+    top: 28px;
+    width: 20px;
+}
+.vefmyndavelar_icon_on {
+    background-image: url("../img/gui/LS_icon_sprite_on.png");
+    background-position: -1px -28px;
+    height: 20px;
+    left: 5px;
+    position: absolute;
+    top: 28px;
+    width: 20px;
+}
+#vefmyndavelar_icon:hover
+{
+    background-image:url('../img/gui/LS_icon_sprite_on.png');
+    background-position: -1px -28px;
+}
+#vefmyndavelar_txt
+{
+    left: 30px;
+    position: absolute;
+    top: 34px;
+    height:20px;
+}
+
+.poi_icon_off {
+    background-image: url("../img/gui/LS_icon_sprite_off.png");
+    background-position: 0px -52px;
+    height: 20px;
+    left: 5px;
+    position: absolute;
+    top: 52px;
+    width: 20px;
+}
+
+.poi_icon_on {
+    background-image: url("../img/gui/LS_icon_sprite_on.png");
+    background-position: -1px -53px;
+    height: 20px;
+    left: 5px;
+    position: absolute;
+    top: 52px;
+    width: 20px;
+}
+
+#poi_icon:hover
+{
+    background-image:url('../img/gui/LS_icon_sprite_on.png');
+    background-position: -1px -53px;
+}
+#poi_txt
+{
+    left: 30px;
+    position: absolute;
+    top: 58px;
+    height:20px;
+}
+
+#LSHeader
+{
+    background-color: #EEEEEE;
+    background-image: url("../img/gui/LS_list_header_txt.png");
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    height: 20px;
+    left: 20px;
+    position: absolute;
+    top: 33px;
+    width: 150px;
+}

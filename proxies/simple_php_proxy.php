@@ -1,5 +1,6 @@
 <?PHP
-
+ini_set('display_errors', 0);
+header('Content-type: text/html; charset=UTF-8');
 // Script: Simple PHP Proxy: Get external HTML, JSON and more!
 //
 // *Version: 1.6, Last updated: 1/24/2009*

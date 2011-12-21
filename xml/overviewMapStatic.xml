@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<overviewMapStatic>
+    <isOverviewMapOpen>true</isOverviewMapOpen>
+    <graphicOptions>
+        <numZoomLevels>1</numZoomLevels>   
+        <displayInLayerSwitcher>false</displayInLayerSwitcher>
+    </graphicOptions>
+    <imageLayer>
+        <name>iceland</name>
+        <overviewImage>http://www.loftmyndir.is/k/img/island_180x90.jpg</overviewImage>        
+        <bounds>143000,255000,866000,735000</bounds>
+        <size>180, 90</size>
+    </imageLayer>
+    <control>
+        <maxExtent>143000,255000,866000,735000</maxExtent>
+        <restrictedExtent>143000,255000,866000,735000</restrictedExtent>
+        <maxResolution>599.72189837239716</maxResolution>
+        <numZoomLevels>1</numZoomLevels>
+    </control>
+</overviewMapStatic>
