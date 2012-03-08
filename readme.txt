@@ -1,2 +1,2 @@
-Modular php útgáfa af Kortasjá Loftmynda ehf
-Sem er massa gaur.
+Modular php ï¿½tgï¿½fa af Kortasjï¿½ Loftmynda ehf
+Sem er massa gaur, en Ã¡ ekki aur.
