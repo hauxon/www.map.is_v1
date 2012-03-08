@@ -333,7 +333,7 @@ div.olLayerDiv {
 div.olControlMousePosition {
     bottom: 0em;
     right: 3px;
-    display: block;
+    display: none;
     position: absolute;
     font-family: Arial;
     font-size: smaller;

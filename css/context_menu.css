@@ -91,3 +91,10 @@
     height:20px;
     background:url('../img/gui/context_menu_sprite.gif') 0px -84px;
 }
+
+.ContextClearRouteImg
+{
+    width:20px;
+    height:20px;
+    background:url('../img/gui/context_menu_sprite.gif') 0px -106px;
+}

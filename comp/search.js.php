@@ -1,3 +1,4 @@
+
 <?php
 
 /*
@@ -17,14 +18,12 @@
 function submitMapSearch()
 {
     $j("#sliderAccordion").accordion("activate", false);
-    theKeyTheKey = $j('#searchInputString').val();
+    theKeyTheKey = escape( $j('#searchInputString').val() );
     $j.getJSON('db/mapSearchQueryDB.php?searchString=' + theKeyTheKey, displayMapSearchResults);
 }
 
 function displayMapSearchResults(data)
 {    
-    
-    
     var displayedResults = 0;
     if (data.length > 15)
         displayedResults = 15;
@@ -85,7 +84,12 @@ function displayMapSearchResults(data)
 	htmlString += '<div id="searchResultNumberDropHolder-' + (index/1+1) + '" class="searchResultNumberDropHolder"><div id="searchResultNumberDrop-' + (index/1+1) + '" class="place-index-icon place-index-icon-' + (index/1+1) + '"></div></div>';
 	htmlString += '<div id="searchResultBoxTextContainer-' + (index/1+1) + '" class="searchResultBoxTextContainer">';
         htmlString += '<div id="searchResultTypeIceon-' + (index/1+1) + '" class="searchResultTypeIceon"><div id="s_result_icon-' + (index/1+1) + '" class="s_result_icon s_result_icon_' + resultType + '"></div></div>';
-        htmlString += '<div id="searchResultHeaderText-' + (index/1+1) + '" class="searchResultHeaderText"><a href=# onclick="zoomToXY(' + x + ', ' + y + ', 10)">' + item.searchkeyword + '</a></div>';
+        
+        if(resultType == "postfong")
+            htmlString += '<div id="searchResultHeaderText-' + (index/1+1) + '" class="searchResultHeaderText"><a href=# onclick="zoomToXY(' + x + ', ' + y + ', 10)">' + item.searchkeyword + '</a></div>';
+        else
+            htmlString += '<div id="searchResultHeaderText-' + (index/1+1) + '" class="searchResultHeaderText"><a href=# onclick="zoomToXY(' + x + ', ' + y + ', 7)">' + item.searchkeyword + '</a></div>';
+               
         htmlString += '<div id="searchResultContent-' + (index/1+1) + '" class="searchResultContent">' + addressTxt;
 	if (item.type == 'poi')
         {
@@ -173,7 +177,7 @@ function displayMapSearchResults(data)
             
             leMarker.markerLonLat = markerLonLat;
             
-            leMarker.events.register("click", leMarker, function(evt) { zoomToXY(this.markerLonLat.lon,this.markerLonLat.lat,10) });
+            leMarker.events.register("click", leMarker, function(evt) { zoomToXY(this.markerLonLat.lon,this.markerLonLat.lat,7) });
             
             markers.addMarker(leMarker);
             
@@ -191,7 +195,26 @@ function displayMapSearchResults(data)
             
         }
         vectors.addFeatures(features);
-        map.zoomToExtent(bounds);
+        
+        if(data.length > 1)
+        {
+            map.zoomToExtent(bounds);
+            if(map.getZoom() > 10)
+                map.zoomTo(10);
+        }
+        else
+        {
+            //Það er aðeins ein leitarniðurstaða og því súmmum við niður á hana. 
+            var centerLonLat = features[0][0].geometry.getBounds().getCenterLonLat();
+            var x = centerLonLat.lon;
+            var y = centerLonLat.lat;
+            
+            //debugger;
+            if(data[0].type == "postfong")
+                zoomToXY( x , y , 11);
+            else
+                zoomToXY( x , y , 7);
+        }
     } 
     else 
     {

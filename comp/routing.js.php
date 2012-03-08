@@ -1,4 +1,4 @@
-<! --script -->
+<!--script language="javascript" -->
 /*
  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
  routing.js.php
@@ -33,11 +33,6 @@ var vectors = null;
 // Hér kemur það sem þarf að keyra eftir að kortið hefur initað sig
 function initRouting()
 {
-    /*var wms_routing_vegir = new OpenLayers.Layer.WMS.Untiled( "Vegir overlay","http://212.30.228.18/geoserver/wms",
-    {layers:'postgis:routing_vegir',format:'image/jpeg',transparent: true, styles:'line_routingtest'},
-    {'displayInLayerSwitcher':true, 'isBaseLayer':false,visibility:false});
-    map.addLayer(wms_routing_vegir);*/
-
      //////////////////////////////////////////////////////////////////////////// Vector
      // Setjum útlit á vegvísunar layerinn
      var layer_style = OpenLayers.Util.extend({}, OpenLayers.Feature.Vector.style['default']);
@@ -58,10 +53,9 @@ function initRouting()
      map.addLayer(vectors);
     //////////////////////////////////////////////////////////////////////////// Vector end
 
-    //$j("#sliderAccordion").append("<h3><a href='#'>Leit</a></h3><div><p><div id='searchResultPanel'>Velkomin á map.is</div></p></div>");
     //Insert HTML Container for Routing
     //RoutingHtml = "<h3><a href='#'>Vegvísun</a></h3><div>";
-    RoutingHtml = "<div id='RoutingDIV'>";
+    var RoutingHtml = "<div id='RoutingDIV'>";
     RoutingHtml += "<img id='vegvisun_divider1' src='img/vegvisun/vegvisun_divider_pixel.gif'>";
     RoutingHtml += "<div id='vegvisun_A'><img src='img/routing/routing_marker_A.png'></div><div id='fromtext'>Frá:</div><input id='routing_from_addr' type='text'>";
     RoutingHtml += "<div id='vegvisun_B'><img src='img/routing/routing_marker_B.png'></div><div id='totext'>Til:</div><input id='routing_to_addr' type='text'>";
@@ -70,10 +64,9 @@ function initRouting()
     //Insert HTML container for routing results
     RoutingHtml += "<div id='RoutingResultsDIV'><div id='rResultsHtml'></div></div>";
     RoutingHtml += "</div>";
-    //RoutingHtml += "</div>";
     $j("#routingPanel").append(RoutingHtml);
     
-    
+       
 
     // Búum til nýtt context menu (f. hægrismell)
     var cuztomContextMenu = "<!-- The second Menu(Special) --><ul class=context-menu id=special-menu>";
@@ -81,28 +74,21 @@ function initRouting()
     cuztomContextMenu += "<li><a href=javascript:contextZoomOut();><div class='contextMenuLiDiv'><div class='contextMenuIconDiv'><img class='ContextIconZoomOutImg' src='img/clearpix.gif' /></div><div class='contextMenuTextDiv'>Þysja út</div></div></a></li>";
     cuztomContextMenu += "<li><a href=javascript:centerMapHere();><div class='contextMenuLiDiv'><div class='contextMenuIconDiv'><img class='ContextIconCenterHereImg' src='img/clearpix.gif' /></div><div class='contextMenuTextDiv'>Miðja kort hér</div></div></a></li>";
     cuztomContextMenu += "<li><a href=javascript:routeFromHere();><div class='contextMenuLiDiv'><div class='contextMenuIconDiv'><img class='ContextIconRouteFromImg' src='img/clearpix.gif' /></div><div class='contextMenuTextDiv'>Vegvísun frá</div></div></a></li>";
-    cuztomContextMenu += "<li><a href=javascript:routeToHere();><div class='contextMenuLiDiv'><div class='contextMenuIconDiv'><img class='ContextIconRouteToImg' src='img/clearpix.gif' /></div><div class='contextMenuTextDiv'>Vegvísun til</div></div></li></a></ul>";
+    cuztomContextMenu += "<li><a href=javascript:routeToHere();><div class='contextMenuLiDiv'><div class='contextMenuIconDiv'><img class='ContextIconRouteToImg' src='img/clearpix.gif' /></div><div class='contextMenuTextDiv'>Vegvísun til</div></div></a></li>";
+    cuztomContextMenu += "<div  id='clear_routing_context_button'></div>";
+    cuztomContextMenu +="</ul>";
     $j("body").append(cuztomContextMenu); // Öddum þessu á domið
 
+    //return;
+
     ContextMenu.set("special-menu", "map");
-
-    // Display select button in the toolbar
-    //document.getElementById("tbSelect").style.visibility = 'visible';
-
-     //switchCommands('DragPan');
-
-    /* var clickWMSFeature = new OpenLayers.Control.Click();
-     map.addControl(clickWMSFeature);
-     clickWMSFeature.activate(); */
-
-     // höfum höndina á default
-     //document.body.style.cursor='pointer';
      
-     markers.setZIndex(10000); // svo að markerar komi alltaf ofan á.
+    markers.setZIndex(10000); // svo að markerar komi alltaf ofan á.
+    
+    
      
-     
-   // To handle Enter keypress 
-   $j('#routing_to_addr').keyup(
+    // To handle Enter keypress 
+    $j('#routing_to_addr').keyup(
         function (e)
         {
             if (e.keyCode == 13) //Enter
@@ -130,6 +116,7 @@ function initRouting()
             }
         }
     )
+    
         
     $j('#routing_from_addr').keyup(
         function (e)
@@ -275,8 +262,9 @@ function getRoute()
         //Birta Hreinsa takkann
         $j("#clear_routing_button").removeClass('hidden').html('');
         $j("#clear_routing_button").addClass('visible').html('');
+        $j("#clear_routing_context_button").html('<li><a href="javascript:clearRoutingResults();"><div class="contextMenuLiDiv"><div class="contextMenuIconDiv"><img class="ContextClearRouteImg" src="img/clearpix.gif"></div><div class="contextMenuTextDiv">Hreinsa vegvísun</div></div></a></li>');
         
- }
+}
  
 function clearRoutingResults()
 {
@@ -295,6 +283,16 @@ function clearRoutingResults()
     //Fela Hreinsa takkann
     $j("#clear_routing_button").removeClass('visible').html('');
     $j("#clear_routing_button").addClass('hidden').html('');
+    
+    // Taka út út contexmenu (hægri smell)
+    $j("#clear_routing_context_button").html('');
+    
+    
+    // Taka út lon lat gildi í 
+    routeFromHereCoords.lon = null;
+    routeFromHereCoords.lat = null;
+    routeToHereCoords.lon = null;
+    routeToHereCoords.lat = null;
 }
 
 function selectFromPoint(pointInfoArr)
@@ -577,6 +575,12 @@ function getRoutePathClick()
 		vectors.destroyFeatures();
 		// Jæja sækja leiðina
 		sendAJAXRequest('proxies/deasimple_proxy.php?request=route&xfrom=' + routeFromHereCoords.lon + '&yfrom=' + routeFromHereCoords.lat + '&xto=' + routeToHereCoords.lon + '&yto=' + routeToHereCoords.lat + '&remotePage=routing_service_click', displayResultsGeoJSON);
+                
+                //Birta Hreinsa takkann
+                $j("#clear_routing_button").removeClass('hidden').html('');
+                $j("#clear_routing_button").addClass('visible').html('');
+                $j("#clear_routing_context_button").html('<li><a href="javascript:clearRoutingResults();"><div class="contextMenuLiDiv"><div class="contextMenuIconDiv"><img class="ContextClearRouteImg" src="img/clearpix.gif"></div><div class="contextMenuTextDiv">Hreinsa vegvísun</div></div></a></li>');
+
 	}
 }
 
@@ -1384,4 +1388,10 @@ function contextZoomOut()
 	var zoomy = map.getZoom()-2; // Get current zoom level from map minus 2 since we're zooming out
 	map.zoomTo(zoomy);
 }
+
+/*
+ ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ routing.js.php END
+ ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*/
 <!-- /script -->

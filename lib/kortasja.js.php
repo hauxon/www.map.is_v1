@@ -48,9 +48,9 @@ function initmap()
 	foreach ($config->xpath('//baseLayer') as $baseLayer) 
 	{
 ?>
-                                            
-	/*var <?=$baseLayer->layerName?> = new OpenLayers.Layer.<?=$baseLayer->tileCacheType?>("<?=$baseLayer->layerTitle?>",
-			["<?=$baseLayer->url?>"],	
+                                           
+	var <?=$baseLayer->layerName?> = new OpenLayers.Layer.<?=$baseLayer->tileCacheType?>('<?=$baseLayer->layerTitle?>',
+                        <?=$baseLayer->url?>,
 			{	layername:'<?=$baseLayer->layerName?>',
 				type:'<?=$baseLayer->imageFormat?>', 
 				kortasja: '<?=$baseLayer->logName?>',
@@ -65,25 +65,8 @@ function initmap()
 				//scales:[1700000,1000000,500000,250000,100000,50000,25000,10000,5000,2000,1000,500,250],
 				buffer:<?=$baseLayer->buffer?>});
 	
-	map.addLayers([<?=$baseLayer->layerName?>]);*/
-	var <?=$baseLayer->layerName?>_baseLayerURL = "<?=$baseLayer->url?>"
-	var <?=$baseLayer->layerName?> = new OpenLayers.Layer.<?=$baseLayer->tileCacheType?>("<?=$baseLayer->layerTitle?>",
-				<?=$baseLayer->layerName?>_baseLayerURL.split(","),	
-			{	layername:'<?=$baseLayer->layerName?>',
-				type:'<?=$baseLayer->imageFormat?>', 
-				kortasja: '<?=$baseLayer->logName?>',
-				serviceVersion:'',
-				isBaseLayer: true,
-				displayInLayerSwitcher:true, 
-				attribution: '<?=$baseLayer->attribution?>',  
-				transitionEffect:'<?=$baseLayer->transitionEffect?>', 
-				scales: [<?=$baseLayer->scales?>],
-				//maxExtent: new OpenLayers.Bounds(143000,255000,866000,735000),
-				//bbox: new OpenLayers.Bounds(143000,255000,866000,735000),
-				//scales:[1700000,1000000,500000,250000,100000,50000,25000,10000,5000,2000,1000,500,250],
-				buffer:<?=$baseLayer->buffer?>});
-	
-	map.addLayers([<?=$baseLayer->layerName?>]);        
+	map.addLayers([<?=$baseLayer->layerName?>]);    
+        map.addControl(new OpenLayers.Control.Attribution());
 	
 <?php 
 	}
@@ -148,15 +131,15 @@ function initmap()
         
         // CONTROLS SEM HÆGT ER AÐ TAKA ÚT        
         
-        /*markers = new OpenLayers.Layer.Markers("Merki",{'displayInLayerSwitcher':false});
-        map.addLayer(markers); */
+        markers = new OpenLayers.Layer.Markers("Merki",{'displayInLayerSwitcher':false});
+        map.addLayer(markers); 
         <?php
         
             foreach ($config->xpath('//markerlayer') as $markerlayer)
             {
 ?>		
-            <?=$markerlayer->layerName?> = new OpenLayers.Layer.<?=$markerlayer->layerType?>("<?=$markerlayer->layerTitle?>",{'displayInLayerSwitcher':true });
-            map.addLayer(<?=$markerlayer->layerName?>);
+            //<?=$markerlayer->layerName?> = new OpenLayers.Layer.<?=$markerlayer->layerType?>("<?=$markerlayer->layerTitle?>",{'displayInLayerSwitcher':true });
+            //map.addLayer(<?=$markerlayer->layerName?>);
 <?php 
             }
         
@@ -167,7 +150,7 @@ function initmap()
         initControls();
             
         onAppResize();
-	map.updateSize();                
+	//map.updateSize();                
  }
 function zoomToStartPosition(){
     var lonlat = new OpenLayers.LonLat(<?=($map->startLon != "")?$map->startLon:"420000"?> ,<?=($map->startLat != "")?$map->startLat:"500000"?>);

@@ -1,3 +1,4 @@
+
 /*
  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
  contextMenu.js.php
@@ -36,11 +37,16 @@ var ContextMenu = {
 
 	//Functions
 	"_init":function() {
+                
 		var body = document.getElementsByTagName("body")[0];
+                
 		ContextMenu.max_width = body.clientWidth || body.offsetWidth;
 		ContextMenu.max_height= body.clientHeight|| body.offsetHeight;
 
-		ContextMenu._addEvent(window,"resize",ContextMenu._init);
+              
+                // Hrannar: Kommentað út en veit ekki til hvers þessi event er eða hvers vegna þetta virkar 
+                // alveg eins og áður.  Sennilega einhver conflict í IE8 þar sem resize eventinn er registeraður annarsstaðar
+		//ContextMenu._addEvent(window,"resize",ContextMenu._init);
 	},
 
 	/**
@@ -51,9 +57,13 @@ var ContextMenu = {
 	 * 			ContextMenu.set("menu-element-id", "context-element-id");
 	 */
 	"set": function(menu_id, context_id) {
-		if(!ContextMenu.max_width) ContextMenu._init(); //Initalize the library if its not already done.
-		if(!context_id) context_id = document;
-		else if(typeof context_id == "string") context_id = document.getElementById(context_id);
+        
+		if(!ContextMenu.max_width) 
+                    {ContextMenu._init();} //Initalize the library if its not already done.
+		if(!context_id) 
+                    {context_id = document;}
+		else if(typeof(context_id) == "string") 
+                    {context_id = document.getElementById(context_id);}
 
 		ContextMenu._addEvent(context_id, "contextmenu", function(e) {
 			ContextMenu._stopEvent(e); //We don't want the browsers Context menu appearing - so disable it.
@@ -70,7 +80,7 @@ var ContextMenu = {
 
 		// Hrannar
 		rightClickMousePosX = parseInt(e.clientX);
-		rightClickMousePosY = parseInt(e.clientY);
+		rightClickMousePosY = parseInt(e.clientY);           
 
 		//We should have the width and hight of the menu to caluclate the menu position correctly.
 		//	That why I did not used visility:hidden instead of display:none to hide the menu.
@@ -129,11 +139,17 @@ var ContextMenu = {
 	},
 
 	"_addEvent" :function(ele,type,func,capture) {
-		if(typeof ele == "string") ele = document.getElementById(ele);
+                
+		if(typeof ele == "string") 
+                    ele = document.getElementById(ele);
 
-		if(ele.attachEvent) return ele.attachEvent('on' + type, func);
-		else if(ele.addEventListener) ele.addEventListener(type, func, false);
-		else ele['on' + type] = func;
+                
+		if(ele.attachEvent) 
+                    {return ele.attachEvent('on' + type, func);}
+		else if(ele.addEventListener) 
+                    {ele.addEventListener(type, func, false);}
+		else 
+                    {ele['on' + type] = func;}
 	},
 
 	"_removeEvent": function(ele, type, func) {
