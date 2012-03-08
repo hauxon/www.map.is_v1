@@ -38,6 +38,7 @@ function fill(thisValue) {
         //alert(thisValue);
         //$j('#searchInputString').val('Thundercats!');
         setTimeout("$j('#suggestions').hide();", 200);
+        log('fill calls searchInputEnter()');
         searchInputEnter()
     }
     else
@@ -49,7 +50,7 @@ function fill(thisValue) {
 
 
 var searchBoxHTML = '<div id="searchDiv" style="position: relative; top: 20px; left: 150px;z-index:1000;width:400px;">';
-searchBoxHTML += '<div><form action=javascript:log("sFormSubmitted");searchInputEnter();><input type="text" style="height:30px; width: 323px;font-size: 10pt;" value="" id="searchInputString" AUTOCOMPLETE=OFF />';
+searchBoxHTML += '<div><form action=javascript:log("sFormSubmitted");setTimeout("$j("#suggestions").hide();",200);searchInputEnter();><input type="text" style="height:30px; width: 323px;font-size: 10pt;" value="" id="searchInputString" AUTOCOMPLETE=OFF />';
 searchBoxHTML += '<input type="image" title="Leita" value="" src="img/gui/s_btn_blue2_27x27.png" style="width:27px;height:27px;position:absolute;left:298px;top:5px;z-index:1001;background-image:url(img/gui/s_btn_blue2_27x27.png);"></form></div>';
 searchBoxHTML += '<div class="suggestionsBox" id="suggestions" style="display: none;">';
 searchBoxHTML += '<img src="img/gui/upArrow.png" style="position: relative; top: -12px; left: 5px;" alt="upArrow" />';
@@ -62,7 +63,7 @@ function searchInputEnter()
 {
     // Tékkar á hvort suggestions glugginn er opinn og leitar eftir því
     // Leitar annars eftir því sem komið er í input boxið
-    log('entering jim')
+    log('starting searchInputEnter()');
     if ( $j('#autoSuggestionsList').is(':visible') )
     {
         

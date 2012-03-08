@@ -423,7 +423,7 @@ function onVefmyndavelarClickCallback(feature, ix, iy){
             if( feature.attributes.ath != null && feature.attributes.ath != "" && feature.attributes.ath != "''"){				
                     sHtml += "<span style='white-space: nowrap;'>" + feature.attributes.ath + "</span>";
             }
-            sHtml += "<span>Vefmyndavél vísar í " + getVefmyndavelStefna( feature.attributes.stefna ) + "</span>";
+            sHtml += "<span>Vefmyndavél " + getVefmyndavelStefna( feature.attributes.stefna ) + "</span>";
         }
         else if( feature.attributes.eigandi == "RÚV" ){
             //Offsetheight = 240;
@@ -444,7 +444,7 @@ function onVefmyndavelarClickCallback(feature, ix, iy){
             if( feature.attributes.ath != null && feature.attributes.ath != "" && feature.attributes.ath != "''"){				
                     sHtml += "<span style='white-space: nowrap;'>" + feature.attributes.ath + "</span>";
             }			
-            sHtml += "<span>Vefmyndavél vísar í " + getVefmyndavelStefna( feature.attributes.stefna ) + "</span>";
+            sHtml += "<span>Vefmyndavél " + getVefmyndavelStefna( feature.attributes.stefna ) + "</span>";
         }	
         else if( feature.attributes.eigandi == "Harpa Tónlistar og ráðstefnuhúsið í Reykjavik" ){
             //Offsetheight = 215;
@@ -459,7 +459,7 @@ function onVefmyndavelarClickCallback(feature, ix, iy){
             {				
                     //sHtml += "<span style='white-space: nowrap;'>" + feature.attributes.ath + "</span>";
             }			
-            sHtml += "<span>Vefmyndavél vísar í " + getVefmyndavelStefna( feature.attributes.stefna ) + "</span>";
+            sHtml += "<span>Vefmyndavél " + getVefmyndavelStefna( feature.attributes.stefna ) + "</span>";
         }		
         else{
             //Offsetheight = 40;
@@ -470,7 +470,7 @@ function onVefmyndavelarClickCallback(feature, ix, iy){
             {				
                     //sHtml += "<span style='white-space: nowrap;'>" + feature.attributes.ath + "</span>";
             }			
-            sHtml += "<span>Vefmyndavél vísar í " + getVefmyndavelStefna( feature.attributes.stefna ) + "</span>";
+            sHtml += "<span>Vefmyndavél " + getVefmyndavelStefna( feature.attributes.stefna ) + "</span>";
         }	
         //sHtml += "<div>Vefmyndavél vísar í " + getVefmyndavelStefna( feature.attributes.stefna ) + "</div>";
         sHtml += "</div>";
@@ -536,7 +536,7 @@ function vefmyndavelar_Cluster_Callback(data){
                 }        
                 
             }
-            sHtml += "<div style='width:100px'>Vefmyndavél vísar í " + getVefmyndavelStefna( data[i].stefna ) + "</div>";
+            sHtml += "<div style='width:100px'>Vefmyndavél " + getVefmyndavelStefna( data[i].stefna ) + "</div>";
             sHtml += "</div>";
         }else{
 
@@ -570,24 +570,34 @@ function getVefmyndavelStefna(gradur){
     var graduHeiti = "";
     if(gradur > 22 && gradur <= 66 ){
         graduHeiti = "vísar í norðaustur";
+        //graduHeiti = "norðaustur";
     }else if(gradur > 66 && gradur <= 112 ){
         graduHeiti = "vísar í austur";
+        //graduHeiti = "austur";
     }else if(gradur > 112 && gradur <= 157 ){
         graduHeiti = "vísar í suðaustur";
+        //graduHeiti = "suðaustur";
     }else if(gradur > 157 && gradur <= 202 ){
         graduHeiti = "vísar í suður";
+        //graduHeiti = "suður";
     }else if(gradur > 202 && gradur <= 247 ){
         graduHeiti = "vísar í suðvestur";
+        //graduHeiti = "suðvestur";
     }else if(gradur > 247 && gradur <= 292 ){
         graduHeiti = "vísar í vestur";
+        //graduHeiti = "vestur";
     }else if(gradur > 292 && gradur <= 343 ){
         graduHeiti = "vísar í norðvestur";
+        //graduHeiti = "norðvestur";
     }else if(gradur > 343 && gradur <= 360 || gradur >= 0 && gradur <= 22 ){
         graduHeiti = "vísar í norður";
+        //graduHeiti = "norður";
     }else if(gradur == 666 ){
         graduHeiti = "vísar niður á veg";
+        //graduHeiti = "niður á veg";
     }else if(gradur == 999 ){
         graduHeiti = "sýnir fleiri en eina átt";
+        //graduHeiti = "sýnir fleiri en eina átt";
     }    
     return graduHeiti;
 }
@@ -607,7 +617,7 @@ function vefmyndavelar_Callback(data){
             if( data[0].ath != null && data[0].ath != "" && data[0].ath != "''"){				
                     sHtml += "<span style='white-space: nowrap;'>" + data[0].ath + "</span>";
             }
-            sHtml += "<span style='white-space: nowrap;'>Vefmyndavél vísar í " + getVefmyndavelStefna( data[0].stefna ) + "</span>";
+            sHtml += "<span style='white-space: nowrap;'>Vefmyndavél " + getVefmyndavelStefna( data[0].stefna ) + "</span>";
     }
     else if( data[0].eigandi == "RÚV" ){
             //Offsetheight = 240;
@@ -628,7 +638,7 @@ function vefmyndavelar_Callback(data){
             if( data[0].ath != null && data[0].ath != "" && data[0].ath != "''"){				
                     sHtml += "<span style='white-space: nowrap;'>" + data[0].ath + "</span>";
             }			
-            sHtml += "<span style='white-space: nowrap;'>Vefmyndavél vísar í " + getVefmyndavelStefna( data[0].stefna ) + "</span>";
+            sHtml += "<span style='white-space: nowrap;'>Vefmyndavél " + getVefmyndavelStefna( data[0].stefna ) + "</span>";
     }	
     else if( data[0].eigandi == "Harpa Tónlistar og ráðstefnuhúsið í Reykjavik" ){
             //Offsetheight = 215;
@@ -644,7 +654,7 @@ function vefmyndavelar_Callback(data){
             {				
                     sHtml += "<span style='white-space: nowrap;'>" + data[0].ath + "</span>";
             }
-            sHtml += "<span style='white-space: nowrap;'>Vefmyndavél vísar í " + getVefmyndavelStefna( data[0].stefna ) + "</span>";
+            sHtml += "<span style='white-space: nowrap;'>Vefmyndavél " + getVefmyndavelStefna( data[0].stefna ) + "</span>";
             
     }		
     else{
@@ -656,7 +666,7 @@ function vefmyndavelar_Callback(data){
             {				
                     sHtml += "<span style='white-space: nowrap;'>" + data[0].ath + "</span>";
             }	
-            sHtml += "<span style='white-space: nowrap;'>Vefmyndavél vísar í " + getVefmyndavelStefna( data[0].stefna ) + "</span>";
+            sHtml += "<span style='white-space: nowrap;'>Vefmyndavél " + getVefmyndavelStefna( data[0].stefna ) + "</span>";
     }
     // Ekki eyða Verkfræðistofan Vista, verður klárað seinna
     /* if( data[0].eigandi == "Verkfræðistofan Vista" )

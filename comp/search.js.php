@@ -1,4 +1,3 @@
-
 <?php
 
 /*
@@ -18,7 +17,7 @@
 function submitMapSearch()
 {
     $j("#sliderAccordion").accordion("activate", false);
-    theKeyTheKey = escape( $j('#searchInputString').val() );
+    theKeyTheKey = $j('#searchInputString').val();
     $j.getJSON('db/mapSearchQueryDB.php?searchString=' + theKeyTheKey, displayMapSearchResults);
 }
 

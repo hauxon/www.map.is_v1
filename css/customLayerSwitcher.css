@@ -74,26 +74,8 @@
     cursor: pointer;
 }
 
-
-#skamyndir_icon:hover
-{
-    background-image:url('../img/gui/LS_icon_sprite_on.png');
-    background-position: -1px -1px;
-}
-
-.skamyndir_icon_on
-{
-    background-image:url('../img/gui/LS_icon_sprite_on.png');
-    background-position: -1px -1px;
-    height: 20px;
-    left: 5px;
-    position: absolute;
-    top: 5px;
-    width: 20px;
-}
-.skamyndir_icon_off
-{
-    background-image:url('../img/gui/LS_icon_sprite_off.png');
+#skamyndir_icon {
+    background-image: url("../img/gui/LS_icon_sprite_off.png");
     background-position: 0px 0px;
     height: 20px;
     left: 5px;
@@ -102,6 +84,11 @@
     width: 20px;
 }
 
+#skamyndir_icon:hover
+{
+    background-image:url('../img/gui/LS_icon_sprite_on.png');
+    background-position: -1px -1px;
+}
 #skamyndir_txt
 {
     left: 30px;
@@ -110,7 +97,7 @@
     height:20px;
 }
 
-.vefmyndavelar_icon_off {
+#vefmyndavelar_icon {
     background-image: url("../img/gui/LS_icon_sprite_off.png");
     background-position: 0px -27px;
     height: 20px;
@@ -119,15 +106,7 @@
     top: 28px;
     width: 20px;
 }
-.vefmyndavelar_icon_on {
-    background-image: url("../img/gui/LS_icon_sprite_on.png");
-    background-position: -1px -28px;
-    height: 20px;
-    left: 5px;
-    position: absolute;
-    top: 28px;
-    width: 20px;
-}
+
 #vefmyndavelar_icon:hover
 {
     background-image:url('../img/gui/LS_icon_sprite_on.png');
@@ -140,20 +119,9 @@
     top: 34px;
     height:20px;
 }
-
-.poi_icon_off {
+#poi_icon {
     background-image: url("../img/gui/LS_icon_sprite_off.png");
     background-position: 0px -52px;
-    height: 20px;
-    left: 5px;
-    position: absolute;
-    top: 52px;
-    width: 20px;
-}
-
-.poi_icon_on {
-    background-image: url("../img/gui/LS_icon_sprite_on.png");
-    background-position: -1px -53px;
     height: 20px;
     left: 5px;
     position: absolute;

@@ -46,7 +46,6 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js" type="text/javascript"></script>
     <script src="lib/jquery-ui/jquery-ui-1.8.core-and-interactions.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="lib/jquery-ui/jquery-ui-1.8.autocomplete.min.js" type="text/javascript" charset="utf-8"></script>
-    <!-- Notað af suggestion glugganum - skoða betur -->
     <script src="lib/tag-it.js" type="text/javascript" charset="utf-8"></script>
 
     <!-- Þessi tvö næstu script tilheyra addthis -->
@@ -66,24 +65,20 @@
 
         }
     </script>-->
-    <!-- <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4decaf506d8e21d0"></script> -->
+    <!--<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4decaf506d8e21d0"></script>-->
 
-    <script type="text/javascript" src="lib/tipsy/jquery.pop.js"></script>
-    <!-- JQuery tipsy er component fyrir tool-tip  -->
-    <script type="text/javascript" src="lib/tipsy/jquery.tipsy.js"></script>   
-    <!-- JQuery FancyBox er lightbox alternative (notað í skámyndirnar)  -->
-    <script type="text/javascript" src="lib/fancybox/jquery.fancybox-1.3.1.js"></script>   
-    <!-- JQuery easing er lib fyrir animation t.d. notað í animation á menu (sidebar, ofl)  -->
+    <script type="text/javascript" src="lib/tipsy/jquery.pop.js"></script>            
+    <script type="text/javascript" src="lib/tipsy/jquery.tipsy.js"></script>            
+    <script type="text/javascript" src="lib/fancybox/jquery.fancybox-1.3.1.js"></script>            
     <script  type='text/javascript' src='lib/easing.js'></script>            
-    <!-- PrettyPhoto er notað birtingu skámyndanna, væntanlega frekar notað v. flettinga en fancyboxið  -->
+
     <link rel="stylesheet" href="css/prettyPhoto/css/prettyPhoto.css" type="text/css" media="screen" title="prettyPhoto main stylesheet" charset="utf-8" />
     <script src="lib/prettyPhoto/js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>            
 
     <script type="text/javascript">
     var $j = jQuery.noConflict();
     </script>        
-    
-    <!-- Smoothpopup er JQuery lib fyrir popup/lightbox notað í Print.js -->
+
     <script type='text/javascript' src='lib/smoothPopup/smoothpopup.js'></script>
     <script type='text/javascript' src='lib/common.js'></script>
     <script type='text/javascript' src='lib/LMUtil.js'></script>
@@ -161,8 +156,5 @@
   	<div id="map" class="hrannarMap"></div>
         <div id="ToolTip"></div>
         <div id="images"></div>
-        <div id="tags">
-            copyright, watermark, logo, attribution
-        </div>
 </body>
 </html>

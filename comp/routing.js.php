@@ -1,4 +1,4 @@
-<!--script language="javascript" -->
+//<script type="text/javascript">  
 /*
  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
  routing.js.php
@@ -293,6 +293,10 @@ function clearRoutingResults()
     routeFromHereCoords.lat = null;
     routeToHereCoords.lon = null;
     routeToHereCoords.lat = null;
+    
+    // Hreinsa heimilisfangaboxin í hægri spalta
+    $j("#routing_to_addr").val("");
+    $j("#routing_from_addr").val("");
 }
 
 function selectFromPoint(pointInfoArr)
@@ -565,7 +569,7 @@ function getRoutePath(addrFrom,zipFrom,addrTo,zipTo)
 // Sends an AJAX request to simple_php_proxy with coordinates (routeFromHere/routeToHere click)
 function getRoutePathClick()
 {
-	if (routeFromHereCoords != "" && routeToHereCoords != "")
+	if (routeFromHereCoords.lat != null && routeToHereCoords.lat != null)
 	{
             // Sýna "loading" icon og texta
             $j("#routingLoading").css("visibility","visible");
@@ -575,7 +579,7 @@ function getRoutePathClick()
 		vectors.destroyFeatures();
 		// Jæja sækja leiðina
 		sendAJAXRequest('proxies/deasimple_proxy.php?request=route&xfrom=' + routeFromHereCoords.lon + '&yfrom=' + routeFromHereCoords.lat + '&xto=' + routeToHereCoords.lon + '&yto=' + routeToHereCoords.lat + '&remotePage=routing_service_click', displayResultsGeoJSON);
-                
+              
                 //Birta Hreinsa takkann
                 $j("#clear_routing_button").removeClass('hidden').html('');
                 $j("#clear_routing_button").addClass('visible').html('');
@@ -588,7 +592,12 @@ function displayResultsGeoJSON(resp)
 {
 
     if(xmlHttp.readyState == 4)
-    {
+    {   
+        // Opna sliderinn ef hann er lokaður til að sýna routing niðurstöður
+        if ($j('#sliderPanelBtn').hasClass('close'))
+        {
+            $j("a#sliderPanelBtn").click();
+        }
 
         $j("#routingLoading").css("visibility","hidden");
         $j("#routingLoadingTxt").css("visibility","hidden");
@@ -1315,6 +1324,9 @@ function routeFromHere()
 	//Add marker for starting point
 	// First we check if there is already a "routeFrom" marker
 	var marker = getMarkerByName("routeFrom");
+        
+        // Ef það hefur verið valið að ráta með að smella á kortið þarf að hreinsa leitarboxin í hægri spalta
+        $j("#routing_from_addr").val("");
 
 	if (typeof(marker) == "undefined" || marker == "") {
 		var size = new OpenLayers.Size(24, 27);
@@ -1351,6 +1363,9 @@ function routeToHere()
 	//Add marker for starting point
 	// First we check if there is already a "routeTo" marker
 	var marker = getMarkerByName("routeTo");
+        
+        // Ef það hefur verið valið að ráta með að smella á kortið þarf að hreinsa leitarboxin í hægri spalta
+        $j("#routing_to_addr").val("");
 
 	if (typeof(marker) == "undefined" || marker == "" ) {
 		var size = new OpenLayers.Size(24, 27);

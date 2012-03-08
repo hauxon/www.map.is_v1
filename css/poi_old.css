@@ -1,0 +1,324 @@
+#poiContainer{
+    position:relative;
+    top:4px;
+    left:10px;
+    font-size:1.4em;
+
+}
+#poiContainer a.normalLink{
+    text-decoration:underline;
+    color:blue;
+}
+
+		
+#poiHeader{
+    position: absolute;
+    left:42px;
+    font-family:Verdana;
+    font-size:11px;
+    top: 7px;
+    font-weight: bold;
+}
+
+#poiSubHeader{
+    position: absolute;
+    left:42px;
+    font-family:Verdana;
+    font-size:10px;
+    top: 21px;
+    font-weight: normal;
+}
+
+
+#poiTeikningarHeader{
+    position: absolute;
+    left:46px;
+    font-family:Verdana;
+    font-size:11px;
+    top: 8px;
+    font-weight: bold;
+}
+
+#poiTeikningarSubHeader{
+    position: absolute;
+    left:46px;
+    font-family:Verdana;
+    font-size:9px;
+    top: 22px;
+    font-weight: normal;
+}
+
+
+#poiAddressIcon{
+    position: absolute;
+    left:8px;
+    top: 42px;
+}
+
+#poiHeimilisfAddressIcon{
+    position: absolute;
+    left:8px;
+    top: 42px;
+}
+
+#poiHeimilisfAddressText{
+    color:#444444;
+    position: absolute;
+    left:46px;
+    font-family:Verdana;
+    font-size:11px;
+    top: 51px;
+    font-weight: normal;
+}
+
+#poiTeikningarIcon{
+    position: absolute;
+    left:5px;
+    top: 43px;
+}
+
+#poiTeikningarText a{
+    color:#444444;
+    position: absolute;
+    left:46px;
+    font-family:Verdana;
+    font-size:11px;
+    top: 50px;
+    font-weight: normal;
+}
+
+#poiTelephoneText{
+    color:#444444;
+    position: absolute;
+    left:35px;
+    font-family:Verdana;
+    font-size:9px;
+    top: 71px;
+    font-weight: normal;
+}
+
+#poiContainer a.poiHomePageText:link{
+    color:#666666
+}
+
+#poiContainer a.poiHomePageText:visited{
+    color:#666666
+}
+
+#poiHomePageIcon{
+    position: absolute;
+    left:8px;
+    top: 88px;
+}
+
+#poiHomePageText a{
+    position: absolute;
+    left:35px;
+    font-family:Verdana;
+    font-size:9px;
+    top: 90px;
+    font-weight: normal;
+}
+
+#poiEditIcon{
+    position: absolute;
+    left:212px;
+    top: 23px;
+}
+
+#poiEditText a{
+    position: absolute;
+    left:226px;
+    font-family:Verdana;
+    font-size:9px;
+    top: 22px;
+    font-weight: normal;
+}
+
+#poiTemeIcon{
+    position: absolute;
+    left:4px;
+    top:4px;
+}
+
+#poiClosebtn{
+    left:5px;
+    font-family:Verdana;
+    font-size:8px;
+    font-weight:bold;
+    position: absolute;
+    left:262px;
+    top: 5px;
+}
+
+/*#poiCloseText a{
+    position: absolute;
+    font-family:Verdana;
+    font-size:8px;
+    font-weight:bold;
+    color:#666666;
+    left:239px;
+    top: 4px;
+}*/
+
+#poiContents a{
+    position: absolute;
+    left:5px;
+    font-family:Verdana;
+    font-size:9px;
+    top: 25px;
+    width: 190px;
+}
+
+#poiSendIcon{
+    position: absolute;
+    left:12px;
+    top: 111px;
+}
+#poiSendText a{
+    position: absolute;
+    left:33px;
+    font-family:Verdana;
+    font-size:9px;
+    top: 113px;
+    font-weight: normal;
+}
+#poiFacebookIcon{
+    position: absolute;
+    left:99px;
+    top: 111px;
+}
+#poiFacebookText a{
+    position: absolute;
+    left:116px;
+    font-family:Verdana;
+    font-size:9px;
+    top: 113px;
+    font-weight: normal;
+}
+#poiTwitterIcon{
+    position: absolute;
+    left:202px;
+    top: 111px;
+}
+#poiTwitterText a{
+    position: absolute;
+    left:219px;
+    font-family:Verdana;
+    font-size:9px;
+    top: 113px;
+    font-weight: normal;
+}
+#poiFmrIcon{
+    position: absolute;
+    left:10px;
+    top: 74px;
+}
+#poiFmrText a{
+    position: absolute;
+    left:46px;
+    font-family:Verdana;
+    font-size:11px;
+    top: 83px;
+    font-weight: normal;
+}
+
+#poiTeikningarIcon{
+    position: absolute;
+    left:202px;
+    top: 89px;
+}
+
+#poiContainer a:link { 
+    color: #444444;
+}
+
+#poiContainer a {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+#poiAddressText{
+    color:#444444;
+    position: absolute;
+    left:35px;    
+    top: 41px;
+    /*font-family: 'Myriad Pro',Arial;
+    font-size: 10pt;
+    padding-top: 7px;
+    text-decoration: none;  */      
+    
+    font-size:11px;
+    font-family:Verdana;
+    font-weight: normal;    
+}
+
+.sendMail div{
+    padding:2px;
+}
+
+.sendMailCorrection div{
+    padding:2px;
+}
+
+.sendMailToDiv {
+    color: #565656;
+    font-family: Verdana;
+    font-size: 7pt;
+    height: 60px;
+}
+
+.sendMailTo {
+    color: #5656AA;
+    font-family: Verdana;
+    font-size: 7pt;
+    width: 370px;
+}
+
+.sendMailFromDiv {
+    color: #565656;
+    font-family: Verdana;
+    font-size: 7pt;
+    height: 65px;
+}
+
+.sendMailMessageDiv {
+    color: #565656;
+    font-family: Verdana;
+    font-size: 7pt;
+    height: 85px;
+}
+
+.sendMailMessage {
+    color: #565656;
+    font-family: Verdana;
+    font-size: 7pt;
+    height: 60px;
+    width: 370px;
+}
+
+.sendMailText{   
+    width:430px;
+    height:300px;
+    padding:20px;
+}
+
+.sendMailToDivTitle{
+    font-weight:bold;
+    font-size:14px;
+    padding-bottom:20px;
+}
+
+#sendMailCorrection .sendMailMessageDiv{
+    height:30px;
+}
+
+#sendMailCorrection{
+    width:430px;
+    height:180px;
+}
+
+#sendMail{
+    width:400px;
+    height:270px;
+}

@@ -532,7 +532,7 @@ def main():
 		
 	# makeScaleBar ...skoda betur
 	
-	print "http://193.4.153.85:8088/www.map.is/serverside/img/img.jpeg"	
+	print "http://www.map.is/serverside/img/img.jpeg"	
 	#print fileName # This file name is used for fetching the image from the client.
 
 if __name__=='__main__':

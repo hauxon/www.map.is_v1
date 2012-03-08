@@ -7,11 +7,6 @@ component sem birtir prentatakka og implementar prentvirkni
 //<script type="text/javascript">
 function initPrint(){
 
-    // Global variables needed to store width and height of map before printing
-    // so we can put it back
-    var prePrintWitdth;
-    var prePrintHeight;
-    
     //linkur búinn til með href á generic modal glugga href='#modalpopup, nafn á generic modalglugga, þarf að setja text líka - sjá modalbox
     //$j("#testarea").append("<br /><a id='modalbutton' href='#modalpopup'>prenta modalbutton með generic modalpopup</a>");
     //búinn til samnýttyr modalgluggi úr link
@@ -43,7 +38,7 @@ function initPrint(){
     sHtml += "<div id='sendToPrint'><span style='padding-right:20px'><a href='#' onclick='doPrint();'>Hætta við</a></span><a id='sendToPrintButton' href='#' onclick='doPrint();openPrint();'>Áfram</a></div>";
     sHtml += "</div>";    
     sHtml += '</fieldset>';
-    sHtml += '</div><div id="routingResultPrintDIV"></div>';
+    sHtml += '</div>';
     
     $j("body").append(sHtml);
     $j(document).ready(function() {
@@ -117,7 +112,6 @@ function openPrint(){
 
 function preparePrint(){
     
-    debugger;
     // Hér er prentun í nýjum glugga
 
     //$j("#map").css("height", $j("#map").height() + 84 + "px" );
@@ -141,11 +135,7 @@ function preparePrint(){
     $j(".olControlAttribution").css( "visibility", "hidden"); // þarf ekki lengur að vera á myndunum
     //$j(".olControlAttribution").css( "top", "100px").css( "left", "100px");
     
-    //$j("#RoutingResultsDIV").css( "visibility", "hidden");
-    //$j("#RoutingResultsDIV").css( "top", "100px").css( "left", "100px");
-    $j("#RoutingResultsDIV").css( "visibility", "visible");
-    $j("#RoutingResultsDIV").css( "top", "10px").css( "left", "200px");
-    
+    $j("#RoutingResultsDIV").css( "visibility", "hidden");
     
     var minnkaprent = 135;
     if ($j('#sliderPanelBtn').hasClass('close'))    {
@@ -157,7 +147,7 @@ function preparePrint(){
     $j("body").append("<div id='mapDotIsLogo'><img src='img/routing/maplogo_bull.png'></div>");  //<div id='mapDotIslogoFollower'></div>")
 
 
-    debugger;
+
 }
 
 function cleanupPrint(){
@@ -239,51 +229,14 @@ function preparePrint2(){
     $j("body").append("<div id='mapLogoIs' style='position:absolute;left: 20px;top: 20px;z-index:12;'><img src='img/routing/maplogo_bull.gif'></div>");
     
     getLayerByName("VegirMyndkort").setOpacity(1.0);
-    
-    $j("#clear_routing_button").css( "visibility", "hidden");
-    //$j("#RoutingResultsDIV").css( "visibility", "visible");
-    //$j("#RoutingResultsDIV").css( "top", "0px").css( "left", "10px").css( "height", "1000px").css( "z-index", "10000").css( "opacity", "1.0");
-    
-    /* Nú skulum við  minnka kortið fyrir prentun og fitta kortið þ.a. vegvísun passi inn á það.
-     * 
-     * Nota ef fólk vill fitta routing fyrir prentu.  Nota kannski seinna
-     * 
-    var vegvisunLayer = getLayerByName("Vegvísun");
-    var bounds;
-    for(var i=0; i < vegvisunLayer.features.length; ++i) 
-    {
-        if (!bounds)
-        {
-            // Here we need to make bounds from the first feature
-            bounds = vegvisunLayer.features[i].geometry.getBounds();
-        }
-        else
-        {
-            // This will extend the bounds we already have to include the feature in the loop.
-            bounds.extend(vegvisunLayer.features[i].geometry.getBounds());
-        }
-    }
-    map.zoomToExtent(bounds); // Zoom to routing bounds */
-
-        
-        
-        prePrintWitdth = $j("#map").width();
-        prePrintHeight = $j("#map").height();
-        $j("#map").css( "width", "1600px");
-        $j("#map").css( "height", "1000px");
-        
-        var printoprinto = $j("#RoutingResultsDIV").html();
-        $j("#routingResultPrintDIV").html(printoprinto);
-        $j("#routingResultPrintDIV").css("visibility", "visible");
-        
-        debugger;
-    }
+    //debugger;
+}
 
 
 
 function cleanupPrint2(){
         
-    // Hér er hreinsað eftir prentun í sama glugga
+   // Hér er hreinsað eftir prentun í sama glugga
    
     //$j("#map").css( "top", "84px");
     //$j(".hrannarMap").css( "top", "84px");
@@ -293,9 +246,6 @@ function cleanupPrint2(){
     
     //$j(".hrannarMap").css( "top", "84px");
     //$j(".hrannarMap").css("height", $j(".hrannarMap").height() - 84 + "px" );
-    
-    $j("#RoutingResultsDIV").css( "visibility", "hidden");
-    $j("#clear_routing_button").css( "visibility", "visible");
     
     getLayerByName("VegirMyndkort").setOpacity(0.5);
    
@@ -333,11 +283,6 @@ function cleanupPrint2(){
     //$j("#mapDotIsLogo").remove();    
     $j("#mapLogoIs").remove();    
     //$j("#printTrans").remove();
-    
-    $j("#clear_routing_button").css( "visibility", "visible");
-    //onAppResize();
-    $j("#map").css( "width", prePrintWitdth + "px");
-    $j("#map").css( "height", prePrintHeight + "px");
 }
 
 function timeOutPrint(){

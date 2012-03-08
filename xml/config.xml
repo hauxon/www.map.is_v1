@@ -19,12 +19,12 @@
             <!-- url>'http://tc0.loftmyndir.is/tc_r/tilecache.py'</url -->
             <layerName>ls_tk_gs2</layerName>
             <logName>www.map.is</logName>
-            <imageFormat>png</imageFormat>
+            <imageFormat>jpeg</imageFormat>
             <displayInLayerSwitcher>true</displayInLayerSwitcher>
             <tileCacheType>TMS</tileCacheType>
             <attribution> © Loftmyndir ehf. Allur réttur áskilinn.</attribution>
             <transitionEffect>resize</transitionEffect>
-            <scales>6800000,3400000,1700000,1000000,500000,250000,100000,50000,25000,10000,5000,2000,1000</scales>
+            <scales>6800000,3400000,1700000,1000000,500000,250000,100000,50000,25000,10000,5000,2000</scales>
             <buffer>1</buffer>
         </baseLayer>
 	<baseLayer>

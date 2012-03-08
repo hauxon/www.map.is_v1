@@ -65,8 +65,7 @@ function initmap()
 				//scales:[1700000,1000000,500000,250000,100000,50000,25000,10000,5000,2000,1000,500,250],
 				buffer:<?=$baseLayer->buffer?>});
 	
-	map.addLayers([<?=$baseLayer->layerName?>]);    
-        map.addControl(new OpenLayers.Control.Attribution());
+	map.addLayers([<?=$baseLayer->layerName?>]);        
 	
 <?php 
 	}
