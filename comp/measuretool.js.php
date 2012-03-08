@@ -1,7 +1,7 @@
+<?php if(1==2){?>//<script type="text/javascript"><?php }?>
 <?php
 ?>
 
-//<script lang="javascript">
 var measureControls;
 
 function initMeasure()

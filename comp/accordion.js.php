@@ -1,3 +1,4 @@
+<?php if(1==2){?>//<script type="text/javascript"><?php }?>
 <?php
 /* Setur inn accordion í sliderPanel sliderinn ef viðkomandi kortasjá þarf
  * depends on jquery,

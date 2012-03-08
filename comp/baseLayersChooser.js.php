@@ -1,4 +1,4 @@
-//<script type="text/javascript">
+<?php if(1==2){?>//<script type="text/javascript"><?php }?>
 <?php
 /*
  * Hvaða layerar birtast er skilgreint í init fallinu í config.xml

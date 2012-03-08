@@ -1,7 +1,8 @@
+<?php if(1==2){?>//<script type="text/javascript"><?php }?>
 <?php
 //  Dialog til að 
 ?>
-//<script type="text/javascript">
+
 function initDialog(){
 
     var dialogCode = '<div id="lm_dialog" title="No title set" style="display: none;">';

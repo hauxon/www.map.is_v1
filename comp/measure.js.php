@@ -1,3 +1,4 @@
+<?php if(1==2){?>//<script type="text/javascript"><?php }?>
 <?php
 
 /*
@@ -5,7 +6,6 @@
  * and open the template in the editor.
  */
 ?>
-//<script lang="javascript">
 var measureControls;
 function initMeasure(){
 

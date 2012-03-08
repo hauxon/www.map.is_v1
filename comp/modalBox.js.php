@@ -1,3 +1,4 @@
+<?php if(1==2){?>//<script type="text/javascript"><?php }?>
 <?php
 
 /*
@@ -5,7 +6,6 @@
  * and open the template in the editor.
  */
 ?>
-//<script type="text/javascript">
 //#dialog is the id of a DIV defined in the code below 
 //<a href="#dialog" name="modal">Simple Modal Window</a>
  
